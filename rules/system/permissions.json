@@ -1,0 +1,35 @@
+{
+
+    "master": {
+        "default": true,
+        "free-mode": true,
+
+        "create-self": true,
+        "read-self": true,
+        "update-self": true,
+        "delete-self": true,
+
+        "create-same": true,
+        "read-same": true,
+        "update-same": true,
+        "delete-same": true,
+
+        "create-other": true,
+        "read-other": true,
+        "update-other": true,
+        "delete-other": true
+    },
+
+    "player": {
+        "default": false
+    },
+
+    "viewer": {
+
+        "default":false,
+        "read-self": true,
+        "read-other": true
+
+    }
+    
+}

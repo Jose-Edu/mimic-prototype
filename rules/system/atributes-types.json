@@ -1,0 +1,34 @@
+{
+    "number": {
+        "MIN": "int|?",
+        "MAX": "int|?",
+        "value": "int|!"
+    },
+
+    "text": {
+        "value": "string|!"
+    },
+
+    "boolean": {
+        "value": "bool|!"
+    },
+
+    "range": {
+        "MIN": "int|?",
+        "max": "int|!",
+        "value": "int|!"
+    },
+
+    "modifier": {
+        "NUMBER": "number|!*",
+        "value-rule": "rule|r<number>!",
+        "value": "number|g<value-rule>*"
+    },
+
+    "scale": {
+        "VALUE": "int|!",
+        "levels": "modifier[]|!" 
+    }
+
+
+}

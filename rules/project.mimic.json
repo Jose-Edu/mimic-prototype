@@ -1,0 +1,8 @@
+{
+    "name": "RPG system name",
+    "system-version": "1.0.0",
+    "mimic-version": "1.0.0",
+    "hash": "system hash",
+    "type": "delta",
+    "path": "./delta"
+}

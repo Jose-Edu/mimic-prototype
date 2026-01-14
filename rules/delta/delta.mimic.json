@@ -1,0 +1,6 @@
+{
+    "mimic-version": "1.0.0",
+    "system-version": "1.0.0",
+    "delta-name": "table-template-delta",
+    "path-sys": "../system"
+}

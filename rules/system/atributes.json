@@ -1,0 +1,20 @@
+{
+
+    "ATK": {
+        "formal-name": "Ataque",
+        "type": "number",
+
+        "min": 0,
+        "value": 0 
+    },
+
+    "HP": {
+        "formal-name": "Pontos de vida",
+        "type": "range",
+
+        "MIN": 0,
+        "max": 200,
+        "value": 200
+    }
+
+}
