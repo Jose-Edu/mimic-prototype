@@ -1,5 +1,5 @@
 {
     "name": "table name",
     "mimic-version": "1.0.0",
-    "project": "./rules"
+    "project": "./system"
 }
