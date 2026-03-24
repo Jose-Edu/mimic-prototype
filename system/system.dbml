@@ -1,0 +1,109 @@
+Table users {
+  id_user integer [primary key]
+}
+
+Table roles {
+  id_role integer [primary key]
+}
+
+Table user_role {
+  id_user integer [primary key]
+  id_role integer [primary key]
+}
+
+Table sheets {
+  id_sheet integer [primary key]
+}
+
+Table generators {
+  id_generator integer [primary key]
+}
+
+Table sheet_generator {
+  id_sheet integer [primary key]
+  id_generator integer [primary key]
+}
+
+Table skills {
+  id_skill integer [primary key]
+}
+
+Table skill_generator {
+  id_skill integer [primary key]
+  id_generator integer [primary key]
+}
+
+Table rules {
+  id_rule integer [primary key]
+}
+
+Table rngs {
+  id_rng integer [primary key]
+}
+
+Table atributes {
+  id_atribute integer [primary key]
+}
+
+Table globals {
+  id_global integer [primary key]
+  id_atribute integer
+}
+
+Table tests {
+  id_test integer [primary key]
+}
+
+Table test_atribute {
+  id_test integer [primary key]
+  id_atribute integer [primary key]
+}
+
+Table test_rng {
+  id_test integer [primary key]
+  id_rng integer [primary key]
+}
+
+Table atribute_generator {
+  id_atribute integer [primary key]
+  id_generator integer [primary key]
+}
+
+
+Table game_states {
+  id_game_state integer [primary key]
+}
+
+Table system_info {
+  id_system_info integer [primary key]
+}
+
+Table tags {
+  id_tag integer [primary key]
+}
+
+Ref: "rngs"."id_rng" < "test_rng"."id_rng"
+
+Ref: "tests"."id_test" < "test_rng"."id_test"
+
+Ref: "tests"."id_test" < "test_atribute"."id_test"
+
+Ref: "atributes"."id_atribute" < "test_atribute"."id_atribute"
+
+Ref: "atributes"."id_atribute" < "globals"."id_atribute"
+
+Ref: "atributes"."id_atribute" < "atribute_generator"."id_atribute"
+
+Ref: "generators"."id_generator" < "atribute_generator"."id_generator"
+
+Ref: "generators"."id_generator" < "skill_generator"."id_generator"
+
+Ref: "skills"."id_skill" < "skill_generator"."id_skill"
+
+Ref: "sheets"."id_sheet" < "sheet_generator"."id_sheet"
+
+Ref: "generators"."id_generator" < "sheet_generator"."id_generator"
+
+Ref: "users"."id_user" < "user_role"."id_user"
+
+Ref: "roles"."id_role" < "user_role"."id_role"
