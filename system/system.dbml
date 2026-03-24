@@ -6,8 +6,17 @@ Table roles {
   id_role integer [primary key]
 }
 
+Table access {
+  id_access integer [primary key]
+}
+
 Table user_role {
   id_user integer [primary key]
+  id_role integer [primary key]
+}
+
+Table role_access {
+  id_access integer [primary key]
   id_role integer [primary key]
 }
 
@@ -15,22 +24,32 @@ Table sheets {
   id_sheet integer [primary key]
 }
 
-Table generators {
-  id_generator integer [primary key]
+Table generator_types {
+  id_generator_type integer [primary key]
 }
 
-Table sheet_generator {
-  id_sheet integer [primary key]
+Table generators {
   id_generator integer [primary key]
+  id_generator_type integer
+}
+
+Table sheet_generator_type {
+  id_sheet integer [primary key]
+  id_generator_type integer [primary key]
+}
+
+Table skill_types {
+  id_skill_type integer [primary key]
 }
 
 Table skills {
   id_skill integer [primary key]
+  id_skill_type integer
 }
 
-Table skill_generator {
-  id_skill integer [primary key]
-  id_generator integer [primary key]
+Table skill_type_generator_type {
+  id_skill_type integer [primary key]
+  id_generator_type integer [primary key]
 }
 
 Table rules {
@@ -64,11 +83,10 @@ Table test_rng {
   id_rng integer [primary key]
 }
 
-Table atribute_generator {
+Table atribute_generator_type {
   id_atribute integer [primary key]
-  id_generator integer [primary key]
+  id_generator_type integer [primary key]
 }
-
 
 Table game_states {
   id_game_state integer [primary key]
@@ -92,18 +110,28 @@ Ref: "atributes"."id_atribute" < "test_atribute"."id_atribute"
 
 Ref: "atributes"."id_atribute" < "globals"."id_atribute"
 
-Ref: "atributes"."id_atribute" < "atribute_generator"."id_atribute"
+Ref: "atributes"."id_atribute" < "atribute_generator_type"."id_atribute"
 
-Ref: "generators"."id_generator" < "atribute_generator"."id_generator"
-
-Ref: "generators"."id_generator" < "skill_generator"."id_generator"
-
-Ref: "skills"."id_skill" < "skill_generator"."id_skill"
-
-Ref: "sheets"."id_sheet" < "sheet_generator"."id_sheet"
-
-Ref: "generators"."id_generator" < "sheet_generator"."id_generator"
+Ref: "skills"."id_skill" < "skill_type_generator_type"."id_skill_type"
 
 Ref: "users"."id_user" < "user_role"."id_user"
 
 Ref: "roles"."id_role" < "user_role"."id_role"
+
+Ref: "roles"."id_role" < "role_access"."id_role"
+
+Ref: "access"."id_access" < "role_access"."id_access"
+
+Ref: "skills"."id_skill_type" <
+"skill_types"."id_skill_type"
+
+Ref: "generators"."id_generator_type" <
+"generator_types"."id_generator_type"
+
+Ref: "sheet_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
+
+Ref: "atribute_generator_type"."id_generator_type" >
+"generator_types"."id_generator_type"
+
+Ref: "skill_type_generator_type"."id_generator_type" >
+"generator_types"."id_generator_type"
