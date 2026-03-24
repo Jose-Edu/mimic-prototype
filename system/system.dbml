@@ -135,3 +135,6 @@ Ref: "atribute_generator_type"."id_generator_type" >
 
 Ref: "skill_type_generator_type"."id_generator_type" >
 "generator_types"."id_generator_type"
+
+Ref: "sheet_generator_type"."id_sheet" >
+"sheets"."id_sheet"
