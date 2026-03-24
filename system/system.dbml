@@ -1,13 +1,16 @@
-Table users {
-  id_user integer [primary key]
-}
-
 Table roles {
   id_role integer [primary key]
+  name varchar unique
+  is_default bool
+  roleless_add bool
 }
 
 Table access {
   id_access integer [primary key]
+  id_entity integer
+  id_game_state integer /*nullable*/
+  scope enum("self", "same", "other")
+  action bitmask("read", "use", "update", "create", "delete")
 }
 
 Table user_role {
@@ -22,6 +25,7 @@ Table role_access {
 
 Table sheets {
   id_sheet integer [primary key]
+  name varchar unique
 }
 
 Table generator_types {
@@ -58,19 +62,33 @@ Table rules {
 
 Table rngs {
   id_rng integer [primary key]
+  name varchar unique
+  expected_value integer /*nullable*/
+  filter_rule_id integer /*nullable*/
+  generator_start integer /*nullable default 1*/
+  generator_end integer
+  generator_step integer /*nullable default 1*/
+  cached_values integer[]
 }
 
 Table atributes {
   id_atribute integer [primary key]
+  name varchar unique
+  id_value_rule integer
+  schema json
 }
 
 Table globals {
   id_global integer [primary key]
   id_atribute integer
+  name varchar unique
+  is_constant bool
 }
 
 Table tests {
   id_test integer [primary key]
+  name varchar unique
+  id_rule integer
 }
 
 Table test_atribute {
@@ -90,14 +108,30 @@ Table atribute_generator_type {
 
 Table game_states {
   id_game_state integer [primary key]
+  name varchar unique
 }
 
 Table system_info {
   id_system_info integer [primary key]
+  mimic_version_l1 integer
+  mimic_version_l2 integer
+  mimic_version_l3 integer
+  system_name varchar
+  system_version_l1 varchar
+  system_version_l2 varchar
+  system_version_l3 varchar
+  system_author varchar
+  system_hash varchar
 }
 
 Table tags {
   id_tag integer [primary key]
+  id_entity integer
+  name varchar unique
+}
+
+Table entities {
+  id_entity integer [primary key]
 }
 
 Ref: "rngs"."id_rng" < "test_rng"."id_rng"
@@ -113,8 +147,6 @@ Ref: "atributes"."id_atribute" < "globals"."id_atribute"
 Ref: "atributes"."id_atribute" < "atribute_generator_type"."id_atribute"
 
 Ref: "skills"."id_skill" < "skill_type_generator_type"."id_skill_type"
-
-Ref: "users"."id_user" < "user_role"."id_user"
 
 Ref: "roles"."id_role" < "user_role"."id_role"
 
@@ -138,3 +170,21 @@ Ref: "skill_type_generator_type"."id_generator_type" >
 
 Ref: "sheet_generator_type"."id_sheet" >
 "sheets"."id_sheet"
+
+Ref: "access"."id_entity" >
+"entities"."id_entity"
+
+Ref: "access"."id_game_state" >
+"game_states"."id_game_state"
+
+Ref: "tags"."id_entity" >
+"entities"."id_entity"
+
+Ref: "tests"."id_rule" >
+"rules"."id_rule"
+
+Ref: "rngs"."filter_rule_id" >
+"rules"."id_rule"
+
+Ref: "atributes"."id_value_rule" >
+"rules"."id_rule"

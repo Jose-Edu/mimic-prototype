@@ -5,142 +5,142 @@
   "detailLevel": "All",
   "tablePositions": [
     {
-      "name": "users",
-      "schemaName": "public",
-      "x": 16,
-      "y": 160
-    },
-    {
       "name": "roles",
       "schemaName": "public",
-      "x": 16,
-      "y": 272
+      "x": 328,
+      "y": 16
     },
     {
       "name": "access",
       "schemaName": "public",
-      "x": 16,
-      "y": 384
+      "x": 816,
+      "y": 152
     },
     {
       "name": "user_role",
       "schemaName": "public",
-      "x": 448,
-      "y": 160
+      "x": 816,
+      "y": 16
     },
     {
       "name": "role_access",
       "schemaName": "public",
-      "x": 448,
-      "y": 304
+      "x": 1440,
+      "y": 16
     },
     {
       "name": "sheets",
       "schemaName": "public",
       "x": 16,
-      "y": 536
+      "y": 608
     },
     {
       "name": "generator_types",
       "schemaName": "public",
       "x": 568,
-      "y": 592
+      "y": 672
     },
     {
       "name": "generators",
       "schemaName": "public",
       "x": 16,
-      "y": 640
+      "y": 752
     },
     {
       "name": "sheet_generator_type",
       "schemaName": "public",
       "x": 1104,
-      "y": 536
+      "y": 608
     },
     {
       "name": "skill_types",
       "schemaName": "public",
       "x": 568,
-      "y": 704
+      "y": 776
     },
     {
       "name": "skills",
       "schemaName": "public",
       "x": 16,
-      "y": 784
+      "y": 888
     },
     {
       "name": "skill_type_generator_type",
       "schemaName": "public",
       "x": 1104,
-      "y": 672
+      "y": 752
     },
     {
       "name": "rules",
       "schemaName": "public",
-      "x": 264,
-      "y": 16
+      "x": 16,
+      "y": 1032
     },
     {
       "name": "rngs",
-      "schemaName": "public",
-      "x": 16,
-      "y": 1040
-    },
-    {
-      "name": "atributes",
-      "schemaName": "public",
-      "x": 16,
-      "y": 928
-    },
-    {
-      "name": "globals",
-      "schemaName": "public",
-      "x": 568,
-      "y": 816
-    },
-    {
-      "name": "tests",
-      "schemaName": "public",
-      "x": 16,
-      "y": 1144
-    },
-    {
-      "name": "test_atribute",
-      "schemaName": "public",
-      "x": 568,
-      "y": 960
-    },
-    {
-      "name": "test_rng",
       "schemaName": "public",
       "x": 568,
       "y": 1096
     },
     {
+      "name": "atributes",
+      "schemaName": "public",
+      "x": 568,
+      "y": 888
+    },
+    {
+      "name": "globals",
+      "schemaName": "public",
+      "x": 1104,
+      "y": 1032
+    },
+    {
+      "name": "tests",
+      "schemaName": "public",
+      "x": 568,
+      "y": 1432
+    },
+    {
+      "name": "test_atribute",
+      "schemaName": "public",
+      "x": 1104,
+      "y": 1240
+    },
+    {
+      "name": "test_rng",
+      "schemaName": "public",
+      "x": 1104,
+      "y": 1384
+    },
+    {
       "name": "atribute_generator_type",
       "schemaName": "public",
       "x": 1104,
-      "y": 816
+      "y": 888
     },
     {
       "name": "game_states",
       "schemaName": "public",
-      "x": 528,
-      "y": 16
+      "x": 328,
+      "y": 216
     },
     {
       "name": "system_info",
       "schemaName": "public",
-      "x": 832,
+      "x": 16,
       "y": 16
     },
     {
       "name": "tags",
       "schemaName": "public",
-      "x": 16,
-      "y": 16
+      "x": 816,
+      "y": 392
+    },
+    {
+      "name": "entities",
+      "schemaName": "public",
+      "x": 328,
+      "y": 360
     }
   ],
   "tableGroupCollapseStates": [],
@@ -247,21 +247,6 @@
         "id_skill_type"
       ],
       "secondTableName": "skill_type_generator_type",
-      "secondSchemaName": "public",
-      "secondRelation": "*",
-      "checkPoints": []
-    },
-    {
-      "firstFieldNames": [
-        "id_user"
-      ],
-      "firstTableName": "users",
-      "firstSchemaName": "public",
-      "firstRelation": "1",
-      "secondFieldNames": [
-        "id_user"
-      ],
-      "secondTableName": "user_role",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
@@ -397,6 +382,96 @@
         "id_sheet"
       ],
       "secondTableName": "sheets",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_entity"
+      ],
+      "firstTableName": "access",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_entity"
+      ],
+      "secondTableName": "entities",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_game_state"
+      ],
+      "firstTableName": "access",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_game_state"
+      ],
+      "secondTableName": "game_states",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_entity"
+      ],
+      "firstTableName": "tags",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_entity"
+      ],
+      "secondTableName": "entities",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_rule"
+      ],
+      "firstTableName": "tests",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "filter_rule_id"
+      ],
+      "firstTableName": "rngs",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_value_rule"
+      ],
+      "firstTableName": "atributes",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
