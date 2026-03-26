@@ -18,8 +18,8 @@ Table role_access {
   id_role integer [primary key]
 }
 
-Table sheets {
-  id_sheet integer [primary key]
+Table sheet_types {
+  id_sheet_type integer [primary key]
   name varchar unique
   id_validation_rule integer
 }
@@ -34,10 +34,11 @@ Table generators {
   id_generator integer [primary key]
   id_generator_type integer
   name varchar unique
+  data json
 }
 
-Table sheet_generator_type {
-  id_sheet integer [primary key]
+Table sheet_type_generator_type {
+  id_sheet_type integer [primary key]
   id_generator_type integer [primary key]
 }
 
@@ -81,7 +82,15 @@ Table atributes {
   id_atribute integer [primary key]
   name varchar unique
   id_value_rule integer
-  schema json
+  value_type enum("int", "string")
+  default_value varchar /*nullable*/
+}
+
+Table atribute_items {
+  id_atribute_item integer [primary key]
+  id_atribute integer
+  name varchar
+  type enum("int", "string")
 }
 
 Table globals {
@@ -115,6 +124,8 @@ Table atribute_generator_type {
 Table game_states {
   id_game_state integer [primary key]
   name varchar unique
+  turn_count_rule_id integer
+  turn_order_rule_id integer
 }
 
 Table system_info {
@@ -138,6 +149,26 @@ Table tags {
 
 Table entities {
   id_entity integer [primary key]
+  table_name varchar
+  intern_id integer
+}
+
+Table maps {
+  id_map integer [primary key]
+  name varchar unique
+  x_size integer
+  y_size integer
+  z_size integer
+}
+
+Table map_items {
+
+  id_map_item integer
+  id_sheet integer
+  x integer
+  y integer
+  z integer
+
 }
 
 Ref: "rngs"."id_rng" < "test_rng"."id_rng"
@@ -164,7 +195,7 @@ Ref: "skills"."id_skill_type" <
 Ref: "generators"."id_generator_type" <
 "generator_types"."id_generator_type"
 
-Ref: "sheet_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
+Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
 
 Ref: "atribute_generator_type"."id_generator_type" >
 "generator_types"."id_generator_type"
@@ -172,8 +203,8 @@ Ref: "atribute_generator_type"."id_generator_type" >
 Ref: "skill_type_generator_type"."id_generator_type" >
 "generator_types"."id_generator_type"
 
-Ref: "sheet_generator_type"."id_sheet" >
-"sheets"."id_sheet"
+Ref: "sheet_type_generator_type"."id_sheet_type" >
+"sheet_types"."id_sheet_type"
 
 Ref: "access"."id_entity" >
 "entities"."id_entity"
@@ -193,11 +224,20 @@ Ref: "rngs"."filter_rule_id" >
 Ref: "atributes"."id_value_rule" >
 "rules"."id_rule"
 
-Ref: "sheets"."id_validation_rule" >
+Ref: "sheet_types"."id_validation_rule" >
 "rules"."id_rule"
 
 Ref: "skill_types"."id_validation_rule" >
 "rules"."id_rule"
 
 Ref: "skills"."id_action_rule" >
+"rules"."id_rule"
+
+Ref: "atribute_items"."id_atribute" >
+"atributes"."id_atribute"
+
+Ref: "game_states"."turn_count_rule_id" >
+"rules"."id_rule"
+
+Ref: "game_states"."turn_order_rule_id" >
 "rules"."id_rule"

@@ -13,104 +13,110 @@
     {
       "name": "access",
       "schemaName": "public",
-      "x": 816,
-      "y": 152
+      "x": 848,
+      "y": 56
     },
     {
       "name": "role_access",
       "schemaName": "public",
-      "x": 1440,
+      "x": 1456,
       "y": 16
     },
     {
-      "name": "sheets",
+      "name": "sheet_types",
       "schemaName": "public",
-      "x": 488,
-      "y": 648
+      "x": 512,
+      "y": 680
     },
     {
       "name": "generator_types",
       "schemaName": "public",
-      "x": 488,
-      "y": 824
+      "x": 512,
+      "y": 856
     },
     {
       "name": "generators",
       "schemaName": "public",
       "x": 16,
-      "y": 608
+      "y": 640
     },
     {
-      "name": "sheet_generator_type",
+      "name": "sheet_type_generator_type",
       "schemaName": "public",
-      "x": 1040,
-      "y": 608
+      "x": 1064,
+      "y": 640
     },
     {
       "name": "skill_types",
       "schemaName": "public",
-      "x": 1040,
-      "y": 752
+      "x": 1064,
+      "y": 784
     },
     {
       "name": "skills",
       "schemaName": "public",
-      "x": 488,
-      "y": 1000
+      "x": 512,
+      "y": 1024
     },
     {
       "name": "skill_type_generator_type",
       "schemaName": "public",
-      "x": 1040,
-      "y": 920
+      "x": 1064,
+      "y": 952
     },
     {
       "name": "rules",
       "schemaName": "public",
       "x": 16,
-      "y": 784
+      "y": 848
     },
     {
       "name": "rngs",
       "schemaName": "public",
-      "x": 488,
-      "y": 1408
+      "x": 512,
+      "y": 1472
     },
     {
       "name": "atributes",
       "schemaName": "public",
-      "x": 488,
-      "y": 1200
+      "x": 512,
+      "y": 1232
+    },
+    {
+      "name": "atribute_items",
+      "schemaName": "public",
+      "x": 1064,
+      "y": 1240
     },
     {
       "name": "globals",
       "schemaName": "public",
-      "x": 1040,
-      "y": 1208
+      "x": 1064,
+      "y": 1448
     },
     {
       "name": "tests",
       "schemaName": "public",
-      "x": 488,
-      "y": 1744
+      "x": 512,
+      "y": 1808
     },
     {
       "name": "test_atribute",
       "schemaName": "public",
-      "x": 1040,
-      "y": 1416
+      "x": 1064,
+      "y": 1648
     },
     {
       "name": "test_rng",
       "schemaName": "public",
-      "x": 1040,
-      "y": 1552
+      "x": 1064,
+      "y": 1792
     },
     {
       "name": "atribute_generator_type",
       "schemaName": "public",
-      "x": 1040,
-      "y": 1064
+      "x": 1064,
+      "y": 1096
     },
     {
       "name": "game_states",
@@ -127,14 +133,26 @@
     {
       "name": "tags",
       "schemaName": "public",
-      "x": 816,
-      "y": 392
+      "x": 848,
+      "y": 288
     },
     {
       "name": "entities",
       "schemaName": "public",
       "x": 328,
-      "y": 360
+      "y": 424
+    },
+    {
+      "name": "maps",
+      "schemaName": "public",
+      "x": 16,
+      "y": 1986
+    },
+    {
+      "name": "map_items",
+      "schemaName": "public",
+      "x": 16,
+      "y": 2228
     }
   ],
   "tableGroupCollapseStates": [],
@@ -309,7 +327,7 @@
       "firstFieldNames": [
         "id_generator_type"
       ],
-      "firstTableName": "sheet_generator_type",
+      "firstTableName": "sheet_type_generator_type",
       "firstSchemaName": "public",
       "firstRelation": "*",
       "secondFieldNames": [
@@ -352,15 +370,15 @@
     },
     {
       "firstFieldNames": [
-        "id_sheet"
+        "id_sheet_type"
       ],
-      "firstTableName": "sheet_generator_type",
+      "firstTableName": "sheet_type_generator_type",
       "firstSchemaName": "public",
       "firstRelation": "*",
       "secondFieldNames": [
-        "id_sheet"
+        "id_sheet_type"
       ],
-      "secondTableName": "sheets",
+      "secondTableName": "sheet_types",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
@@ -459,7 +477,7 @@
       "firstFieldNames": [
         "id_validation_rule"
       ],
-      "firstTableName": "sheets",
+      "firstTableName": "sheet_types",
       "firstSchemaName": "public",
       "firstRelation": "*",
       "secondFieldNames": [
@@ -490,6 +508,51 @@
         "id_action_rule"
       ],
       "firstTableName": "skills",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_atribute"
+      ],
+      "firstTableName": "atribute_items",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_atribute"
+      ],
+      "secondTableName": "atributes",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "turn_count_rule_id"
+      ],
+      "firstTableName": "game_states",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "turn_order_rule_id"
+      ],
+      "firstTableName": "game_states",
       "firstSchemaName": "public",
       "firstRelation": "*",
       "secondFieldNames": [
