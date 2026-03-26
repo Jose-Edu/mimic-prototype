@@ -7,15 +7,10 @@ Table roles {
 
 Table access {
   id_access integer [primary key]
-  id_entity integer
+  id_entity integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
   action bitmask("read", "use", "update", "create", "delete")
-}
-
-Table user_role {
-  id_user integer [primary key]
-  id_role integer [primary key]
 }
 
 Table role_access {
@@ -26,15 +21,19 @@ Table role_access {
 Table sheets {
   id_sheet integer [primary key]
   name varchar unique
+  id_validation_rule integer
 }
 
 Table generator_types {
   id_generator_type integer [primary key]
+  name varchar unique
+  schema json
 }
 
 Table generators {
   id_generator integer [primary key]
   id_generator_type integer
+  name varchar unique
 }
 
 Table sheet_generator_type {
@@ -44,11 +43,15 @@ Table sheet_generator_type {
 
 Table skill_types {
   id_skill_type integer [primary key]
+  name varchar unique
+  id_validation_rule integer
 }
 
 Table skills {
   id_skill integer [primary key]
   id_skill_type integer
+  name varchar
+  id_action_rule integer
 }
 
 Table skill_type_generator_type {
@@ -58,6 +61,9 @@ Table skill_type_generator_type {
 
 Table rules {
   id_rule integer [primary key]
+  name varchar
+  type varchar
+  rule json
 }
 
 Table rngs {
@@ -148,8 +154,6 @@ Ref: "atributes"."id_atribute" < "atribute_generator_type"."id_atribute"
 
 Ref: "skills"."id_skill" < "skill_type_generator_type"."id_skill_type"
 
-Ref: "roles"."id_role" < "user_role"."id_role"
-
 Ref: "roles"."id_role" < "role_access"."id_role"
 
 Ref: "access"."id_access" < "role_access"."id_access"
@@ -187,4 +191,13 @@ Ref: "rngs"."filter_rule_id" >
 "rules"."id_rule"
 
 Ref: "atributes"."id_value_rule" >
+"rules"."id_rule"
+
+Ref: "sheets"."id_validation_rule" >
+"rules"."id_rule"
+
+Ref: "skill_types"."id_validation_rule" >
+"rules"."id_rule"
+
+Ref: "skills"."id_action_rule" >
 "rules"."id_rule"

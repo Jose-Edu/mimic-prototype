@@ -17,12 +17,6 @@
       "y": 152
     },
     {
-      "name": "user_role",
-      "schemaName": "public",
-      "x": 816,
-      "y": 16
-    },
-    {
       "name": "role_access",
       "schemaName": "public",
       "x": 1440,
@@ -31,92 +25,92 @@
     {
       "name": "sheets",
       "schemaName": "public",
-      "x": 16,
-      "y": 608
+      "x": 488,
+      "y": 648
     },
     {
       "name": "generator_types",
       "schemaName": "public",
-      "x": 568,
-      "y": 672
+      "x": 488,
+      "y": 824
     },
     {
       "name": "generators",
       "schemaName": "public",
       "x": 16,
-      "y": 752
+      "y": 608
     },
     {
       "name": "sheet_generator_type",
       "schemaName": "public",
-      "x": 1104,
+      "x": 1040,
       "y": 608
     },
     {
       "name": "skill_types",
       "schemaName": "public",
-      "x": 568,
-      "y": 776
+      "x": 1040,
+      "y": 752
     },
     {
       "name": "skills",
       "schemaName": "public",
-      "x": 16,
-      "y": 888
+      "x": 488,
+      "y": 1000
     },
     {
       "name": "skill_type_generator_type",
       "schemaName": "public",
-      "x": 1104,
-      "y": 752
+      "x": 1040,
+      "y": 920
     },
     {
       "name": "rules",
       "schemaName": "public",
       "x": 16,
-      "y": 1032
+      "y": 784
     },
     {
       "name": "rngs",
       "schemaName": "public",
-      "x": 568,
-      "y": 1096
+      "x": 488,
+      "y": 1408
     },
     {
       "name": "atributes",
       "schemaName": "public",
-      "x": 568,
-      "y": 888
+      "x": 488,
+      "y": 1200
     },
     {
       "name": "globals",
       "schemaName": "public",
-      "x": 1104,
-      "y": 1032
+      "x": 1040,
+      "y": 1208
     },
     {
       "name": "tests",
       "schemaName": "public",
-      "x": 568,
-      "y": 1432
+      "x": 488,
+      "y": 1744
     },
     {
       "name": "test_atribute",
       "schemaName": "public",
-      "x": 1104,
-      "y": 1240
+      "x": 1040,
+      "y": 1416
     },
     {
       "name": "test_rng",
       "schemaName": "public",
-      "x": 1104,
-      "y": 1384
+      "x": 1040,
+      "y": 1552
     },
     {
       "name": "atribute_generator_type",
       "schemaName": "public",
-      "x": 1104,
-      "y": 888
+      "x": 1040,
+      "y": 1064
     },
     {
       "name": "game_states",
@@ -247,21 +241,6 @@
         "id_skill_type"
       ],
       "secondTableName": "skill_type_generator_type",
-      "secondSchemaName": "public",
-      "secondRelation": "*",
-      "checkPoints": []
-    },
-    {
-      "firstFieldNames": [
-        "id_role"
-      ],
-      "firstTableName": "roles",
-      "firstSchemaName": "public",
-      "firstRelation": "1",
-      "secondFieldNames": [
-        "id_role"
-      ],
-      "secondTableName": "user_role",
       "secondSchemaName": "public",
       "secondRelation": "*",
       "checkPoints": []
@@ -466,6 +445,51 @@
         "id_value_rule"
       ],
       "firstTableName": "atributes",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_validation_rule"
+      ],
+      "firstTableName": "sheets",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_validation_rule"
+      ],
+      "firstTableName": "skill_types",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_rule"
+      ],
+      "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_action_rule"
+      ],
+      "firstTableName": "skills",
       "firstSchemaName": "public",
       "firstRelation": "*",
       "secondFieldNames": [

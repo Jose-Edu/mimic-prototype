@@ -1,0 +1,8 @@
+* multiplas possibilidades de rules
+* ficha mista, customizada etc
+* subgeradores
+* gamestates
+* combate
+* mapas
+* descrições?
+* multiplas possibilidades de texto para traduções?
