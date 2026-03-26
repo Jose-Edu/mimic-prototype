@@ -4,5 +4,7 @@
 * gamestates
 * combate
 * mapas
+* entities
+* contextos
 * descrições?
 * multiplas possibilidades de texto para traduções?
