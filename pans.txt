@@ -1,10 +1,6 @@
 * multiplas possibilidades de rules
-* ficha mista, customizada etc
+* atributes x atribute_type
 * subgeradores
-* gamestates
-* combate
-* mapas
 * entities
-* contextos
 * descrições?
 * multiplas possibilidades de texto para traduções?

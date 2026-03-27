@@ -10,7 +10,7 @@ Table access {
   id_entity integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
-  action bitmask("read", "use", "update", "create", "delete")
+  action bitmask("read", "use", "update", "create", "delete", "overwrite")
 }
 
 Table role_access {
@@ -22,6 +22,16 @@ Table sheet_types {
   id_sheet_type integer [primary key]
   name varchar unique
   id_validation_rule integer
+}
+
+Table sheets {
+  id_sheet integer [primary key]
+  id_sheet_type integer
+  data json
+  x_size integer
+  y_size integer
+  z_size integer
+  origin integer
 }
 
 Table generator_types {
@@ -161,10 +171,11 @@ Table maps {
   z_size integer
 }
 
-Table map_items {
+Table map_sheet {
 
-  id_map_item integer
+  id_map_sheet integer
   id_sheet integer
+  id_map integer
   x integer
   y integer
   z integer
@@ -241,3 +252,12 @@ Ref: "game_states"."turn_count_rule_id" >
 
 Ref: "game_states"."turn_order_rule_id" >
 "rules"."id_rule"
+
+Ref: "map_sheet"."id_map" >
+"maps"."id_map"
+
+Ref: "map_sheet"."id_sheet" >
+"sheets"."id_sheet"
+
+Ref: "sheets"."id_sheet_type" >
+"sheet_types"."id_sheet_type"

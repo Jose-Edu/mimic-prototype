@@ -13,116 +13,122 @@
     {
       "name": "access",
       "schemaName": "public",
-      "x": 848,
-      "y": 56
+      "x": 1560,
+      "y": 1648
     },
     {
       "name": "role_access",
       "schemaName": "public",
-      "x": 1456,
+      "x": 2248,
       "y": 16
     },
     {
       "name": "sheet_types",
       "schemaName": "public",
-      "x": 512,
-      "y": 680
+      "x": 864,
+      "y": 56
+    },
+    {
+      "name": "sheets",
+      "schemaName": "public",
+      "x": 1560,
+      "y": 56
     },
     {
       "name": "generator_types",
       "schemaName": "public",
-      "x": 512,
-      "y": 856
+      "x": 864,
+      "y": 224
     },
     {
       "name": "generators",
       "schemaName": "public",
-      "x": 16,
-      "y": 640
+      "x": 328,
+      "y": 216
     },
     {
       "name": "sheet_type_generator_type",
       "schemaName": "public",
-      "x": 1064,
-      "y": 640
+      "x": 1560,
+      "y": 352
     },
     {
       "name": "skill_types",
       "schemaName": "public",
-      "x": 1064,
-      "y": 784
+      "x": 1560,
+      "y": 496
     },
     {
       "name": "skills",
       "schemaName": "public",
-      "x": 512,
-      "y": 1024
+      "x": 864,
+      "y": 400
     },
     {
       "name": "skill_type_generator_type",
       "schemaName": "public",
-      "x": 1064,
-      "y": 952
+      "x": 1560,
+      "y": 672
     },
     {
       "name": "rules",
       "schemaName": "public",
-      "x": 16,
-      "y": 848
+      "x": 328,
+      "y": 424
     },
     {
       "name": "rngs",
       "schemaName": "public",
-      "x": 512,
-      "y": 1472
+      "x": 864,
+      "y": 848
     },
     {
       "name": "atributes",
       "schemaName": "public",
-      "x": 512,
-      "y": 1232
+      "x": 864,
+      "y": 608
     },
     {
       "name": "atribute_items",
       "schemaName": "public",
-      "x": 1064,
-      "y": 1240
+      "x": 1560,
+      "y": 952
     },
     {
       "name": "globals",
       "schemaName": "public",
-      "x": 1064,
-      "y": 1448
+      "x": 1560,
+      "y": 1160
     },
     {
       "name": "tests",
       "schemaName": "public",
-      "x": 512,
-      "y": 1808
+      "x": 864,
+      "y": 1184
     },
     {
       "name": "test_atribute",
       "schemaName": "public",
-      "x": 1064,
-      "y": 1648
+      "x": 1560,
+      "y": 1368
     },
     {
       "name": "test_rng",
       "schemaName": "public",
-      "x": 1064,
-      "y": 1792
+      "x": 1560,
+      "y": 1512
     },
     {
       "name": "atribute_generator_type",
       "schemaName": "public",
-      "x": 1064,
-      "y": 1096
+      "x": 1560,
+      "y": 816
     },
     {
       "name": "game_states",
       "schemaName": "public",
-      "x": 328,
-      "y": 216
+      "x": 864,
+      "y": 1352
     },
     {
       "name": "system_info",
@@ -133,26 +139,26 @@
     {
       "name": "tags",
       "schemaName": "public",
-      "x": 848,
-      "y": 288
+      "x": 864,
+      "y": 1560
     },
     {
       "name": "entities",
       "schemaName": "public",
       "x": 328,
-      "y": 424
+      "y": 632
     },
     {
       "name": "maps",
       "schemaName": "public",
-      "x": 16,
-      "y": 1986
+      "x": 328,
+      "y": 808
     },
     {
-      "name": "map_items",
+      "name": "map_sheet",
       "schemaName": "public",
-      "x": 16,
-      "y": 2228
+      "x": 2248,
+      "y": 152
     }
   ],
   "tableGroupCollapseStates": [],
@@ -559,6 +565,51 @@
         "id_rule"
       ],
       "secondTableName": "rules",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_map"
+      ],
+      "firstTableName": "map_sheet",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_map"
+      ],
+      "secondTableName": "maps",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_sheet"
+      ],
+      "firstTableName": "map_sheet",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_sheet"
+      ],
+      "secondTableName": "sheets",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_sheet_type"
+      ],
+      "firstTableName": "sheets",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_sheet_type"
+      ],
+      "secondTableName": "sheet_types",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
