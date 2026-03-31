@@ -1,5 +1,6 @@
 Table roles {
   id_role integer [primary key]
+  id_entity integer
   name varchar unique
   is_default bool
   roleless_add bool
@@ -7,7 +8,8 @@ Table roles {
 
 Table access {
   id_access integer [primary key]
-  id_entity integer /*nullable*/
+  id_entity integer
+  id_entity_to_access integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
   action bitmask("read", "use", "update", "create", "delete", "overwrite")
@@ -20,12 +22,14 @@ Table role_access {
 
 Table sheet_types {
   id_sheet_type integer [primary key]
+  id_entity integer
   name varchar unique
   id_validation_rule integer
 }
 
 Table sheets {
   id_sheet integer [primary key]
+  id_entity integer
   id_sheet_type integer
   data json
   x_size integer
@@ -36,6 +40,7 @@ Table sheets {
 
 Table generator_types {
   id_generator_type integer [primary key]
+  id_entity integer
   name varchar unique
   schema json
   id_validation_rule integer
@@ -44,6 +49,7 @@ Table generator_types {
 Table generator_type_steps {
 
   id_generator_type_step integer [primary key]
+  id_entity integer
   id_generator_type integer
   id_trigger_rule integer
   id_validation_rule integer
@@ -53,6 +59,7 @@ Table generator_type_steps {
 
 Table generators {
   id_generator integer [primary key]
+  id_entity integer
   id_generator_type integer
   id_super_generator integer
   is_children boolean /*default false*/
@@ -62,6 +69,7 @@ Table generators {
 
 Table generator_steps {
   id_generator_step integer [primary key]
+  id_entity integer
   id_generator integer
   id_generator_type_step integer
   name varchar
@@ -75,12 +83,14 @@ Table sheet_type_generator_type {
 
 Table skill_types {
   id_skill_type integer [primary key]
+  id_entity integer
   name varchar unique
   id_validation_rule integer
 }
 
 Table skills {
   id_skill integer [primary key]
+  id_entity integer
   id_skill_type integer
   name varchar
   id_action_rule integer
@@ -93,13 +103,15 @@ Table skill_type_generator_type {
 
 Table rules {
   id_rule integer [primary key]
+  id_entity integer
   name varchar
   type varchar
-  rule json
+  rule json /*ast*/
 }
 
 Table rngs {
   id_rng integer [primary key]
+  id_entity integer
   name varchar unique
   expected_value integer /*nullable*/
   filter_rule_id integer /*nullable*/
@@ -111,6 +123,7 @@ Table rngs {
 
 Table atributes {
   id_atribute integer [primary key]
+  id_entity integer
   name varchar unique
   id_value_rule integer
   value_type enum("int", "string")
@@ -127,6 +140,7 @@ Table atribute_items {
 
 Table globals {
   id_global integer [primary key]
+  id_entity integer
   id_atribute integer
   name varchar unique
   is_constant bool
@@ -134,6 +148,7 @@ Table globals {
 
 Table tests {
   id_test integer [primary key]
+  id_entity integer
   name varchar unique
   id_rule integer
 }
@@ -155,22 +170,26 @@ Table atribute_generator_type {
 
 Table game_states {
   id_game_state integer [primary key]
+  id_entity integer
   name varchar unique
   turn_count_rule_id integer
   turn_order_rule_id integer
 }
 
-Table system_info {
-  id_system_info integer [primary key]
+Table systems {
+  id_system integer [primary key]
   mimic_version_l1 integer
   mimic_version_l2 integer
   mimic_version_l3 integer
-  system_name varchar
+  name varchar
   system_version_l1 varchar
   system_version_l2 varchar
   system_version_l3 varchar
-  system_author varchar
+  author varchar
   system_hash varchar
+  created_at timestamp
+  updated_at timestamp
+  type enum("root", "delta")
 }
 
 Table tags {
@@ -181,12 +200,15 @@ Table tags {
 
 Table entities {
   id_entity integer [primary key]
+  created_at timestamp
+  updated_at timestamp
+  id_system integer
   table_name varchar
-  intern_id integer
 }
 
 Table maps {
   id_map integer [primary key]
+  id_entity integer
   name varchar unique
   x_size integer
   y_size integer
@@ -239,7 +261,7 @@ Ref: "skill_type_generator_type"."id_generator_type" >
 Ref: "sheet_type_generator_type"."id_sheet_type" >
 "sheet_types"."id_sheet_type"
 
-Ref: "access"."id_entity" >
+Ref: "access"."id_entity_to_access" >
 "entities"."id_entity"
 
 Ref: "access"."id_game_state" >
@@ -307,3 +329,57 @@ Ref: "generator_steps"."id_generator_type_step" >
 
 Ref: "generators"."id_super_generator" >
 "generators"."id_generator"
+
+Ref: "entities"."id_system" >
+"systems"."id_system"
+
+Ref: "roles"."id_entity" >
+"entities"."id_entity"
+
+Ref: "generators"."id_entity" >
+"entities"."id_entity"
+
+Ref: "rules"."id_entity" >
+"entities"."id_entity"
+
+Ref: "maps"."id_entity" >
+"entities"."id_entity"
+
+Ref: "sheet_types"."id_entity" >
+"entities"."id_entity"
+
+Ref: "generator_types"."id_entity" >
+"entities"."id_entity"
+
+Ref: "skills"."id_entity" >
+"entities"."id_entity"
+
+Ref: "atributes"."id_entity" >
+"entities"."id_entity"
+
+Ref: "rngs"."id_entity" >
+"entities"."id_entity"
+
+Ref: "tests"."id_entity" >
+"entities"."id_entity"
+
+Ref: "game_states"."id_entity" >
+"entities"."id_entity"
+
+Ref: "sheets"."id_entity" >
+"entities"."id_entity"
+
+Ref: "generator_type_steps"."id_entity" >
+"entities"."id_entity"
+
+Ref: "skill_types"."id_entity" >
+"entities"."id_entity"
+
+Ref: "globals"."id_entity" >
+"entities"."id_entity"
+
+Ref: "access"."id_entity" >
+"entities"."id_entity"
+
+Ref: "generator_steps"."id_entity" >
+"entities"."id_entity"
