@@ -1,6 +1,3 @@
-* multiplas possibilidades de rules
-* atributes x atribute_type
-* subgeradores
 * entities
-* descrições?
-* multiplas possibilidades de texto para traduções?
+* descrições
+* multiplas possibilidades de texto para traduções
