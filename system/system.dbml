@@ -194,8 +194,14 @@ Table systems {
 
 Table tags {
   id_tag integer [primary key]
-  id_entity integer
   name varchar unique
+}
+
+Table tag_entity {
+
+  id_tag integer [primary key]
+  id_entity integer [primary key]
+
 }
 
 Table entities {
@@ -224,6 +230,29 @@ Table map_sheet {
   y integer
   z integer
 
+}
+
+Table description_variant_types {
+
+  id_description_variant_type integer [primary key]
+  name varchar
+
+}
+
+Table description_variants {
+
+  id_description_variant integer [primary key]
+  id_description_variant_type integer
+  name varchar
+
+}
+
+Table descriptions {
+  id_description integer [primary key]
+  id_entity integer
+  name varchar
+  description text
+  id_description_variant integer
 }
 
 Ref: "rngs"."id_rng" < "test_rng"."id_rng"
@@ -266,9 +295,6 @@ Ref: "access"."id_entity_to_access" >
 
 Ref: "access"."id_game_state" >
 "game_states"."id_game_state"
-
-Ref: "tags"."id_entity" >
-"entities"."id_entity"
 
 Ref: "tests"."id_rule" >
 "rules"."id_rule"
@@ -382,4 +408,19 @@ Ref: "access"."id_entity" >
 "entities"."id_entity"
 
 Ref: "generator_steps"."id_entity" >
+"entities"."id_entity"
+
+Ref: "description_variants"."id_description_variant_type" >
+"description_variant_types"."id_description_variant_type"
+
+Ref: "descriptions"."id_description_variant" >
+"description_variants"."id_description_variant"
+
+Ref: "descriptions"."id_entity" >
+"entities"."id_entity"
+
+Ref: "tag_entity"."id_tag" >
+"tags"."id_tag"
+
+Ref:"tag_entity"."id_entity" >
 "entities"."id_entity"

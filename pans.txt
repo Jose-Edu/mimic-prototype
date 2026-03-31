@@ -1,3 +1,2 @@
-* entities
 * descrições
 * multiplas possibilidades de texto para traduções
