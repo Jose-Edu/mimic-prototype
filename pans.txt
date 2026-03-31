@@ -1,2 +1,2 @@
-* descrições
-* multiplas possibilidades de texto para traduções
+* Revisão geral
+* Reorganizar arquivo
