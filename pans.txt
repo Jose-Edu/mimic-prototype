@@ -1,2 +1,10 @@
-* Revisão geral
+* Renomear campos do access?
+* Definir id próprio para todas as tabelas n:n
+* N:N de sheets para substituir data com json ?
+* tipo enum e bool?
+* Cache em rng?
+* Rever mapeamento de vercinamento de sistema e deltas
+* Revisão semantica
+* Definir tipos de rules e remapear
+* evoluir skills
 * Reorganizar arquivo
