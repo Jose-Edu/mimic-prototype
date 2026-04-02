@@ -16,8 +16,9 @@ Table access {
 }
 
 Table role_access {
-  id_access integer [primary key]
-  id_role integer [primary key]
+  id_role_access integer [primary key]
+  id_access integer
+  id_role integer
 }
 
 Table sheet_types {
@@ -77,8 +78,9 @@ Table generator_steps {
 }
 
 Table sheet_type_generator_type {
-  id_sheet_type integer [primary key]
-  id_generator_type integer [primary key]
+  id_sheet_type_generator_type integer [primary key]
+  id_sheet_type integer
+  id_generator_type integer
 }
 
 Table skill_types {
@@ -97,8 +99,9 @@ Table skills {
 }
 
 Table skill_type_generator_type {
-  id_skill_type integer [primary key]
-  id_generator_type integer [primary key]
+  id_skill_type_generator_type integer [primary key]
+  id_skill_type integer
+  id_generator_type integer
 }
 
 Table rules {
@@ -126,7 +129,7 @@ Table atributes {
   id_entity integer
   name varchar unique
   id_value_rule integer
-  value_type enum("int", "string")
+  value_type enum("int", "string", "bool", "enum")
   default_value varchar /*nullable*/
   is_composable boolean /*default true*/
 }
@@ -154,18 +157,21 @@ Table tests {
 }
 
 Table test_atribute {
-  id_test integer [primary key]
-  id_atribute integer [primary key]
+  id_test_atribute integer [primary key]
+  id_test integer
+  id_atribute integer
 }
 
 Table test_rng {
-  id_test integer [primary key]
-  id_rng integer [primary key]
+  id_test_rng integer [primary key]
+  id_test integer
+  id_rng integer
 }
 
 Table atribute_generator_type {
-  id_atribute integer [primary key]
-  id_generator_type integer [primary key]
+  id_atribute_generator_type integer [primary key]
+  id_atribute integer
+  id_generator_type integer
 }
 
 Table game_states {
@@ -199,8 +205,9 @@ Table tags {
 
 Table tag_entity {
 
-  id_tag integer [primary key]
-  id_entity integer [primary key]
+  id_tag_entity integer [primary key]
+  id_tag integer
+  id_entity integer
 
 }
 
