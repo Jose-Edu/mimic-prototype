@@ -1,4 +1,3 @@
-* N:N de sheets para substituir data com json ?
 * Rever mapeamento de vercionamento de sistema e deltas
 * Definir tipos de rules e remapear
 * evoluir skills

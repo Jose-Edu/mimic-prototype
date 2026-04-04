@@ -32,7 +32,6 @@ Table sheets {
   id_sheet integer [primary key]
   id_entity integer
   id_sheet_type integer
-  data json
   x_size integer
   y_size integer
   z_size integer
@@ -262,6 +261,33 @@ Table descriptions {
   id_description_variant integer
 }
 
+Table sheet_type_atribute {
+  id_sheet_type_atribute integer [primary key]
+  id_sheet_type integer
+  id_atribute integer
+}
+
+Table sheet_generator {
+  id_sheet_generator integer [primary key]
+  id_sheet integer
+  id_generator integer
+  data json
+}
+
+Table sheet_atribute {
+  id_sheet_atribute integer [primary key]
+  id_sheet integer
+  id_atribute integer
+  data json
+}
+
+Table sheet_skill {
+  id_sheet_skill integer [primary key]
+  id_sheet integer
+  id_skill integer
+  data json
+}
+
 Ref: "rngs"."id_rng" < "test_rng"."id_rng"
 
 Ref: "tests"."id_test" < "test_rng"."id_test"
@@ -274,7 +300,7 @@ Ref: "atributes"."id_atribute" < "globals"."id_atribute"
 
 Ref: "atributes"."id_atribute" < "atribute_generator_type"."id_atribute"
 
-Ref: "skills"."id_skill" < "skill_type_generator_type"."id_skill_type"
+Ref: "skill_types"."id_skill_type" < "skill_type_generator_type"."id_skill_type"
 
 Ref: "roles"."id_role" < "role_access"."id_role"
 
@@ -431,3 +457,27 @@ Ref: "tag_entity"."id_tag" >
 
 Ref:"tag_entity"."id_entity" >
 "entities"."id_entity"
+
+Ref: "sheet_type_atribute"."id_atribute" >
+"atributes"."id_atribute"
+
+Ref: "sheet_type_atribute"."id_sheet_type" >
+"sheet_types"."id_sheet_type"
+
+Ref: "sheet_generator"."id_sheet" >
+"sheets"."id_sheet"
+
+Ref: "sheet_generator"."id_generator" >
+"generators"."id_generator"
+
+Ref: "sheet_atribute"."id_sheet" >
+"sheets"."id_sheet"
+
+Ref: "sheet_atribute"."id_atribute" >
+"atributes"."id_atribute"
+
+Ref: "sheet_skill"."id_sheet" >
+"sheets"."id_sheet"
+
+Ref: "sheet_skill"."id_skill" >
+"skills"."id_skill"
