@@ -1,7 +1,7 @@
 Table roles {
   id_role integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   is_default bool
   roleless_add bool
 }
@@ -24,7 +24,7 @@ Table role_access {
 Table sheet_types {
   id_sheet_type integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   id_validation_rule integer
 }
 
@@ -41,7 +41,7 @@ Table sheets {
 Table generator_types {
   id_generator_type integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   schema json
   id_validation_rule integer
 }
@@ -63,7 +63,7 @@ Table generators {
   id_generator_type integer
   id_super_generator integer
   is_children boolean /*default false*/
-  name varchar unique
+  name varchar 
   data json
 }
 
@@ -85,7 +85,7 @@ Table sheet_type_generator_type {
 Table skill_types {
   id_skill_type integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   id_validation_rule integer
 }
 
@@ -114,7 +114,7 @@ Table rules {
 Table rngs {
   id_rng integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   expected_value integer /*nullable*/
   filter_rule_id integer /*nullable*/
   generator_start integer /*nullable default 1*/
@@ -123,42 +123,42 @@ Table rngs {
   cached_values integer[]
 }
 
-Table atributes {
-  id_atribute integer [primary key]
+Table attributes {
+  id_attribute integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   id_value_rule integer
   value_type enum("int", "string", "bool", "enum")
   default_value varchar /*nullable*/
   is_composable boolean /*default true*/
 }
 
-Table atribute_items {
-  id_atribute_item integer [primary key]
-  id_atribute_composer integer
-  id_atribute_composable integer
+Table attribute_items {
+  id_attribute_item integer [primary key]
+  id_attribute_composer integer
+  id_attribute_composable integer
   name varchar
 }
 
 Table globals {
   id_global integer [primary key]
   id_entity integer
-  id_atribute integer
-  name varchar unique
+  id_attribute integer
+  name varchar 
   is_constant bool
 }
 
 Table tests {
   id_test integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   id_rule integer
 }
 
-Table test_atribute {
-  id_test_atribute integer [primary key]
+Table test_attribute {
+  id_test_attribute integer [primary key]
   id_test integer
-  id_atribute integer
+  id_attribute integer
 }
 
 Table test_rng {
@@ -167,39 +167,36 @@ Table test_rng {
   id_rng integer
 }
 
-Table atribute_generator_type {
-  id_atribute_generator_type integer [primary key]
-  id_atribute integer
+Table attribute_generator_type {
+  id_attribute_generator_type integer [primary key]
+  id_attribute integer
   id_generator_type integer
 }
 
 Table game_states {
   id_game_state integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   turn_count_rule_id integer
   turn_order_rule_id integer
 }
 
 Table systems {
   id_system integer [primary key]
-  mimic_version_l1 integer
-  mimic_version_l2 integer
-  mimic_version_l3 integer
+  mimic_version varchar
   name varchar
-  system_version_l1 varchar
-  system_version_l2 varchar
-  system_version_l3 varchar
+  system_version varchar
   author varchar
   system_hash varchar
   created_at timestamp
   updated_at timestamp
   type enum("root", "delta")
+  id_delta_origin integer /*nullable*/
 }
 
 Table tags {
   id_tag integer [primary key]
-  name varchar unique
+  name varchar 
 }
 
 Table tag_entity {
@@ -215,13 +212,12 @@ Table entities {
   created_at timestamp
   updated_at timestamp
   id_system integer
-  table_name varchar
 }
 
 Table maps {
   id_map integer [primary key]
   id_entity integer
-  name varchar unique
+  name varchar 
   x_size integer
   y_size integer
   z_size integer
@@ -229,7 +225,7 @@ Table maps {
 
 Table map_sheet {
 
-  id_map_sheet integer
+  id_map_sheet integer [primary key]
   id_sheet integer
   id_map integer
   x integer
@@ -261,10 +257,10 @@ Table descriptions {
   id_description_variant integer
 }
 
-Table sheet_type_atribute {
-  id_sheet_type_atribute integer [primary key]
+Table sheet_type_attribute {
+  id_sheet_type_attribute integer [primary key]
   id_sheet_type integer
-  id_atribute integer
+  id_attribute integer
 }
 
 Table sheet_generator {
@@ -274,10 +270,10 @@ Table sheet_generator {
   data json
 }
 
-Table sheet_atribute {
-  id_sheet_atribute integer [primary key]
+Table sheet_attribute {
+  id_sheet_attribute integer [primary key]
   id_sheet integer
-  id_atribute integer
+  id_attribute integer
   data json
 }
 
@@ -292,13 +288,13 @@ Ref: "rngs"."id_rng" < "test_rng"."id_rng"
 
 Ref: "tests"."id_test" < "test_rng"."id_test"
 
-Ref: "tests"."id_test" < "test_atribute"."id_test"
+Ref: "tests"."id_test" < "test_attribute"."id_test"
 
-Ref: "atributes"."id_atribute" < "test_atribute"."id_atribute"
+Ref: "attributes"."id_attribute" < "test_attribute"."id_attribute"
 
-Ref: "atributes"."id_atribute" < "globals"."id_atribute"
+Ref: "attributes"."id_attribute" < "globals"."id_attribute"
 
-Ref: "atributes"."id_atribute" < "atribute_generator_type"."id_atribute"
+Ref: "attributes"."id_attribute" < "attribute_generator_type"."id_attribute"
 
 Ref: "skill_types"."id_skill_type" < "skill_type_generator_type"."id_skill_type"
 
@@ -314,7 +310,7 @@ Ref: "generators"."id_generator_type" <
 
 Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
 
-Ref: "atribute_generator_type"."id_generator_type" >
+Ref: "attribute_generator_type"."id_generator_type" >
 "generator_types"."id_generator_type"
 
 Ref: "skill_type_generator_type"."id_generator_type" >
@@ -335,7 +331,7 @@ Ref: "tests"."id_rule" >
 Ref: "rngs"."filter_rule_id" >
 "rules"."id_rule"
 
-Ref: "atributes"."id_value_rule" >
+Ref: "attributes"."id_value_rule" >
 "rules"."id_rule"
 
 Ref: "sheet_types"."id_validation_rule" >
@@ -347,11 +343,11 @@ Ref: "skill_types"."id_validation_rule" >
 Ref: "skills"."id_action_rule" >
 "rules"."id_rule"
 
-Ref: "atribute_items"."id_atribute_composer" >
-"atributes"."id_atribute"
+Ref: "attribute_items"."id_attribute_composer" >
+"attributes"."id_attribute"
 
-Ref: "atribute_items"."id_atribute_composable" >
-"atributes"."id_atribute"
+Ref: "attribute_items"."id_attribute_composable" >
+"attributes"."id_attribute"
 
 Ref: "game_states"."turn_count_rule_id" >
 "rules"."id_rule"
@@ -413,7 +409,7 @@ Ref: "generator_types"."id_entity" >
 Ref: "skills"."id_entity" >
 "entities"."id_entity"
 
-Ref: "atributes"."id_entity" >
+Ref: "attributes"."id_entity" >
 "entities"."id_entity"
 
 Ref: "rngs"."id_entity" >
@@ -458,10 +454,10 @@ Ref: "tag_entity"."id_tag" >
 Ref:"tag_entity"."id_entity" >
 "entities"."id_entity"
 
-Ref: "sheet_type_atribute"."id_atribute" >
-"atributes"."id_atribute"
+Ref: "sheet_type_attribute"."id_attribute" >
+"attributes"."id_attribute"
 
-Ref: "sheet_type_atribute"."id_sheet_type" >
+Ref: "sheet_type_attribute"."id_sheet_type" >
 "sheet_types"."id_sheet_type"
 
 Ref: "sheet_generator"."id_sheet" >
@@ -470,14 +466,17 @@ Ref: "sheet_generator"."id_sheet" >
 Ref: "sheet_generator"."id_generator" >
 "generators"."id_generator"
 
-Ref: "sheet_atribute"."id_sheet" >
+Ref: "sheet_attribute"."id_sheet" >
 "sheets"."id_sheet"
 
-Ref: "sheet_atribute"."id_atribute" >
-"atributes"."id_atribute"
+Ref: "sheet_attribute"."id_attribute" >
+"attributes"."id_attribute"
 
 Ref: "sheet_skill"."id_sheet" >
 "sheets"."id_sheet"
 
 Ref: "sheet_skill"."id_skill" >
 "skills"."id_skill"
+
+Ref: "systems"."id_delta_origin" >
+"systems"."id_system"
