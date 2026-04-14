@@ -284,6 +284,18 @@ Table sheet_skill {
   data json
 }
 
+Table sheet_type_sheet_type {
+  id_sheet_type_sheet_type integer [primary key]
+  id_sheet_type_a integer
+  id_sheet_type_b integer
+}
+
+Table sheet_sheet {
+  id_sheet_sheet integer [primary key]
+  id_sheet_a integer
+  id_sheet_b integer
+}
+
 Ref: "rngs"."id_rng" < "test_rng"."id_rng"
 
 Ref: "tests"."id_test" < "test_rng"."id_test"
@@ -480,3 +492,11 @@ Ref: "sheet_skill"."id_skill" >
 
 Ref: "systems"."id_delta_origin" >
 "systems"."id_system"
+
+Ref: "sheet_type_sheet_type"."id_sheet_type_a" > "sheet_types"."id_sheet_type"
+
+Ref: "sheet_type_sheet_type"."id_sheet_type_b" > "sheet_types"."id_sheet_type"
+
+Ref: "sheet_sheet"."id_sheet_a" > "sheets"."id_sheet"
+
+Ref: "sheet_sheet"."id_sheet_b" > "sheets"."id_sheet"

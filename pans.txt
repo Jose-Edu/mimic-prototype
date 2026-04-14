@@ -1,6 +1,6 @@
 * criar token para representar sheets nos mapas
-* fazer todas as entidades usarem o id_entity como pk
-* garantir a viabilidade de multiplos sistemas
+* fazer todas as entidades usarem o id_entity como pk ?
+* garantir a viabilidade de multiplos sistemas ?
 * Definir tipos de rules e remapear
 * evoluir skills
 * Revisão semantica
