@@ -1,6 +1,7 @@
 * Substituir bitmask
 * Scenes
 * Cached values em outros contextos ?
+* outras melhorias de performance ?
 
 * Revisar dnv
 * Definir tipos de rules e remapear
