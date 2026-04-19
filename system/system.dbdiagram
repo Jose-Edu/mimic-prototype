@@ -19,7 +19,7 @@
     {
       "name": "role_access",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 32
     },
     {
@@ -32,7 +32,7 @@
       "name": "sheets",
       "schemaName": "public",
       "x": 2224,
-      "y": 552
+      "y": 712
     },
     {
       "name": "generator_types",
@@ -44,7 +44,7 @@
       "name": "generator_type_steps",
       "schemaName": "public",
       "x": 2224,
-      "y": 312
+      "y": 472
     },
     {
       "name": "generators",
@@ -55,20 +55,20 @@
     {
       "name": "generator_steps",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 208
     },
     {
       "name": "sheet_type_generator_type",
       "schemaName": "public",
       "x": 2224,
-      "y": 864
+      "y": 1024
     },
     {
       "name": "skill_types",
       "schemaName": "public",
       "x": 2224,
-      "y": 1040
+      "y": 1200
     },
     {
       "name": "skills",
@@ -79,7 +79,7 @@
     {
       "name": "skill_type_generator_type",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 448
     },
     {
@@ -104,13 +104,13 @@
       "name": "attribute_items",
       "schemaName": "public",
       "x": 2224,
-      "y": 1768
+      "y": 1928
     },
     {
       "name": "globals",
       "schemaName": "public",
       "x": 2224,
-      "y": 1560
+      "y": 1720
     },
     {
       "name": "tests",
@@ -122,19 +122,19 @@
       "name": "test_attribute",
       "schemaName": "public",
       "x": 2224,
-      "y": 1976
+      "y": 2136
     },
     {
       "name": "test_rng",
       "schemaName": "public",
       "x": 2224,
-      "y": 2152
+      "y": 2312
     },
     {
       "name": "attribute_generator_type",
       "schemaName": "public",
       "x": 2224,
-      "y": 1392
+      "y": 1552
     },
     {
       "name": "game_states",
@@ -164,7 +164,7 @@
       "name": "entities",
       "schemaName": "public",
       "x": 496,
-      "y": 208
+      "y": 224
     },
     {
       "name": "maps",
@@ -175,14 +175,14 @@
     {
       "name": "map_token",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 1000
     },
     {
       "name": "description_variant_types",
       "schemaName": "public",
       "x": 496,
-      "y": 416
+      "y": 464
     },
     {
       "name": "description_variants",
@@ -200,36 +200,36 @@
       "name": "sheet_type_attribute",
       "schemaName": "public",
       "x": 2224,
-      "y": 1216
+      "y": 1376
     },
     {
       "name": "sheet_generator",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 616
     },
     {
       "name": "sheet_attribute",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 1496
     },
     {
       "name": "sheet_skill",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 1696
     },
     {
       "name": "sheet_type_sheet_type",
       "schemaName": "public",
       "x": 2224,
-      "y": 696
+      "y": 856
     },
     {
       "name": "sheet_sheet",
       "schemaName": "public",
-      "x": 2952,
+      "x": 2848,
       "y": 824
     }
   ],
@@ -247,6 +247,21 @@
         "id_system"
       ],
       "secondTableName": "systems",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_overrides_entity"
+      ],
+      "firstTableName": "entities",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_entity"
+      ],
+      "secondTableName": "entities",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []

@@ -10,7 +10,12 @@ Table access {
   id_entity_to_access integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
-  action bitmask("read", "use", "update", "create", "delete", "overwrite")
+  can_read boolean
+  can_use boolean
+  can_update boolean
+  can_create boolean
+  can_delete boolean
+  can_overwrite boolean
 }
 
 Table role_access {
