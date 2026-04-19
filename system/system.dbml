@@ -33,7 +33,7 @@ Table sheets {
 Table generator_types {
   id_entity integer [primary key]
   name varchar 
-  schema json
+  schema jsonb
   id_validation_rule integer
 }
 
@@ -53,7 +53,7 @@ Table generators {
   id_super_generator integer
   is_children boolean /*default false*/
   name varchar 
-  data json
+  data jsonb
 }
 
 Table generator_steps {
@@ -61,7 +61,7 @@ Table generator_steps {
   id_generator integer
   id_generator_type_step integer
   name varchar
-  data json
+  data jsonb
 }
 
 Table sheet_type_generator_type {
@@ -93,7 +93,7 @@ Table rules {
   id_entity integer [primary key]
   name varchar
   type varchar
-  rule json /*ast*/
+  rule jsonb /*ast*/
 }
 
 Table rngs {
@@ -194,7 +194,9 @@ Table entities {
   created_at timestamp
   updated_at timestamp
   id_system integer
+  id_overrides_entity integer /*nullable*/
 }
+Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
 
 Table maps {
   id_entity integer [primary key]
@@ -216,8 +218,9 @@ Table map_token {
   y_size integer
   z_size integer
   origin integer
-  angle integer /*-360-360*/
-
+  angle_x integer /*-360-360*/
+  angle_y integer /*-360-360*/
+  angle_z integer /*-360-360*/
 }
 
 Table description_variant_types {
@@ -255,21 +258,21 @@ Table sheet_generator {
   id_sheet_generator integer [primary key]
   id_sheet integer
   id_generator integer
-  data json
+  data jsonb
 }
 
 Table sheet_attribute {
   id_sheet_attribute integer [primary key]
   id_sheet integer
   id_attribute integer
-  data json
+  data jsonb
 }
 
 Table sheet_skill {
   id_sheet_skill integer [primary key]
   id_sheet integer
   id_skill integer
-  data json
+  data jsonb
 }
 
 Table sheet_type_sheet_type {

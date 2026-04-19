@@ -1,3 +1,7 @@
+* Substituir bitmask
+* Scenes
+* Cached values em outros contextos ?
+
 * Revisar dnv
 * Definir tipos de rules e remapear
 * evoluir skills e game states ?

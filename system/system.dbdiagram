@@ -212,13 +212,13 @@
       "name": "sheet_attribute",
       "schemaName": "public",
       "x": 2952,
-      "y": 1400
+      "y": 1496
     },
     {
       "name": "sheet_skill",
       "schemaName": "public",
       "x": 2952,
-      "y": 1600
+      "y": 1696
     },
     {
       "name": "sheet_type_sheet_type",
