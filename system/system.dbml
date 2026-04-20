@@ -116,7 +116,7 @@ Table attributes {
   id_entity integer [primary key]
   name varchar 
   id_value_rule integer
-  value_type enum("int", "string", "bool", "enum")
+  value_type enum("int", "float", "string", "bool", "enum")
   default_value varchar /*nullable*/
   is_composable boolean /*default true*/
 }
@@ -200,6 +200,7 @@ Table entities {
   updated_at timestamp
   id_system integer
   id_overrides_entity integer /*nullable*/
+  table_name varchar /*ex: generators, rules, roles etc*/
 }
 Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
 
@@ -284,7 +285,9 @@ Table sheet_type_sheet_type {
   id_sheet_type_sheet_type integer [primary key]
   id_sheet_type_a integer
   id_sheet_type_b integer
+  id_relationship_rule integer
 }
+Ref: "sheet_type_sheet_type"."id_relationship_rule" > "rules"."id_entity"
 
 Table sheet_sheet {
   id_sheet_sheet integer [primary key]
