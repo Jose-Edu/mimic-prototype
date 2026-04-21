@@ -4,6 +4,8 @@ Table roles {
   is_default bool
   roleless_add bool
 }
+Ref: "roles"."id_entity" >
+"entities"."id_entity"
 
 Table access {
   id_entity integer [primary key]
@@ -17,23 +19,39 @@ Table access {
   can_delete boolean
   can_overwrite boolean
 }
+Ref: "access"."id_entity_to_access" >
+"entities"."id_entity"
+Ref: "access"."id_game_state" >
+"game_states"."id_entity"
+Ref: "access"."id_entity" >
+"entities"."id_entity"
 
 Table role_access {
   id_role_access integer [primary key]
   id_access integer
   id_role integer
 }
+Ref: "role_access"."id_role" > "roles"."id_entity"
+Ref: "role_access"."id_access" > "access"."id_entity"
 
 Table sheet_types {
   id_entity integer [primary key]
   name varchar 
   id_validation_rule integer
 }
+Ref: "sheet_types"."id_entity" >
+"entities"."id_entity"
+Ref: "sheet_types"."id_validation_rule" >
+"rules"."id_entity"
 
 Table sheets {
   id_entity integer [primary key]
   id_sheet_type integer
 }
+Ref: "sheets"."id_entity" >
+"entities"."id_entity"
+Ref: "sheets"."id_sheet_type" >
+"sheet_types"."id_entity"
 
 Table generator_types {
   id_entity integer [primary key]
@@ -41,25 +59,32 @@ Table generator_types {
   schema jsonb
   id_validation_rule integer
 }
+Ref: "generator_types"."id_entity" > "entities"."id_entity"
+Ref: "generator_types"."id_validation_rule" > "rules"."id_entity"
 
 Table generator_type_steps {
-
   id_entity integer [primary key]
   id_generator_type integer
   id_trigger_rule integer
   id_validation_rule integer
   name varchar
-
 }
+Ref: "generator_type_steps"."id_entity" > "entities"."id_entity"
+Ref: "generator_type_steps"."id_generator_type" > "generator_types"."id_entity"
+Ref: "generator_type_steps"."id_trigger_rule" > "rules"."id_entity"
+Ref: "generator_type_steps"."id_validation_rule" > "rules"."id_entity"
 
 Table generators {
   id_entity integer [primary key]
   id_generator_type integer
-  id_super_generator integer
+  id_super_generator integer /* nullable */
   is_children boolean /*default false*/
   name varchar 
   data jsonb
 }
+Ref: "generators"."id_entity" > "entities"."id_entity"
+Ref: "generators"."id_generator_type" > "generator_types"."id_entity"
+Ref: "generators"."id_super_generator" > "generators"."id_entity"
 
 Table generator_steps {
   id_entity integer [primary key]
@@ -68,6 +93,9 @@ Table generator_steps {
   name varchar
   data jsonb
 }
+Ref: "generator_steps"."id_entity" > "entities"."id_entity"
+Ref: "generator_steps"."id_generator" > "generators"."id_entity"
+Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_entity"
 
 Table sheet_type_generator_type {
   id_sheet_type_generator_type integer [primary key]
@@ -294,208 +322,3 @@ Table sheet_sheet {
   id_sheet_main integer
   id_sheet_children integer
 }
-
-Ref: "rngs"."id_entity" < "test_rng"."id_rng"
-
-Ref: "tests"."id_entity" < "test_rng"."id_test"
-
-Ref: "tests"."id_entity" < "test_attribute"."id_test"
-
-Ref: "attributes"."id_entity" < "test_attribute"."id_attribute"
-
-Ref: "attributes"."id_entity" < "globals"."id_attribute"
-
-Ref: "attributes"."id_entity" < "attribute_generator_type"."id_attribute"
-
-Ref: "skill_types"."id_entity" < "skill_type_generator_type"."id_skill_type"
-
-Ref: "roles"."id_entity" < "role_access"."id_role"
-
-Ref: "access"."id_entity" < "role_access"."id_access"
-
-Ref: "skills"."id_skill_type" <
-"skill_types"."id_entity"
-
-Ref: "generators"."id_generator_type" <
-"generator_types"."id_entity"
-
-Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_entity"
-
-Ref: "attribute_generator_type"."id_generator_type" >
-"generator_types"."id_entity"
-
-Ref: "skill_type_generator_type"."id_generator_type" >
-"generator_types"."id_entity"
-
-Ref: "sheet_type_generator_type"."id_sheet_type" >
-"sheet_types"."id_entity"
-
-Ref: "access"."id_entity_to_access" >
-"entities"."id_entity"
-
-Ref: "access"."id_game_state" >
-"game_states"."id_entity"
-
-Ref: "tests"."id_rule" >
-"rules"."id_entity"
-
-Ref: "rngs"."filter_rule_id" >
-"rules"."id_entity"
-
-Ref: "attributes"."id_value_rule" >
-"rules"."id_entity"
-
-Ref: "sheet_types"."id_validation_rule" >
-"rules"."id_entity"
-
-Ref: "skill_types"."id_validation_rule" >
-"rules"."id_entity"
-
-Ref: "skills"."id_action_rule" >
-"rules"."id_entity"
-
-Ref: "attribute_items"."id_attribute_composer" >
-"attributes"."id_entity"
-
-Ref: "attribute_items"."id_attribute_composable" >
-"attributes"."id_entity"
-
-Ref: "game_states"."turn_count_rule_id" >
-"rules"."id_entity"
-
-Ref: "game_states"."turn_order_rule_id" >
-"rules"."id_entity"
-
-Ref: "map_token"."id_map" >
-"maps"."id_entity"
-
-Ref: "map_token"."id_sheet" >
-"sheets"."id_entity"
-
-Ref: "sheets"."id_sheet_type" >
-"sheet_types"."id_entity"
-
-Ref: "generator_types"."id_validation_rule" >
-"rules"."id_entity"
-
-Ref: "generator_type_steps"."id_generator_type" >
-"generator_types"."id_entity"
-
-Ref: "generator_type_steps"."id_trigger_rule" >
-"rules"."id_entity"
-
-Ref: "generator_type_steps"."id_validation_rule" >
-"rules"."id_entity"
-
-Ref: "generator_steps"."id_generator" >
-"generators"."id_entity"
-
-Ref: "generator_steps"."id_generator_type_step" >
-"generator_type_steps"."id_entity"
-
-Ref: "generators"."id_super_generator" >
-"generators"."id_entity"
-
-Ref: "entities"."id_system" >
-"systems"."id_system"
-
-Ref: "roles"."id_entity" >
-"entities"."id_entity"
-
-Ref: "generators"."id_entity" >
-"entities"."id_entity"
-
-Ref: "rules"."id_entity" >
-"entities"."id_entity"
-
-Ref: "maps"."id_entity" >
-"entities"."id_entity"
-
-Ref: "sheet_types"."id_entity" >
-"entities"."id_entity"
-
-Ref: "generator_types"."id_entity" >
-"entities"."id_entity"
-
-Ref: "skills"."id_entity" >
-"entities"."id_entity"
-
-Ref: "attributes"."id_entity" >
-"entities"."id_entity"
-
-Ref: "rngs"."id_entity" >
-"entities"."id_entity"
-
-Ref: "tests"."id_entity" >
-"entities"."id_entity"
-
-Ref: "game_states"."id_entity" >
-"entities"."id_entity"
-
-Ref: "sheets"."id_entity" >
-"entities"."id_entity"
-
-Ref: "generator_type_steps"."id_entity" >
-"entities"."id_entity"
-
-Ref: "skill_types"."id_entity" >
-"entities"."id_entity"
-
-Ref: "globals"."id_entity" >
-"entities"."id_entity"
-
-Ref: "access"."id_entity" >
-"entities"."id_entity"
-
-Ref: "generator_steps"."id_entity" >
-"entities"."id_entity"
-
-Ref: "description_variants"."id_description_variant_type" >
-"description_variant_types"."id_description_variant_type"
-
-Ref: "descriptions"."id_description_variant" >
-"description_variants"."id_description_variant"
-
-Ref: "descriptions"."id_entity" >
-"entities"."id_entity"
-
-Ref: "tag_entity"."id_tag" >
-"tags"."id_tag"
-
-Ref:"tag_entity"."id_entity" >
-"entities"."id_entity"
-
-Ref: "sheet_type_attribute"."id_attribute" >
-"attributes"."id_entity"
-
-Ref: "sheet_type_attribute"."id_sheet_type" >
-"sheet_types"."id_entity"
-
-Ref: "sheet_generator"."id_sheet" >
-"sheets"."id_entity"
-
-Ref: "sheet_generator"."id_generator" >
-"generators"."id_entity"
-
-Ref: "sheet_attribute"."id_sheet" >
-"sheets"."id_entity"
-
-Ref: "sheet_attribute"."id_attribute" >
-"attributes"."id_entity"
-
-Ref: "sheet_skill"."id_sheet" >
-"sheets"."id_entity"
-
-Ref: "sheet_skill"."id_skill" >
-"skills"."id_entity"
-
-Ref: "systems"."id_delta_origin" >
-"systems"."id_system"
-
-Ref: "sheet_type_sheet_type"."id_sheet_type_main" > "sheet_types"."id_entity"
-
-Ref: "sheet_type_sheet_type"."id_sheet_type_children" > "sheet_types"."id_entity"
-
-Ref: "sheet_sheet"."id_sheet_main" > "sheets"."id_entity"
-
-Ref: "sheet_sheet"."id_sheet_children" > "sheets"."id_entity"
