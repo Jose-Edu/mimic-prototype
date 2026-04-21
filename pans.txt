@@ -1,4 +1,2 @@
-* trocar id_entity para nome semantico local
 * Tirar json de body de sheets e geradores
-
 * Definir tipos de rules e remapear
