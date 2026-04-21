@@ -1,13 +1,13 @@
 Table roles {
-  id_entity integer [primary key]
+  id_role integer [primary key]
   name varchar 
   is_default bool
   roleless_add bool
 }
-Ref: "roles"."id_entity" > "entities"."id_entity"
+Ref: "roles"."id_role" > "entities"."id_entity"
 
 Table access {
-  id_entity integer [primary key]
+  id_access integer [primary key]
   id_entity_to_access integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
@@ -19,120 +19,120 @@ Table access {
   can_overwrite boolean
 }
 Ref: "access"."id_entity_to_access" > "entities"."id_entity"
-Ref: "access"."id_game_state" > "game_states"."id_entity"
-Ref: "access"."id_entity" > "entities"."id_entity"
+Ref: "access"."id_game_state" > "game_states"."id_game_state"
+Ref: "access"."id_access" > "entities"."id_entity"
 
 Table role_access {
   id_role_access integer [primary key]
   id_access integer
   id_role integer
 }
-Ref: "role_access"."id_role" > "roles"."id_entity"
-Ref: "role_access"."id_access" > "access"."id_entity"
+Ref: "role_access"."id_role" > "roles"."id_role"
+Ref: "role_access"."id_access" > "access"."id_access"
 
 Table sheet_types {
-  id_entity integer [primary key]
+  id_sheet_type integer [primary key]
   name varchar 
   id_validation_rule integer
 }
-Ref: "sheet_types"."id_entity" > "entities"."id_entity"
-Ref: "sheet_types"."id_validation_rule" > "rules"."id_entity"
+Ref: "sheet_types"."id_sheet_type" > "entities"."id_entity"
+Ref: "sheet_types"."id_validation_rule" > "rules"."id_rule"
 
 Table sheets {
-  id_entity integer [primary key]
+  id_sheet integer [primary key]
   id_sheet_type integer
 }
-Ref: "sheets"."id_entity" > "entities"."id_entity"
-Ref: "sheets"."id_sheet_type" > "sheet_types"."id_entity"
+Ref: "sheets"."id_sheet" > "entities"."id_entity"
+Ref: "sheets"."id_sheet_type" > "sheet_types"."id_sheet_type"
 
 Table generator_types {
-  id_entity integer [primary key]
+  id_generator_type integer [primary key]
   name varchar 
   schema jsonb
   id_validation_rule integer
 }
-Ref: "generator_types"."id_entity" > "entities"."id_entity"
-Ref: "generator_types"."id_validation_rule" > "rules"."id_entity"
+Ref: "generator_types"."id_generator_type" > "entities"."id_entity"
+Ref: "generator_types"."id_validation_rule" > "rules"."id_rule"
 
 Table generator_type_steps {
-  id_entity integer [primary key]
+  id_generator_type_step integer [primary key]
   id_generator_type integer
   id_trigger_rule integer
   id_validation_rule integer
   name varchar
 }
-Ref: "generator_type_steps"."id_entity" > "entities"."id_entity"
-Ref: "generator_type_steps"."id_generator_type" > "generator_types"."id_entity"
-Ref: "generator_type_steps"."id_trigger_rule" > "rules"."id_entity"
-Ref: "generator_type_steps"."id_validation_rule" > "rules"."id_entity"
+Ref: "generator_type_steps"."id_generator_type_step" > "entities"."id_entity"
+Ref: "generator_type_steps"."id_generator_type" > "generator_types"."id_generator_type"
+Ref: "generator_type_steps"."id_trigger_rule" > "rules"."id_rule"
+Ref: "generator_type_steps"."id_validation_rule" > "rules"."id_rule"
 
 Table generators {
-  id_entity integer [primary key]
+  id_generator integer [primary key]
   id_generator_type integer
   id_super_generator integer /* nullable */
   is_children boolean /*default false*/
   name varchar 
   data jsonb
 }
-Ref: "generators"."id_entity" > "entities"."id_entity"
-Ref: "generators"."id_generator_type" > "generator_types"."id_entity"
-Ref: "generators"."id_super_generator" > "generators"."id_entity"
+Ref: "generators"."id_generator" > "entities"."id_entity"
+Ref: "generators"."id_generator_type" > "generator_types"."id_generator_type"
+Ref: "generators"."id_super_generator" > "generators"."id_generator"
 
 Table generator_steps {
-  id_entity integer [primary key]
+  id_generator_step integer [primary key]
   id_generator integer
   id_generator_type_step integer
   name varchar
   data jsonb
 }
-Ref: "generator_steps"."id_entity" > "entities"."id_entity"
-Ref: "generator_steps"."id_generator" > "generators"."id_entity"
-Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_entity"
+Ref: "generator_steps"."id_generator_step" > "entities"."id_entity"
+Ref: "generator_steps"."id_generator" > "generators"."id_generator"
+Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_generator_type_step"
 
 Table sheet_type_generator_type {
   id_sheet_type_generator_type integer [primary key]
   id_sheet_type integer
   id_generator_type integer
 }
-Ref: "sheet_type_generator_type"."id_sheet_type" > "sheet_types"."id_entity"
-Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_entity"
+Ref: "sheet_type_generator_type"."id_sheet_type" > "sheet_types"."id_sheet_type"
+Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
 
 Table skill_types {
-  id_entity integer [primary key]
+  id_skill_type integer [primary key]
   name varchar 
   id_validation_rule integer
 }
-Ref: "skill_types"."id_entity" > "entities"."id_entity"
-Ref: "skill_types"."id_validation_rule" > "rules"."id_entity"
+Ref: "skill_types"."id_skill_type" > "entities"."id_entity"
+Ref: "skill_types"."id_validation_rule" > "rules"."id_rule"
 
 Table skills {
-  id_entity integer [primary key]
+  id_skill integer [primary key]
   id_skill_type integer
   name varchar
   id_action_rule integer
 }
-Ref: "skills"."id_entity" > "entities"."id_entity"
-Ref: "skills"."id_skill_type" > "skill_types"."id_entity"
-Ref: "skills"."id_action_rule" > "rules"."id_entity"
+Ref: "skills"."id_skill" > "entities"."id_entity"
+Ref: "skills"."id_skill_type" > "skill_types"."id_skill_type"
+Ref: "skills"."id_action_rule" > "rules"."id_rule"
 
 Table skill_type_generator_type {
   id_skill_type_generator_type integer [primary key]
   id_skill_type integer
   id_generator_type integer
 }
-Ref: "skill_type_generator_type"."id_skill_type" > "skill_types"."id_entity"
-Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_entity"
+Ref: "skill_type_generator_type"."id_skill_type" > "skill_types"."id_skill_type"
+Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
 
 Table rules {
-  id_entity integer [primary key]
+  id_rule integer [primary key]
   name varchar
   type varchar
   rule jsonb /*ast*/
 }
-Ref: "rules"."id_entity" > "entities"."id_entity"
+Ref: "rules"."id_rule" > "entities"."id_entity"
 
 Table rngs {
-  id_entity integer [primary key]
+  id_rng integer [primary key]
   name varchar 
   id_filter_rule integer /*nullable*/
   expected_value integer /*nullable*/
@@ -141,19 +141,19 @@ Table rngs {
   generator_step integer /*nullable default 1*/
   cached_values integer[]
 }
-Ref: "rngs"."id_entity" > "entities"."id_entity"
-Ref: "rngs"."id_filter_rule" > "rules"."id_entity"
+Ref: "rngs"."id_rng" > "entities"."id_entity"
+Ref: "rngs"."id_filter_rule" > "rules"."id_rule"
 
 Table attributes {
-  id_entity integer [primary key]
+  id_attribute integer [primary key]
   id_value_rule integer
   name varchar 
   value_type enum("int", "float", "string", "bool", "enum")
   default_value varchar /*nullable*/
   is_composable boolean /*default true*/
 }
-Ref: "attributes"."id_entity" > "entities"."id_entity"
-Ref: "attributes"."id_value_rule" > "rules"."id_entity"
+Ref: "attributes"."id_attribute" > "entities"."id_entity"
+Ref: "attributes"."id_value_rule" > "rules"."id_rule"
 
 Table attribute_items {
   id_attribute_item integer [primary key]
@@ -161,59 +161,59 @@ Table attribute_items {
   id_attribute_composable integer
   name varchar
 }
-Ref: "attribute_items"."id_attribute_composer" > "attributes"."id_entity"
-Ref: "attribute_items"."id_attribute_composable" > "attributes"."id_entity"
+Ref: "attribute_items"."id_attribute_composer" > "attributes"."id_attribute"
+Ref: "attribute_items"."id_attribute_composable" > "attributes"."id_attribute"
 
 Table globals {
-  id_entity integer [primary key]
+  id_global integer [primary key]
   id_attribute integer
   name varchar 
   is_constant bool
 }
-Ref: "globals"."id_entity" > "entities"."id_entity"
-Ref: "globals"."id_attribute" > "attributes"."id_entity"
+Ref: "globals"."id_global" > "entities"."id_entity"
+Ref: "globals"."id_attribute" > "attributes"."id_attribute"
 
 Table tests {
-  id_entity integer [primary key]
+  id_test integer [primary key]
   name varchar 
   id_rule integer
 }
-Ref: "tests"."id_entity" > "entities"."id_entity"
-Ref: "tests"."id_rule" > "rules"."id_entity"
+Ref: "tests"."id_test" > "entities"."id_entity"
+Ref: "tests"."id_rule" > "rules"."id_rule"
 
 Table test_attribute {
   id_test_attribute integer [primary key]
   id_test integer
   id_attribute integer
 }
-Ref: "test_attribute"."id_test" > "tests"."id_entity"
-Ref: "test_attribute"."id_attribute" > "attributes"."id_entity"
+Ref: "test_attribute"."id_test" > "tests"."id_test"
+Ref: "test_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table test_rng {
   id_test_rng integer [primary key]
   id_test integer
   id_rng integer
 }
-Ref: "test_rng"."id_test" > "tests"."id_entity"
-Ref: "test_rng"."id_rng" > "rngs"."id_entity"
+Ref: "test_rng"."id_test" > "tests"."id_test"
+Ref: "test_rng"."id_rng" > "rngs"."id_rng"
 
 Table attribute_generator_type {
   id_attribute_generator_type integer [primary key]
   id_attribute integer
   id_generator_type integer
 }
-Ref: "attribute_generator_type"."id_attribute" > "attributes"."id_entity"
-Ref: "attribute_generator_type"."id_generator_type" > "generator_types"."id_entity"
+Ref: "attribute_generator_type"."id_attribute" > "attributes"."id_attribute"
+Ref: "attribute_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
 
 Table game_states {
-  id_entity integer [primary key]
+  id_game_state integer [primary key]
   name varchar 
   turn_count_rule_id integer
   turn_order_rule_id integer
 }
-Ref: "game_states"."id_entity" > "entities"."id_entity"
-Ref: "game_states"."turn_count_rule_id" > "rules"."id_entity"
-Ref: "game_states"."turn_order_rule_id" > "rules"."id_entity"
+Ref: "game_states"."id_game_state" > "entities"."id_entity"
+Ref: "game_states"."turn_count_rule_id" > "rules"."id_rule"
+Ref: "game_states"."turn_order_rule_id" > "rules"."id_rule"
 
 Table systems {
   id_system integer [primary key]
@@ -255,13 +255,13 @@ Table entities {
 Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
 
 Table maps {
-  id_entity integer [primary key]
+  id_map integer [primary key]
   name varchar 
   x_size integer
   y_size integer
   z_size integer
 }
-Ref: "maps"."id_entity" > "entities"."id_entity"
+Ref: "maps"."id_map" > "entities"."id_entity"
 
 Table map_token {
   id_map_token integer [primary key]
@@ -278,8 +278,8 @@ Table map_token {
   angle_y integer /*-360-360*/
   angle_z integer /*-360-360*/
 }
-Ref: "map_token"."id_sheet" > "sheets"."id_entity"
-Ref: "map_token"."id_map" > "maps"."id_entity"
+Ref: "map_token"."id_sheet" > "sheets"."id_sheet"
+Ref: "map_token"."id_map" > "maps"."id_map"
 
 Table description_variant_types {
   id_description_variant_type integer [primary key]
@@ -312,8 +312,8 @@ Table sheet_type_attribute {
   id_sheet_type integer
   id_attribute integer
 }
-Ref: "sheet_type_attribute"."id_sheet_type" > "sheet_types"."id_entity"
-Ref: "sheet_type_attribute"."id_attribute" > "attributes"."id_entity"
+Ref: "sheet_type_attribute"."id_sheet_type" > "sheet_types"."id_sheet_type"
+Ref: "sheet_type_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_generator {
   id_sheet_generator integer [primary key]
@@ -321,8 +321,8 @@ Table sheet_generator {
   id_generator integer
   data jsonb
 }
-Ref: "sheet_generator"."id_sheet" > "sheets"."id_entity"
-Ref: "sheet_generator"."id_generator" > "generators"."id_entity"
+Ref: "sheet_generator"."id_sheet" > "sheets"."id_sheet"
+Ref: "sheet_generator"."id_generator" > "generators"."id_generator"
 
 Table sheet_attribute {
   id_sheet_attribute integer [primary key]
@@ -330,8 +330,8 @@ Table sheet_attribute {
   id_attribute integer
   data jsonb
 }
-Ref: "sheet_attribute"."id_sheet" > "sheets"."id_entity"
-Ref: "sheet_attribute"."id_attribute" > "attributes"."id_entity"
+Ref: "sheet_attribute"."id_sheet" > "sheets"."id_sheet"
+Ref: "sheet_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_skill {
   id_sheet_skill integer [primary key]
@@ -339,8 +339,8 @@ Table sheet_skill {
   id_skill integer
   data jsonb
 }
-Ref: "sheet_skill"."id_sheet" > "sheets"."id_entity"
-Ref: "sheet_skill"."id_skill" > "skills"."id_entity"
+Ref: "sheet_skill"."id_sheet" > "sheets"."id_sheet"
+Ref: "sheet_skill"."id_skill" > "skills"."id_skill"
 
 Table sheet_type_sheet_type {
   id_sheet_type_sheet_type integer [primary key]
@@ -348,14 +348,14 @@ Table sheet_type_sheet_type {
   id_sheet_type_children integer
   id_relationship_rule integer
 }
-Ref: "sheet_type_sheet_type"."id_sheet_type_main" > "sheet_types"."id_entity"
-Ref: "sheet_type_sheet_type"."id_sheet_type_children" > "sheet_types"."id_entity"
-Ref: "sheet_type_sheet_type"."id_relationship_rule" > "rules"."id_entity"
+Ref: "sheet_type_sheet_type"."id_sheet_type_main" > "sheet_types"."id_sheet_type"
+Ref: "sheet_type_sheet_type"."id_sheet_type_children" > "sheet_types"."id_sheet_type"
+Ref: "sheet_type_sheet_type"."id_relationship_rule" > "rules"."id_rule"
 
 Table sheet_sheet {
   id_sheet_sheet integer [primary key]
   id_sheet_main integer
   id_sheet_children integer
 }
-Ref: "sheet_sheet"."id_sheet_main" > "sheets"."id_entity"
-Ref: "sheet_sheet"."id_sheet_children" > "sheets"."id_entity"
+Ref: "sheet_sheet"."id_sheet_main" > "sheets"."id_sheet"
+Ref: "sheet_sheet"."id_sheet_children" > "sheets"."id_sheet"
