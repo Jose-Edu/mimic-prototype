@@ -47,8 +47,7 @@ Ref: "sheets"."id_sheet_type" > "sheet_types"."id_sheet_type"
 
 Table generator_types {
   id_generator_type integer [primary key]
-  name varchar 
-  schema jsonb
+  name varchar
   id_validation_rule integer
 }
 Ref: "generator_types"."id_generator_type" > "entities"."id_entity"
