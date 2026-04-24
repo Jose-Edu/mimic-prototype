@@ -327,7 +327,7 @@ Table sheet_attribute {
   id_sheet_attribute integer [primary key]
   id_sheet integer
   id_attribute integer
-  data jsonb
+  attribute_entry text
 }
 Ref: "sheet_attribute"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_attribute"."id_attribute" > "attributes"."id_attribute"
