@@ -1,7 +1,0 @@
-{
-    "output": "@/out/auto-docs",
-    "input": "@/attachments",
-    "generate-items": "all",
-    "generate-formats": "all",
-    "generate-extras": "all"
-}

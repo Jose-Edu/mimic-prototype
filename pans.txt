@@ -1,1 +1,1 @@
-* Definir tipos de rules e remapear
+* Definir arquivos md e documentar tudo

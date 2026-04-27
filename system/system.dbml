@@ -297,9 +297,9 @@ Table map_token {
   y_size integer
   z_size integer
   origin integer
-  angle_x integer /*-360-360*/
-  angle_y integer /*-360-360*/
-  angle_z integer /*-360-360*/
+  angle_x integer /*0-360*/
+  angle_y integer /*0-360*/
+  angle_z integer /*0-360*/
 }
 Ref: "map_token"."id_sheet" > "sheets"."id_sheet"
 Ref: "map_token"."id_map" > "maps"."id_map"
