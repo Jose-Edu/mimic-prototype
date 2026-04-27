@@ -70,8 +70,7 @@ Table generators {
   id_generator_type integer
   id_super_generator integer /* nullable */
   is_children boolean /*default false*/
-  name varchar 
-  data jsonb
+  name varchar
 }
 Ref: "generators"."id_generator" > "entities"."id_entity"
 Ref: "generators"."id_generator_type" > "generator_types"."id_generator_type"
@@ -82,11 +81,36 @@ Table generator_steps {
   id_generator integer
   id_generator_type_step integer
   name varchar
-  data jsonb
 }
 Ref: "generator_steps"."id_generator_step" > "entities"."id_entity"
 Ref: "generator_steps"."id_generator" > "generators"."id_generator"
 Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_generator_type_step"
+
+Table generator_step_attribute {
+  id_generator_step_attribute integer [primary key]
+  id_generator_step integer
+  id_attribute integer
+  attribute_entry text
+}
+Ref: "generator_step_attribute"."id_generator_step" > "generator_steps"."id_generator_step"
+Ref: "generator_step_attribute"."id_attribute" > "attributes"."id_attribute"
+
+Table generator_step_skill {
+  id_generator_step_skill integer [primary key]
+  id_generator_step integer
+  id_skill integer
+}
+Ref: "generator_step_skill"."id_generator_step" > "generator_steps"."id_generator_step"
+Ref: "generator_step_skill"."id_skill" > "skills"."id_skill"
+
+Table generator_step_skill_attribute {
+  id_generator_step_skill_attribute integer [primary key]
+  id_generator_step_skill integer
+  id_attribute integer
+  attribute_entry text
+}
+Ref: "generator_step_skill_attribute"."id_generator_step_skill" > "generator_step_skill"."id_generator_step_skill"
+Ref: "generator_step_skill_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_type_generator_type {
   id_sheet_type_generator_type integer [primary key]
@@ -318,7 +342,6 @@ Table sheet_generator {
   id_sheet_generator integer [primary key]
   id_sheet integer
   id_generator integer
-  data jsonb
 }
 Ref: "sheet_generator"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_generator"."id_generator" > "generators"."id_generator"
@@ -336,10 +359,18 @@ Table sheet_skill {
   id_sheet_skill integer [primary key]
   id_sheet integer
   id_skill integer
-  data jsonb
 }
 Ref: "sheet_skill"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_skill"."id_skill" > "skills"."id_skill"
+
+Table sheet_skill_attribute {
+  id_sheet_skill_atribute integer [primary key]
+  id_sheet_skill integer
+  id_attribute integer
+  attribute_entry text
+}
+Ref: "sheet_skill_attribute"."id_sheet_skill" > "sheet_skill"."id_sheet_skill"
+Ref: "sheet_skill_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_type_sheet_type {
   id_sheet_type_sheet_type integer [primary key]

@@ -1,2 +1,1 @@
-* Tirar json de body de sheets e geradores
 * Definir tipos de rules e remapear

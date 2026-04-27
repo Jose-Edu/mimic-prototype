@@ -7,230 +7,254 @@
     {
       "name": "roles",
       "schemaName": "public",
-      "x": 536.52392578125,
-      "y": 73
+      "x": 536,
+      "y": 72
     },
     {
       "name": "access",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 32
+      "x": 1784,
+      "y": 72
     },
     {
       "name": "role_access",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 32
+      "x": 2392,
+      "y": 72
     },
     {
       "name": "sheet_types",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 248
+      "x": 1128,
+      "y": 72
     },
     {
       "name": "sheets",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 1132
+      "x": 1784,
+      "y": 472
     },
     {
       "name": "generator_types",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 73
+      "x": 1128,
+      "y": 248
     },
     {
       "name": "generator_type_steps",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 430
+      "x": 1784,
+      "y": 616
     },
     {
       "name": "generators",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 688
+      "x": 1784,
+      "y": 872
     },
     {
       "name": "generator_steps",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 206
+      "x": 2392,
+      "y": 248
+    },
+    {
+      "name": "generator_step_attribute",
+      "schemaName": "public",
+      "x": 2960,
+      "y": 32
+    },
+    {
+      "name": "generator_step_skill",
+      "schemaName": "public",
+      "x": 2960,
+      "y": 240
+    },
+    {
+      "name": "generator_step_skill_attribute",
+      "schemaName": "public",
+      "x": 3536,
+      "y": 32
     },
     {
       "name": "sheet_type_generator_type",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 958
+      "x": 1784,
+      "y": 1112
     },
     {
       "name": "skill_types",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 422
+      "x": 1128,
+      "y": 424
     },
     {
       "name": "skills",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 1274
+      "x": 1784,
+      "y": 1288
     },
     {
       "name": "skill_type_generator_type",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 1480
+      "x": 1784,
+      "y": 1488
     },
     {
       "name": "rules",
       "schemaName": "public",
-      "x": 536.52392578125,
-      "y": 279
+      "x": 536,
+      "y": 280
     },
     {
       "name": "rngs",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 596
+      "x": 1128,
+      "y": 600
     },
     {
       "name": "attributes",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 930
+      "x": 1128,
+      "y": 928
     },
     {
       "name": "attribute_items",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 2208
+      "x": 1784,
+      "y": 1664
     },
     {
       "name": "globals",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 2762
+      "x": 1784,
+      "y": 1872
     },
     {
       "name": "tests",
       "schemaName": "public",
-      "x": 1170.20751953125,
+      "x": 1128,
       "y": 1200
     },
     {
       "name": "test_attribute",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 2588
+      "x": 1784,
+      "y": 2080
     },
     {
       "name": "test_rng",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 2414
+      "x": 1784,
+      "y": 2248
     },
     {
       "name": "attribute_generator_type",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 1654
+      "x": 1784,
+      "y": 2424
     },
     {
       "name": "game_states",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 1374
+      "x": 1128,
+      "y": 1376
     },
     {
       "name": "systems",
       "schemaName": "public",
-      "x": 12,
-      "y": 322
+      "x": 16,
+      "y": 32
     },
     {
       "name": "tags",
       "schemaName": "public",
-      "x": 536.52392578125,
-      "y": 725
+      "x": 536,
+      "y": 488
     },
     {
       "name": "tag_entity",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 1581
+      "x": 1128,
+      "y": 1584
     },
     {
       "name": "entities",
       "schemaName": "public",
-      "x": 12,
-      "y": 32
+      "x": 16,
+      "y": 448
     },
     {
       "name": "maps",
       "schemaName": "public",
-      "x": 536.52392578125,
-      "y": 486
+      "x": 536,
+      "y": 656
     },
     {
       "name": "map_token",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 1030
+      "x": 2392,
+      "y": 488
     },
     {
       "name": "description_variant_types",
       "schemaName": "public",
-      "x": 536.52392578125,
-      "y": 900
+      "x": 536,
+      "y": 896
     },
     {
       "name": "description_variants",
       "schemaName": "public",
-      "x": 1170.20751953125,
-      "y": 1755
+      "x": 1128,
+      "y": 1752
     },
     {
       "name": "descriptions",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 2969
+      "x": 1784,
+      "y": 2600
     },
     {
       "name": "sheet_type_attribute",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 1828
+      "x": 1784,
+      "y": 2840
     },
     {
       "name": "sheet_generator",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 444
+      "x": 2392,
+      "y": 976
     },
     {
       "name": "sheet_attribute",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 1524
+      "x": 2392,
+      "y": 1184
     },
     {
       "name": "sheet_skill",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 824
+      "x": 2392,
+      "y": 1392
+    },
+    {
+      "name": "sheet_skill_attribute",
+      "schemaName": "public",
+      "x": 2960,
+      "y": 416
     },
     {
       "name": "sheet_type_sheet_type",
       "schemaName": "public",
-      "x": 1883.9365234375,
-      "y": 2002
+      "x": 1784,
+      "y": 3008
     },
     {
       "name": "sheet_sheet",
       "schemaName": "public",
-      "x": 2532.01025390625,
-      "y": 650
+      "x": 2392,
+      "y": 1568
     }
   ],
   "tableGroupCollapseStates": [],
@@ -562,6 +586,96 @@
         "id_generator_type_step"
       ],
       "secondTableName": "generator_type_steps",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_generator_step"
+      ],
+      "firstTableName": "generator_step_attribute",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_generator_step"
+      ],
+      "secondTableName": "generator_steps",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_attribute"
+      ],
+      "firstTableName": "generator_step_attribute",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_attribute"
+      ],
+      "secondTableName": "attributes",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_generator_step"
+      ],
+      "firstTableName": "generator_step_skill",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_generator_step"
+      ],
+      "secondTableName": "generator_steps",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_skill"
+      ],
+      "firstTableName": "generator_step_skill",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_skill"
+      ],
+      "secondTableName": "skills",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_generator_step_skill"
+      ],
+      "firstTableName": "generator_step_skill_attribute",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_generator_step_skill"
+      ],
+      "secondTableName": "generator_step_skill",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_attribute"
+      ],
+      "firstTableName": "generator_step_skill_attribute",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_attribute"
+      ],
+      "secondTableName": "attributes",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
@@ -1297,6 +1411,36 @@
         "id_skill"
       ],
       "secondTableName": "skills",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_sheet_skill"
+      ],
+      "firstTableName": "sheet_skill_attribute",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_sheet_skill"
+      ],
+      "secondTableName": "sheet_skill",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_attribute"
+      ],
+      "firstTableName": "sheet_skill_attribute",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_attribute"
+      ],
+      "secondTableName": "attributes",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
