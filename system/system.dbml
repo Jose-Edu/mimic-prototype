@@ -116,6 +116,7 @@ Table sheet_type_generator_type {
   id_sheet_type_generator_type integer [primary key]
   id_sheet_type integer
   id_generator_type integer
+  order integer
 }
 Ref: "sheet_type_generator_type"."id_sheet_type" > "sheet_types"."id_sheet_type"
 Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
