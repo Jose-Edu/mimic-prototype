@@ -1,13 +1,37 @@
+Table users {
+  id_user integer
+  name varchar
+}
+
+Table user_system {
+  id_user_system integer [primary key]
+  id_user integer
+  id_system integer
+}
+Ref: "user_system"."id_user" > "users"."id_user"
+Ref: "user_system"."id_system" > "systems"."id_system"
+
+Table user_role {
+  id_user_role integer [primary key]
+  id_user integer
+  id_role integer
+}
+Ref: "user_role"."id_user" > "users"."id_user"
+Ref: "user_role"."id_role" > "roles"."id_role"
+
 Table roles {
   id_role integer [primary key]
+  id_system integer
   name varchar 
   is_default bool
   roleless_add bool
 }
 Ref: "roles"."id_role" > "entities"."id_entity"
+Ref: "roles"."id_system" > "systems"."id_system"
 
 Table access {
   id_access integer [primary key]
+  id_system integer
   id_entity_to_access integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
@@ -21,6 +45,7 @@ Table access {
 Ref: "access"."id_entity_to_access" > "entities"."id_entity"
 Ref: "access"."id_game_state" > "game_states"."id_game_state"
 Ref: "access"."id_access" > "entities"."id_entity"
+Ref: "access"."id_system" > "systems"."id_system"
 
 Table role_access {
   id_role_access integer [primary key]
@@ -34,9 +59,11 @@ Table sheet_types {
   id_sheet_type integer [primary key]
   name varchar 
   id_validation_rule integer
+  id_compose_rule integer
 }
 Ref: "sheet_types"."id_sheet_type" > "entities"."id_entity"
 Ref: "sheet_types"."id_validation_rule" > "rules"."id_rule"
+Ref: "sheet_types"."id_compose_rule" > "rules"."id_rule"
 
 Table sheets {
   id_sheet integer [primary key]
@@ -49,9 +76,11 @@ Table generator_types {
   id_generator_type integer [primary key]
   name varchar
   id_validation_rule integer
+  id_compose_rule integer
 }
 Ref: "generator_types"."id_generator_type" > "entities"."id_entity"
 Ref: "generator_types"."id_validation_rule" > "rules"."id_rule"
+Ref: "generator_types"."id_compose_rule" > "rules"."id_rule"
 
 Table generator_type_steps {
   id_generator_type_step integer [primary key]
@@ -244,7 +273,7 @@ Table systems {
   mimic_version varchar
   name varchar
   system_version varchar
-  author varchar
+  id_author_user integer
   system_hash varchar
   created_at timestamp
   updated_at timestamp
@@ -252,6 +281,7 @@ Table systems {
   id_delta_origin integer /*nullable*/
 }
 Ref: "systems"."id_delta_origin" > "systems"."id_system"
+Ref: "systems"."id_author_user" > "users"."id_user"
 
 Table tags {
   id_tag integer [primary key]
@@ -273,10 +303,12 @@ Table entities {
   created_at timestamp
   updated_at timestamp
   id_system integer
+  id_creator_user integer
   id_overrides_entity integer /*nullable*/
   table_name varchar /*ex: generators, rules, roles etc*/
 }
 Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
+Ref: "entities"."id_creator_user" > "users"."id_user"
 
 Table maps {
   id_map integer [primary key]
