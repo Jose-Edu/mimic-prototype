@@ -1,2 +1,1 @@
-* remover ids de tabelas n:n quando inutil
 * Definir arquivos md e documentar tudo
