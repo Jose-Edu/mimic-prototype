@@ -4,34 +4,29 @@ Table users {
 }
 
 Table user_system {
-  id_user_system integer [primary key]
-  id_user integer
-  id_system integer
+  id_user integer [primary key]
+  id_system integer [primary key]
 }
 Ref: "user_system"."id_user" > "users"."id_user"
 Ref: "user_system"."id_system" > "systems"."id_system"
 
 Table user_role {
-  id_user_role integer [primary key]
-  id_user integer
-  id_role integer
+  id_user integer [primary key]
+  id_role integer [primary key]
 }
 Ref: "user_role"."id_user" > "users"."id_user"
 Ref: "user_role"."id_role" > "roles"."id_role"
 
 Table roles {
   id_role integer [primary key]
-  id_system integer
   name varchar 
   is_default bool
   roleless_add bool
 }
 Ref: "roles"."id_role" > "entities"."id_entity"
-Ref: "roles"."id_system" > "systems"."id_system"
 
 Table access {
   id_access integer [primary key]
-  id_system integer
   id_entity_to_access integer /*nullable*/
   id_game_state integer /*nullable*/
   scope enum("self", "same", "other")
@@ -45,12 +40,10 @@ Table access {
 Ref: "access"."id_entity_to_access" > "entities"."id_entity"
 Ref: "access"."id_game_state" > "game_states"."id_game_state"
 Ref: "access"."id_access" > "entities"."id_entity"
-Ref: "access"."id_system" > "systems"."id_system"
 
 Table role_access {
-  id_role_access integer [primary key]
-  id_access integer
-  id_role integer
+  id_access integer [primary key]
+  id_role integer [primary key]
 }
 Ref: "role_access"."id_role" > "roles"."id_role"
 Ref: "role_access"."id_access" > "access"."id_access"
@@ -116,9 +109,8 @@ Ref: "generator_steps"."id_generator" > "generators"."id_generator"
 Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_generator_type_step"
 
 Table generator_step_attribute {
-  id_generator_step_attribute integer [primary key]
-  id_generator_step integer
-  id_attribute integer
+  id_generator_step integer [primary key]
+  id_attribute integer [primary key]
   attribute_entry text
 }
 Ref: "generator_step_attribute"."id_generator_step" > "generator_steps"."id_generator_step"
@@ -133,9 +125,8 @@ Ref: "generator_step_skill"."id_generator_step" > "generator_steps"."id_generato
 Ref: "generator_step_skill"."id_skill" > "skills"."id_skill"
 
 Table generator_step_skill_attribute {
-  id_generator_step_skill_attribute integer [primary key]
-  id_generator_step_skill integer
-  id_attribute integer
+  id_generator_step_skill integer [primary key]
+  id_attribute integer [primary key]
   attribute_entry text
 }
 Ref: "generator_step_skill_attribute"."id_generator_step_skill" > "generator_step_skill"."id_generator_step_skill"
@@ -169,9 +160,8 @@ Ref: "skills"."id_skill_type" > "skill_types"."id_skill_type"
 Ref: "skills"."id_action_rule" > "rules"."id_rule"
 
 Table skill_type_generator_type {
-  id_skill_type_generator_type integer [primary key]
-  id_skill_type integer
-  id_generator_type integer
+  id_skill_type integer [primary key]
+  id_generator_type integer [primary key]
 }
 Ref: "skill_type_generator_type"."id_skill_type" > "skill_types"."id_skill_type"
 Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
@@ -235,25 +225,22 @@ Ref: "tests"."id_test" > "entities"."id_entity"
 Ref: "tests"."id_rule" > "rules"."id_rule"
 
 Table test_attribute {
-  id_test_attribute integer [primary key]
-  id_test integer
-  id_attribute integer
+  id_test integer [primary key]
+  id_attribute integer [primary key]
 }
 Ref: "test_attribute"."id_test" > "tests"."id_test"
 Ref: "test_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table test_rng {
-  id_test_rng integer [primary key]
-  id_test integer
-  id_rng integer
+  id_test integer [primary key]
+  id_rng integer [primary key]
 }
 Ref: "test_rng"."id_test" > "tests"."id_test"
 Ref: "test_rng"."id_rng" > "rngs"."id_rng"
 
 Table attribute_generator_type {
-  id_attribute_generator_type integer [primary key]
-  id_attribute integer
-  id_generator_type integer
+  id_attribute integer [primary key]
+  id_generator_type integer [primary key]
 }
 Ref: "attribute_generator_type"."id_attribute" > "attributes"."id_attribute"
 Ref: "attribute_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
@@ -291,9 +278,8 @@ Table tags {
 Ref: "tags"."id_system" > "systems"."id_system"
 
 Table tag_entity {
-  id_tag_entity integer [primary key]
-  id_tag integer
-  id_entity integer
+  id_tag integer [primary key]
+  id_entity integer [primary key]
 }
 Ref: "tag_entity"."id_tag" > "tags"."id_tag"
 Ref: "tag_entity"."id_entity" > "entities"."id_entity"
@@ -309,6 +295,7 @@ Table entities {
 }
 Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
 Ref: "entities"."id_creator_user" > "users"."id_user"
+Ref: "entities"."id_system" > "systems"."id_system"
 
 Table maps {
   id_map integer [primary key]
@@ -364,9 +351,8 @@ Ref: "descriptions"."id_description_variant" >
 "description_variants"."id_description_variant"
 
 Table sheet_type_attribute {
-  id_sheet_type_attribute integer [primary key]
-  id_sheet_type integer
-  id_attribute integer
+  id_sheet_type integer [primary key]
+  id_attribute integer [primary key]
 }
 Ref: "sheet_type_attribute"."id_sheet_type" > "sheet_types"."id_sheet_type"
 Ref: "sheet_type_attribute"."id_attribute" > "attributes"."id_attribute"
@@ -375,14 +361,14 @@ Table sheet_generator {
   id_sheet_generator integer [primary key]
   id_sheet integer
   id_generator integer
+  order integer
 }
 Ref: "sheet_generator"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_generator"."id_generator" > "generators"."id_generator"
 
 Table sheet_attribute {
-  id_sheet_attribute integer [primary key]
-  id_sheet integer
-  id_attribute integer
+  id_sheet integer [primary key]
+  id_attribute integer [primary key]
   attribute_entry text
 }
 Ref: "sheet_attribute"."id_sheet" > "sheets"."id_sheet"
@@ -390,25 +376,23 @@ Ref: "sheet_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_skill {
   id_sheet_skill integer [primary key]
-  id_sheet integer
-  id_skill integer
+  id_sheet integer [primary key]
+  id_skill integer [primary key]
 }
 Ref: "sheet_skill"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_skill"."id_skill" > "skills"."id_skill"
 
 Table sheet_skill_attribute {
-  id_sheet_skill_atribute integer [primary key]
-  id_sheet_skill integer
-  id_attribute integer
+  id_sheet_skill integer [primary key]
+  id_attribute integer [primary key]
   attribute_entry text
 }
 Ref: "sheet_skill_attribute"."id_sheet_skill" > "sheet_skill"."id_sheet_skill"
 Ref: "sheet_skill_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_type_sheet_type {
-  id_sheet_type_sheet_type integer [primary key]
-  id_sheet_type_main integer
-  id_sheet_type_children integer
+  id_sheet_type_main integer [primary key]
+  id_sheet_type_children integer [primary key]
   id_relationship_rule integer
 }
 Ref: "sheet_type_sheet_type"."id_sheet_type_main" > "sheet_types"."id_sheet_type"
