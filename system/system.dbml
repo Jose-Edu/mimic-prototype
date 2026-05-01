@@ -375,7 +375,6 @@ Ref: "sheet_attribute"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_skill {
-  id_sheet_skill integer [primary key]
   id_sheet integer [primary key]
   id_skill integer [primary key]
 }
