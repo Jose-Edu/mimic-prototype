@@ -169,7 +169,7 @@ Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_gen
 Table rules {
   id_rule integer [primary key]
   name varchar
-  type varchar
+  type enum("int", "float", "string", "bool", "enum", "list")
   rule jsonb /*ast*/
 }
 Ref: "rules"."id_rule" > "entities"."id_entity"
@@ -191,7 +191,7 @@ Table attributes {
   id_attribute integer [primary key]
   id_value_rule integer
   name varchar 
-  value_type enum("int", "float", "string", "bool", "enum")
+  value_type enum("int", "float", "string", "bool", "enum", "list")
   default_value varchar /*nullable*/
   is_composable boolean /*default true*/
 }
@@ -212,6 +212,7 @@ Table globals {
   id_attribute integer
   name varchar 
   is_constant bool
+  attribute_entry text
 }
 Ref: "globals"."id_global" > "entities"."id_entity"
 Ref: "globals"."id_attribute" > "attributes"."id_attribute"

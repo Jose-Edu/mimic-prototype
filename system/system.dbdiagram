@@ -355,21 +355,6 @@
     },
     {
       "firstFieldNames": [
-        "id_system"
-      ],
-      "firstTableName": "roles",
-      "firstSchemaName": "public",
-      "firstRelation": "*",
-      "secondFieldNames": [
-        "id_system"
-      ],
-      "secondTableName": "systems",
-      "secondSchemaName": "public",
-      "secondRelation": "1",
-      "checkPoints": []
-    },
-    {
-      "firstFieldNames": [
         "id_entity_to_access"
       ],
       "firstTableName": "access",
@@ -409,21 +394,6 @@
         "id_entity"
       ],
       "secondTableName": "entities",
-      "secondSchemaName": "public",
-      "secondRelation": "1",
-      "checkPoints": []
-    },
-    {
-      "firstFieldNames": [
-        "id_system"
-      ],
-      "firstTableName": "access",
-      "firstSchemaName": "public",
-      "firstRelation": "*",
-      "secondFieldNames": [
-        "id_system"
-      ],
-      "secondTableName": "systems",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
@@ -1354,6 +1324,21 @@
         "id_user"
       ],
       "secondTableName": "users",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_system"
+      ],
+      "firstTableName": "entities",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_system"
+      ],
+      "secondTableName": "systems",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []
