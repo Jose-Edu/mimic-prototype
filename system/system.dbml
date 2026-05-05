@@ -154,10 +154,12 @@ Table skills {
   id_skill_type integer
   name varchar
   id_action_rule integer
+  id_trigger_rule integer /*nullable*/
 }
 Ref: "skills"."id_skill" > "entities"."id_entity"
 Ref: "skills"."id_skill_type" > "skill_types"."id_skill_type"
 Ref: "skills"."id_action_rule" > "rules"."id_rule"
+Ref: "skills"."id_trigger_rule" > "rules"."id_rule"
 
 Table skill_type_generator_type {
   id_skill_type integer [primary key]
@@ -169,7 +171,7 @@ Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_gen
 Table rules {
   id_rule integer [primary key]
   name varchar
-  type enum("int", "float", "string", "bool", "enum", "list")
+  type enum()
   rule jsonb /*ast*/
 }
 Ref: "rules"."id_rule" > "entities"."id_entity"

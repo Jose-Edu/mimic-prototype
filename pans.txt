@@ -1,1 +1,4 @@
+* Revisar mapeamento do use de rules
+* Definir tipos de rules
 * Definir arquivos md e documentar tudo
+* Traduzir pra inglês
