@@ -149,6 +149,12 @@
       "y": 1880
     },
     {
+      "name": "global_attribute_entry",
+      "schemaName": "public",
+      "x": 16,
+      "y": 2866
+    },
+    {
       "name": "tests",
       "schemaName": "public",
       "x": 2096,
@@ -1069,6 +1075,21 @@
         "id_attribute"
       ],
       "secondTableName": "attributes",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id_global"
+      ],
+      "firstTableName": "global_attribute_entry",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id_global"
+      ],
+      "secondTableName": "globals",
       "secondSchemaName": "public",
       "secondRelation": "1",
       "checkPoints": []

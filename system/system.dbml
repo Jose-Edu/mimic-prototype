@@ -109,9 +109,11 @@ Ref: "generator_steps"."id_generator" > "generators"."id_generator"
 Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_generator_type_step"
 
 Table generator_step_attribute {
-  id_generator_step integer [primary key]
-  id_attribute integer [primary key]
+  id_generator_step_attribute integer [primary key]
+  id_generator_step integer
+  id_attribute integer
   attribute_entry text
+  order integer
 }
 Ref: "generator_step_attribute"."id_generator_step" > "generator_steps"."id_generator_step"
 Ref: "generator_step_attribute"."id_attribute" > "attributes"."id_attribute"
@@ -125,9 +127,11 @@ Ref: "generator_step_skill"."id_generator_step" > "generator_steps"."id_generato
 Ref: "generator_step_skill"."id_skill" > "skills"."id_skill"
 
 Table generator_step_skill_attribute {
-  id_generator_step_skill integer [primary key]
-  id_attribute integer [primary key]
+  id_generator_step_skill_attribute integer [primary key]
+  id_generator_step_skill integer
+  id_attribute integer
   attribute_entry text
+  order integer
 }
 Ref: "generator_step_skill_attribute"."id_generator_step_skill" > "generator_step_skill"."id_generator_step_skill"
 Ref: "generator_step_skill_attribute"."id_attribute" > "attributes"."id_attribute"
@@ -193,9 +197,11 @@ Table attributes {
   id_attribute integer [primary key]
   id_value_rule integer
   name varchar 
-  value_type enum("int", "float", "string", "bool", "enum", "list")
+  value_type enum("int", "float", "string", "bool")
+  struct_type enum("value", "enum", "list")
   default_value varchar /*nullable*/
   is_composable boolean /*default true*/
+  is_constant boolean
 }
 Ref: "attributes"."id_attribute" > "entities"."id_entity"
 Ref: "attributes"."id_value_rule" > "rules"."id_rule"
@@ -212,12 +218,18 @@ Ref: "attribute_items"."id_attribute_composable" > "attributes"."id_attribute"
 Table globals {
   id_global integer [primary key]
   id_attribute integer
-  name varchar 
-  is_constant bool
-  attribute_entry text
+  name varchar
 }
 Ref: "globals"."id_global" > "entities"."id_entity"
 Ref: "globals"."id_attribute" > "attributes"."id_attribute"
+
+Table global_attribute_entry {
+  id_global_attribute_entry integer [primary key]
+  id_global integer
+  attribute_entry text
+  order integer
+}
+Ref: "global_attribute_entry"."id_global" > "globals"."id_global"
 
 Table tests {
   id_test integer [primary key]
@@ -295,6 +307,7 @@ Table entities {
   id_creator_user integer
   id_overrides_entity integer /*nullable*/
   table_name varchar /*ex: generators, rules, roles etc*/
+  is_active bool /*default true*/
 }
 Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
 Ref: "entities"."id_creator_user" > "users"."id_user"
@@ -370,9 +383,11 @@ Ref: "sheet_generator"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_generator"."id_generator" > "generators"."id_generator"
 
 Table sheet_attribute {
-  id_sheet integer [primary key]
-  id_attribute integer [primary key]
+  id_sheet_attribute integer [primary key]
+  id_sheet integer
+  id_attribute integer
   attribute_entry text
+  order integer
 }
 Ref: "sheet_attribute"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_attribute"."id_attribute" > "attributes"."id_attribute"
@@ -386,9 +401,11 @@ Ref: "sheet_skill"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_skill"."id_skill" > "skills"."id_skill"
 
 Table sheet_skill_attribute {
-  id_sheet_skill integer [primary key]
-  id_attribute integer [primary key]
+  id_sheet_skill_attribute integer [primary key]
+  id_sheet_skill integer
+  id_attribute integer
   attribute_entry text
+  order integer
 }
 Ref: "sheet_skill_attribute"."id_sheet_skill" > "sheet_skill"."id_sheet_skill"
 Ref: "sheet_skill_attribute"."id_attribute" > "attributes"."id_attribute"
