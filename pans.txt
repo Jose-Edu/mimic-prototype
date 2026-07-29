@@ -1,4 +1,24 @@
-* Revisar mapeamento do use de rules
-* Definir tipos de rules
-* Definir arquivos md e documentar tudo
-* Traduzir pra inglês 
+* Definir contratos de rules
+    - math (para formúlas)
+    - validation (para validação)
+    - action (para alterar valores)
+    - relationship (para relações entre conceitos, lógica de composição, construtor de poo)
+
+Criar comandos de mutations para:
+
+* Crud de:
+    - Users
+    - Systems / Deltas
+    - Descriptions types / Description variants 
+    - Description
+    - Tag
+    - Role / access
+    - Map
+    - Sheet Type
+    - Generator Type / Generator Type steps
+    - Skill Type
+    - RNG
+    - Test
+    - Attributes
+    - Game states
+    - ...

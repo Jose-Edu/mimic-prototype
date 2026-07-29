@@ -53,10 +53,12 @@ Table sheet_types {
   name varchar 
   id_validation_rule integer
   id_compose_rule integer
+  id_base_generator interger // (optional)
 }
 Ref: "sheet_types"."id_sheet_type" > "entities"."id_entity"
 Ref: "sheet_types"."id_validation_rule" > "rules"."id_rule"
 Ref: "sheet_types"."id_compose_rule" > "rules"."id_rule"
+Ref: "sheet_types"."id_base_generator" > "generators"."id_generator"
 
 Table sheets {
   id_sheet integer [primary key]
