@@ -15,10 +15,12 @@ Criar comandos de mutations para:
     - Role / access
     - Map
     - Sheet Type
-    - Generator Type / Generator Type steps
+    - Generator Types / Generator Type steps
+    - Generators / Generator steps
     - Skill Type
     - RNG
     - Test
     - Attributes
     - Game states
-    - ...
+    - Skills
+    
