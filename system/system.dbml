@@ -177,7 +177,7 @@ Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_gen
 Table rules {
   id_rule integer [primary key]
   name varchar
-  type enum()
+  type enum("math", "validation", "action", "relationship")
   rule jsonb /*ast*/
 }
 Ref: "rules"."id_rule" > "entities"."id_entity"
@@ -207,6 +207,13 @@ Table attributes {
 }
 Ref: "attributes"."id_attribute" > "entities"."id_entity"
 Ref: "attributes"."id_value_rule" > "rules"."id_rule"
+
+Table entity_attribute {
+  id_entity integer
+  id_attribute integer
+}
+Ref: "entity_attribute"."id_entity" > "entities"."id_entity"
+Ref: "entity_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table attribute_items {
   id_attribute_item integer [primary key]
@@ -241,26 +248,12 @@ Table tests {
 Ref: "tests"."id_test" > "entities"."id_entity"
 Ref: "tests"."id_rule" > "rules"."id_rule"
 
-Table test_attribute {
-  id_test integer [primary key]
-  id_attribute integer [primary key]
-}
-Ref: "test_attribute"."id_test" > "tests"."id_test"
-Ref: "test_attribute"."id_attribute" > "attributes"."id_attribute"
-
 Table test_rng {
   id_test integer [primary key]
   id_rng integer [primary key]
 }
 Ref: "test_rng"."id_test" > "tests"."id_test"
 Ref: "test_rng"."id_rng" > "rngs"."id_rng"
-
-Table attribute_generator_type {
-  id_attribute integer [primary key]
-  id_generator_type integer [primary key]
-}
-Ref: "attribute_generator_type"."id_attribute" > "attributes"."id_attribute"
-Ref: "attribute_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
 
 Table game_states {
   id_game_state integer [primary key]
@@ -368,13 +361,6 @@ Ref: "descriptions"."id_entity" > "entities"."id_entity"
 Ref: "descriptions"."id_description_variant" > 
 "description_variants"."id_description_variant"
 
-Table sheet_type_attribute {
-  id_sheet_type integer [primary key]
-  id_attribute integer [primary key]
-}
-Ref: "sheet_type_attribute"."id_sheet_type" > "sheet_types"."id_sheet_type"
-Ref: "sheet_type_attribute"."id_attribute" > "attributes"."id_attribute"
-
 Table sheet_generator {
   id_sheet_generator integer [primary key]
   id_sheet integer
@@ -383,16 +369,6 @@ Table sheet_generator {
 }
 Ref: "sheet_generator"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_generator"."id_generator" > "generators"."id_generator"
-
-Table sheet_attribute {
-  id_sheet_attribute integer [primary key]
-  id_sheet integer
-  id_attribute integer
-  attribute_entry text
-  order integer
-}
-Ref: "sheet_attribute"."id_sheet" > "sheets"."id_sheet"
-Ref: "sheet_attribute"."id_attribute" > "attributes"."id_attribute"
 
 Table sheet_skill {
   id_sheet_skill integer [primary key]
