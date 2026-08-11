@@ -1,3 +1,4 @@
+* Revisar tabelas de relacionamento
 * Definir contratos de rules
     - math (para formúlas)
     - validation (para validação)
