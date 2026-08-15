@@ -110,16 +110,6 @@ Ref: "generator_steps"."id_generator_step" > "entities"."id_entity"
 Ref: "generator_steps"."id_generator" > "generators"."id_generator"
 Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_generator_type_step"
 
-Table generator_step_attribute {
-  id_generator_step_attribute integer [primary key]
-  id_generator_step integer
-  id_attribute integer
-  attribute_entry text
-  order integer
-}
-Ref: "generator_step_attribute"."id_generator_step" > "generator_steps"."id_generator_step"
-Ref: "generator_step_attribute"."id_attribute" > "attributes"."id_attribute"
-
 Table generator_step_skill {
   id_generator_step_skill integer [primary key]
   id_generator_step integer
@@ -209,11 +199,19 @@ Ref: "attributes"."id_attribute" > "entities"."id_entity"
 Ref: "attributes"."id_value_rule" > "rules"."id_rule"
 
 Table entity_attribute {
+  id_entity_attribute integer [primary key]
   id_entity integer
   id_attribute integer
 }
 Ref: "entity_attribute"."id_entity" > "entities"."id_entity"
 Ref: "entity_attribute"."id_attribute" > "attributes"."id_attribute"
+
+Table entity_attribute_entry {
+  id_entity_attribute_entry integer
+  attribute_entry text
+  order integer
+}
+Ref: "entity_attribute_entry"."id_entity_attribute_entry" > "entity_attribute"."id_entity_attribute"
 
 Table attribute_items {
   id_attribute_item integer [primary key]
@@ -231,14 +229,6 @@ Table globals {
 }
 Ref: "globals"."id_global" > "entities"."id_entity"
 Ref: "globals"."id_attribute" > "attributes"."id_attribute"
-
-Table global_attribute_entry {
-  id_global_attribute_entry integer [primary key]
-  id_global integer
-  attribute_entry text
-  order integer
-}
-Ref: "global_attribute_entry"."id_global" > "globals"."id_global"
 
 Table tests {
   id_test integer [primary key]
