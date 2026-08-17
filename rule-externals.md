@@ -9,8 +9,8 @@ Resolvem dados externos à rule
     "internal_name": "nome usando internamente para consulta na rule"
  }
  - get_related: retorna um valor/entity a partir de uma entity base. Recebe uma lista de níveis nescessários para resolver a dependência: ["internal_name", "tabela de relação", "nome para consulta"]
- - get: retorna o valor direto de uma dependência
- - get_by_id: retorna um valor externo por id, sem preenchimento externo: [["tabela", "id"], ]
+ - get: retorna o valor direto de uma dependência "internal_name"
+ - get_by_id: retorna um valor externo por id, sem preenchimento externo: ["tabela", "id"]
 
 
 ## Exemplos:
