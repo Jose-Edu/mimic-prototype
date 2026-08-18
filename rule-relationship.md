@@ -25,6 +25,7 @@ Não tem retorno, define valores de atributos da entidade
                                 "operation-type": 'round',
                                 "operation": 'round_down',
                                 "arguments": [
+
                                     {
                                         "operation-type": 'math',
                                         "operation": '/',
@@ -33,11 +34,11 @@ Não tem retorno, define valores de atributos da entidade
                                                 "operation-type": 'external',
                                                 "operation": 'get',
                                                 "arguments": ["XP"]
-                                            }
+                                            },
+                                            10
                                         ]
-                                    },
+                                    }
 
-                                    10
                                 ]
                             }
                         ]
