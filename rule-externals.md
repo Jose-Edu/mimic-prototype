@@ -37,8 +37,34 @@ considerando campo atk = 1
             "arguments": [
                 ["sheet1", "entity_attribute", "atk"]
             ],
-            "external": "sheet1",
-            "in": "attributes"
+        },
+
+        1
+
+        ]
+    }
+} > 2
+
+// considerando o ext como 1
+{
+    "mimic_version": '1.0.0',
+    "rule_type": '',
+    "external": [
+        {
+            "entity": "int",
+            "internal_name": "ext"
+        }
+    ]
+    "root": {
+        "operation_type": 'math',
+        "operation": '+',
+        "arguments": [
+        {
+            "operation_type": "external",
+            "operation": "get",
+            "arguments": [
+                "ext"
+            ],
         },
 
         1
@@ -66,8 +92,6 @@ considerando campo atk = 1
             "arguments": [
                 "global"
             ],
-            "external": "sheet1",
-            "in": "attributes"
         },
 
         1
