@@ -172,6 +172,16 @@ Table rules {
 }
 Ref: "rules"."id_rule" > "entities"."id_entity"
 
+Table rule_entity {
+
+  id_rule integer [primary key]
+  id_entity integer [primary key]
+  resolve_method enum("manual", "context")
+
+}
+Ref: "rule_entity"."id_rule" > "rules"."id_rule"
+Ref: "rule_entity"."id_entity" > "entities"."id_entity"
+
 Table rngs {
   id_rng integer [primary key]
   name varchar 

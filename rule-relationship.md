@@ -8,6 +8,7 @@ Não tem retorno, define valores de atributos da entidade
     "rule-type": 'relationship',
     "external": [
         {
+            "resolve_method": "manual",
             "entity": "int",
             "internal_name": "XP"
         }

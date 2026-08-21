@@ -4,6 +4,7 @@ Resolvem dados externos à rule
 
 ## Operations:
  - external {
+    "resolve_method": "Forma de preencher dependencia, manual/context",
     "entity": "que tipo de entidade está sendo recebida",
     "type_id": "se for uma estrutura de tipo/instância (sheet_type/sheet), vem preenchido com o id do tipo na sua respectiva tabela",
     "internal_name": "nome usando internamente para consulta na rule"
@@ -22,6 +23,7 @@ considerando campo atk = 1
     "rule_type": '',
     "external": [
         {
+            "resolve_method": "manual",
             "entity": "sheets",
             "type_id": "1",
             "internal_name": "sheet1"
@@ -51,6 +53,7 @@ considerando campo atk = 1
     "rule_type": '',
     "external": [
         {
+            "resolve_method": "manual",
             "entity": "int",
             "internal_name": "ext"
         }
@@ -78,6 +81,7 @@ considerando campo atk = 1
     "rule_type": '',
     "external": [
         {
+            "resolve_method": "manual",
             "entity": "globals",
             "internal_name": "global"
         }
