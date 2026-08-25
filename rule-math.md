@@ -30,7 +30,6 @@ retorna sempre um número
     {
         "mimic-version": '1.0.0',
         "rule-type": 'math',
-        "external": [],
         "root": {
             "operation-type": 'math',
             "operation": '+',
@@ -53,7 +52,6 @@ retorna sempre um número
     {
         "mimic-version": '1.0.0',
         "rule-type": 'math',
-        "external": [],
         "root": {
 
             "operation-type": 'math',

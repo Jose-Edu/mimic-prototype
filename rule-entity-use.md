@@ -2,9 +2,10 @@
 
 
 ## Rule:
+- invoke: chama uma rule recebida [rule_id, rule_type, [args]]
 
 ### invoke:
-considere rule de id 1 como uma regra que dobra um valor
+considere id 1 como uma rule math que dobra um valor
 {
     "mimic_version": '1.0.0',
     "rule_type": '',
@@ -17,13 +18,8 @@ considere rule de id 1 como uma regra que dobra um valor
             "operation_type": "rule",
             "operation": "invoke"
             "arguments": [
-                {
-                    "operation_type": "external",
-                    "operation": "get_by_id",
-                    "arguments": [
-                        ["rules", "1"]
-                    ]
-                },
+                1,
+                "math",
                 [5]
             ]
         },

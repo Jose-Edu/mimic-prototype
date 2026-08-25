@@ -6,13 +6,6 @@ Não tem retorno, define valores de atributos da entidade
 {
     "mimic-version": '1.0.0',
     "rule-type": 'relationship',
-    "external": [
-        {
-            "resolve_method": "manual",
-            "entity": "int",
-            "internal_name": "XP"
-        }
-    ],
     "root": {
                 "operation-type": 'relationship',
                 "operation": 'set',

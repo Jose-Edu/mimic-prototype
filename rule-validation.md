@@ -20,7 +20,6 @@ Sempre retorna um boolean
 {
     "mimic-version": '1.0.0',
     "rule-type": 'valitation',
-    "external": [],
     "root": {
         "operation-type": 'validation',
         "operation": 'and',

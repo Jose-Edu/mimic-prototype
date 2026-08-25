@@ -29,12 +29,11 @@ Criar comandos de mutations para:
 Usos de rule:
 
  - generator_type (validation e relationship)
- - skill_type (validation)
  - rng (validation)
  - attribute (relationship)
  - test (math)
  - game_states (relationship, math)
- - generator_type_steps(validation, validation)
+ - generator_type_steps(validation)
  - skills (action, validation)
  - sheet_type (validation, relationship)
  - sheet_type_sheet_type (relationship)
@@ -42,5 +41,5 @@ Usos de rule:
     Usos totais: 15
     usos de relationship: 5
     usos de action: 1
-    usos de validation: 7
+    usos de validation: 5
     usos de math: 2
