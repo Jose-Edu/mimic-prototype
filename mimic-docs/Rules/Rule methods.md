@@ -1,26 +1,24 @@
-# Rules entity use
 
 
-## Rule:
-- invoke: chama uma rule recebida [rule_id, rule_type, [args]]
+- invoke: chama uma rule recebida \[rule_id, rule_type, \[args]]
 
-### invoke:
+## invoke:
 considere id 1 como uma rule math que dobra um valor
 {
     "mimic_version": '1.0.0',
     "rule_type": '',
-    "external": []
+    "external": \[]
     "root": {
         "operation_type": 'math',
         "operation": '+',
-        "arguments": [
+        "arguments": \[
         {
             "operation_type": "rule",
             "operation": "invoke"
-            "arguments": [
+            "arguments": \[
                 1,
                 "math",
-                [5]
+                \[5]
             ]
         },
 
@@ -29,3 +27,5 @@ considere id 1 como uma rule math que dobra um valor
         ]
     }
 } > 11
+
+[[Rules de math]]

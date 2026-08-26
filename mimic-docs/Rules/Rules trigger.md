@@ -1,4 +1,4 @@
-# Rules trigger
+
 
 Regras de trigger para outras rules, executam o trigger quando a lógica retorna true.
 Rules desse tipo sempre iniciam com um método trigger de um evento mimic em uma entity.
@@ -79,3 +79,5 @@ Esses métodos recebem uma entity e um boolean de validação
         ]
     }
 } executa o trigger em qualquer evento da entidade se o meuNum for maior que 5
+
+[[Rules de validation]]

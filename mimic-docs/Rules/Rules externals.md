@@ -1,9 +1,8 @@
-# Rules externals
 
 Resolvem dados externos à rule
 
 ## Operations:
- - get_related: retorna um valor/entity a partir de uma entity base. Recebe uma lista de níveis nescessários para resolver a dependência: ["internal_name", "tabela de relação", "nome para consulta"]
+ - get_related: retorna um valor/entity a partir de uma entity base. Recebe uma lista de níveis nescessários para resolver a dependência: \["internal_name", "tabela de relação", "nome para consulta"]
  - get: retorna o valor direto de uma dependência "internal_name"
  - get_by_id: retorna um valor externo por id, sem preenchimento externo: "tabela", "id"
 
@@ -14,16 +13,16 @@ considerando campo atk = 1
 
 {
     "mimic_version": '1.0.0',
-    "rule_type": '',
+    "rule_type": ''",
     "root": {
         "operation_type": 'math',
         "operation": '+',
-        "arguments": [
+        "arguments": \[
         {
             "operation_type": "external",
             "operation": "get_related",
-            "arguments": [
-                ["sheet1", "entity_attribute", "atk"]
+            "arguments": \[
+                \["sheet1", "entity_attribute", "atk"]
             ],
         },
 
@@ -95,7 +94,7 @@ considere rule de id 1 como uma regra que dobra um valor
                         "rules", "1"
                     ]
                 },
-                [5]
+                \[5]
             ]
         },
 
@@ -105,3 +104,4 @@ considere rule de id 1 como uma regra que dobra um valor
     }
 } > 11
 
+[[Rules de math]]

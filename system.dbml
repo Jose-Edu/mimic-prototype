@@ -67,6 +67,19 @@ Table sheets {
 Ref: "sheets"."id_sheet" > "entities"."id_entity"
 Ref: "sheets"."id_sheet_type" > "sheet_types"."id_sheet_type"
 
+Table sheet_groups {
+  id_sheet_group integer [primary key]
+  name varchar
+}
+Ref: "sheet_groups"."id_sheet_group" > "entities"."id_entity"
+
+Table sheet_group_sheet {
+  id_sheet_group integer [primary key]
+  id_sheet integer [primary key]
+}
+Ref: "sheet_group_sheet"."id_sheet_group" > "sheet_groups"."id_sheet_group"
+Ref: "sheet_group_sheet"."id_sheet" > "sheets"."id_sheet"
+
 Table generator_types {
   id_generator_type integer [primary key]
   name varchar
@@ -401,6 +414,7 @@ Table sheet_sheet {
   id_sheet_sheet integer [primary key]
   id_sheet_main integer
   id_sheet_children integer
+  order integer
 }
 Ref: "sheet_sheet"."id_sheet_main" > "sheets"."id_sheet"
 Ref: "sheet_sheet"."id_sheet_children" > "sheets"."id_sheet"

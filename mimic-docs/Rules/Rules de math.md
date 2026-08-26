@@ -1,4 +1,4 @@
-# Rules de math
+
 
 retorna sempre um número
 
@@ -10,9 +10,9 @@ retorna sempre um número
     - '*': multiplicação
     - '/': divisão
     - '%': resto de divisão
-    - '**': potência
+    - '\*\*': potência
 
- - round ["round-up", "round-down", "cut-up", "cut-down"]
+ - round \["round-up", "round-down", "cut-up", "cut-down"]
     - 'round-up': 
         - 0.4 > 0 | 0.5 > 1 | 0.6 > 1
     - 'round-down': 

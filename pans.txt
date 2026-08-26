@@ -1,10 +1,3 @@
-* Revisar tabelas de relacionamento
-* Definir contratos de rules
-    - math (para formúlas)
-    - validation (para validação)
-    - action (para alterar valores)
-    - relationship (para relações entre conceitos, lógica de composição, construtor de poo)
-
 Criar comandos de mutations para:
 
 * Crud de:

@@ -1,4 +1,4 @@
-# Rules de relationship
+
 Não tem retorno, define valores de atributos da entidade
 
 ## Exemplos:
@@ -11,7 +11,7 @@ Não tem retorno, define valores de atributos da entidade
                 "operation": 'set',
                 "arguments": [
                     "attributes", // entity
-                    [ // lista de campos definidos
+                    \[ // lista de campos definidos
                         [
                             "entity_attribute_entry", // tabela de entrada do valor
 
@@ -40,3 +40,5 @@ Não tem retorno, define valores de atributos da entidade
                 ]
     }
 }
+
+[[Rules de math]]

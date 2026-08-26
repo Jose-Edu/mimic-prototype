@@ -1,4 +1,4 @@
-# Rules de action
+
 Regra de ação, não tem retorno, tem efeito colateral
 
 ## Exemplos:

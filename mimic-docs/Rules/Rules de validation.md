@@ -1,4 +1,4 @@
-# Rule validation
+
 Sempre retorna um boolean
 
 ## Operations:
