@@ -11,6 +11,10 @@ retorna sempre um número
     - '/': divisão
     - '%': resto de divisão
     - '\*\*': potência
+    - get_biggest
+    - get_smallest
+    - avg
+    - median
 
  - round \["round-up", "round-down", "cut-up", "cut-down"]
     - 'round-up': 
@@ -46,6 +50,32 @@ retorna sempre um número
             ]
         }
     } > 7
+
+### Maior valor
+    {
+        "mimic-version": '1.0.0',
+        "rule-type": 'math',
+        "root": {
+            "operation-type": 'math',
+            "operation": 'get_biggest',
+            "arguments": [
+                [1,2,20,3]
+            ]
+        }
+    } > 20
+
+### Média
+    {
+        "mimic-version": '1.0.0',
+        "rule-type": 'math',
+        "root": {
+            "operation-type": 'math',
+            "operation": 'get_biggest',
+            "arguments": [
+                [0,5,5,10]
+            ]
+        }
+    } > 5
 
 ### Rounds
     // round-up(1/2) + 1/2 = 1,5
