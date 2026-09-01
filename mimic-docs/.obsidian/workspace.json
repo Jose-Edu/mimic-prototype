@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "472514e6c80c4d17",
+        "id": "d0bfd6b25bc39021",
         "type": "tabs",
         "children": [
           {
-            "id": "46cedabe478ca21f",
+            "id": "46d3467a57ec7bd7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "rules.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nova aba"
+              "title": "rules"
             }
           }
         ]
@@ -184,8 +188,24 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "46cedabe478ca21f",
+  "active": "46d3467a57ec7bd7",
   "lastOpenFiles": [
+    "generator_step_skill_attribute.md",
+    "entity_attribute.md",
+    "generator_type_steps.md",
+    "generator_steps.md",
+    "generator_step_skill.md",
+    "game_states.md",
+    "entities.md",
+    "descriptions.md",
+    "description_variants.md",
+    "description_variant_types.md",
+    "attributes.md",
+    "attribute_items.md",
+    "access.md",
+    "globals.md",
+    "rules.md",
+    "sheet_groups.md",
     "Rules/Rules Flux.md",
     "Rules/Rules de action.md",
     "Rules/Rules de math.md",
@@ -196,7 +216,6 @@
     "Rules/Rules trigger.md",
     "Rules/Rules de validation.md",
     "Rules/Rules de relationship.md",
-    "Rules",
-    "Bem-vindo.md"
+    "Rules"
   ]
 }
