@@ -327,7 +327,7 @@ Table systems {
   name varchar
   system_version varchar
   id_author_user uuid
-  system_hash varchar
+  system_hash varchar /*nullable*/
   created_at timestamp
   updated_at timestamp
   type enum("root", "delta")
