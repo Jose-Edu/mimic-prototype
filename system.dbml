@@ -131,15 +131,19 @@ Table generator_step_skill {
 Ref: "generator_step_skill"."id_generator_step" > "generator_steps"."id_generator_step"
 Ref: "generator_step_skill"."id_skill" > "skills"."id_skill"
 
-Table generator_step_skill_attribute {
+Table generator_step_skill_attribute_entry {
   id_generator_step_skill_attribute uuid [primary key]
   id_generator_step_skill uuid
   id_attribute uuid
-  attribute_entry text
+  attribute_number number /*nullable*/
+  attribute_string varchar /*nullable*/
+  attribute_boolean boolean /*nullable*/
+  attribute_entity uuid /*nullable*/
   order integer
 }
-Ref: "generator_step_skill_attribute"."id_generator_step_skill" > "generator_step_skill"."id_generator_step_skill"
-Ref: "generator_step_skill_attribute"."id_attribute" > "attributes"."id_attribute"
+Ref: "generator_step_skill_attribute_entry"."id_generator_step_skill" > "generator_step_skill"."id_generator_step_skill"
+Ref: "generator_step_skill_attribute_entry"."id_attribute" > "attributes"."id_attribute"
+Ref: "generator_step_skill_attribute_entry"."attribute_entity" > "entities"."id_entity"
 
 Table sheet_type_generator_type {
   id_sheet_type_generator_type uuid [primary key]
@@ -214,7 +218,7 @@ Ref: "rngs"."id_filter_rule" > "rules"."id_rule"
 Table value_types {
   id_value_type uuid [primary key]
   value_type enum("number", "string", "boolean", "entity")
-  struct_type enum("value", "enum", "list")
+  struct_type enum("value", "list")
 }
 
 Table attributes {
@@ -222,13 +226,22 @@ Table attributes {
   id_value_rule uuid
   name varchar 
   value_type uuid
-  default_value varchar /*nullable*/
+  expected_value_number number /*nullable*/
+  expected_value_string varchar /*nullable*/
+  expected_value_boolean boolean /*nullable*/
+  expected_value_entity uuid /*nullable*/
+  default_value_number number /*nullable*/
+  default_value_string varchar /*nullable*/
+  default_value_boolean boolean /*nullable*/
+  default_value_entity uuid /*nullable*/
   is_composable boolean /*default true*/
-  is_constant boolean
+  is_constant boolean /*default false*/
 }
 Ref: "attributes"."id_attribute" > "entities"."id_entity"
 Ref: "attributes"."id_value_rule" > "rules"."id_rule"
 Ref: "attributes"."value_type" > "value_types"."id_value_type"
+Ref: "attributes"."expected_value_entity" > "entities"."id_entity"
+Ref: "attributes"."default_value_entity" > "entities"."id_entity"
 
 Table entity_attribute {
   id_entity_attribute uuid [primary key]
@@ -417,15 +430,19 @@ Table sheet_skill {
 Ref: "sheet_skill"."id_sheet" > "sheets"."id_sheet"
 Ref: "sheet_skill"."id_skill" > "skills"."id_skill"
 
-Table sheet_skill_attribute {
+Table sheet_skill_attribute_entry {
   id_sheet_skill_attribute uuid [primary key]
   id_sheet_skill uuid
   id_attribute uuid
-  attribute_entry text
+  attribute_number number /*nullable*/
+  attribute_string varchar /*nullable*/
+  attribute_boolean boolean /*nullable*/
+  attribute_entity uuid /*nullable*/
   order integer
 }
-Ref: "sheet_skill_attribute"."id_sheet_skill" > "sheet_skill"."id_sheet_skill"
-Ref: "sheet_skill_attribute"."id_attribute" > "attributes"."id_attribute"
+Ref: "sheet_skill_attribute_entry"."id_sheet_skill" > "sheet_skill"."id_sheet_skill"
+Ref: "sheet_skill_attribute_entry"."id_attribute" > "attributes"."id_attribute"
+Ref: "sheet_skill_attribute_entry"."attribute_entity" > "entities"."id_entity"
 
 Table sheet_type_sheet_type {
   id_sheet_type_main uuid [primary key]
