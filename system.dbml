@@ -1,3 +1,12 @@
+Table migrations {
+  id_migration uuid [primary key]
+  mimic_version varchar
+  created_at timestamp
+  updated_at timestamp
+  migration_name varchar /*nullable*/
+  resolved boolean /* default_false */
+}
+
 Table users {
   id_user uuid [primary key]
   name varchar
@@ -323,9 +332,27 @@ Table systems {
   updated_at timestamp
   type enum("root", "delta")
   id_delta_origin uuid /*nullable*/
+  actual_game_state uuid
+  actual_turn uuid
 }
 Ref: "systems"."id_delta_origin" > "systems"."id_system"
 Ref: "systems"."id_author_user" > "users"."id_user"
+Ref: "systems"."actual_game_state" > "game_states"."id_game_state"
+Ref: "systems"."actual_turn" > "entities"."id_entity"
+
+Table event_logs {
+
+  id_event_log uuid [primary key]
+  created_at timestamp
+  id_entity uuid
+  event_type enum("free", "mimic")
+  mimic_event enum("read", "use", "update", "create", "delete", "overwrite") /*nullable*/
+  entry text
+  multi_part_id uuid /*nullable*/
+  resolved boolean /*default true*/
+
+}
+Ref: "event_logs"."id_entity" > "entities"."id_entity"
 
 Table tags {
   id_tag uuid [primary key]
