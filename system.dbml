@@ -62,6 +62,7 @@ Table sheet_types {
   name varchar 
   id_validation_rule uuid
   id_compose_rule uuid
+  is_main_sheet_type boolean
   id_base_generator uuid // (optional)
 }
 Ref: "sheet_types"."id_sheet_type" > "entities"."id_entity"
@@ -220,6 +221,7 @@ Table rngs {
   generator_end integer
   generator_step integer /*default 1*/
   final_values integer[]
+  type enum("other", "dice", "deck", "spinner")
 }
 Ref: "rngs"."id_rng" > "entities"."id_entity"
 Ref: "rngs"."id_filter_rule" > "rules"."id_rule"
@@ -374,6 +376,7 @@ Table entities {
   updated_at timestamp
   id_system uuid
   id_creator_user uuid
+  is_featured boolean /* default false */
   id_overrides_entity uuid /*nullable*/
   table_name varchar /*ex: generators, rules, roles etc*/
   is_active bool /*default true*/
