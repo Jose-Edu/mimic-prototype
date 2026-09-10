@@ -24,4 +24,4 @@ A tabela `attributes` organiza a parte do modelo de dados responsável por o com
 ## Relacionamentos
 
 - Outward Links: [[entities]], [[rules]]
-- Inward Links: [[generator_step_skill_attribute]], [[entity_attribute]], [[attribute_items]], [[attribute_items]], [[globals]], [[sheet_skill_attribute]]
+- Inward Links: [[generator_step_skill_attribute_entry]], [[entity_attribute]], [[attribute_items]], [[attribute_items]], [[globals]], [[sheet_skill_attribute_entry]]

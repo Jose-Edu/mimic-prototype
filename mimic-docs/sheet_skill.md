@@ -19,4 +19,4 @@ A tabela `sheet_skill` organiza a parte do modelo de dados responsável por o co
 ## Relacionamentos
 
 - Outward Links: [[sheets]], [[skills]]
-- Inward Links: [[sheet_skill_attribute]]
+- Inward Links: [[sheet_skill_attribute_entry]]

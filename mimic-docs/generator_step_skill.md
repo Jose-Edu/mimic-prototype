@@ -19,4 +19,4 @@ A tabela `generator_step_skill` organiza a parte do modelo de dados responsável
 ## Relacionamentos
 
 - Outward Links: [[generator_steps]], [[skills]]
-- Inward Links: [[generator_step_skill_attribute]]
+- Inward Links: [[generator_step_skill_attribute_entry]]
