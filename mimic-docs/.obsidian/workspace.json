@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "647292af4799022a",
+        "id": "b8deef25bb96ca5f",
         "type": "tabs",
         "children": [
           {
-            "id": "d742ecd6f3de4a33",
+            "id": "e051a471e5eb2fd7",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "60194ac1f1d0b9f6",
@@ -184,8 +185,12 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "d742ecd6f3de4a33",
+  "active": "e051a471e5eb2fd7",
   "lastOpenFiles": [
+    "description_variant_types.md",
+    "attributes.md",
+    "attribute_items.md",
+    "access.md",
     "sheet_skill_attribute_entry.md",
     "event_logs.md",
     "entities.md",
@@ -193,7 +198,6 @@
     "value_types.md",
     "generator_step_skill_attribute_entry.md",
     "migrations.md",
-    "access.md",
     "rules.md",
     "entity_attribute.md",
     "generator_type_steps.md",
@@ -202,9 +206,6 @@
     "game_states.md",
     "descriptions.md",
     "description_variants.md",
-    "description_variant_types.md",
-    "attributes.md",
-    "attribute_items.md",
     "globals.md",
     "sheet_groups.md",
     "Rules/Rules Flux.md",

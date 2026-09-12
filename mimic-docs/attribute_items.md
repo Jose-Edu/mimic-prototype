@@ -1,23 +1,27 @@
 ---
 type: database_table
-tags: [db, table, mimic, attribute_items]
-system_domain: "Atributos e valores"
+tags:
+  - db
+  - table
+  - mimic
+  - attribute_items
+  - attributes
+system_domain: Atributos e valores
 ---
 
 # Tabela: attribute_items
 
-A tabela `attribute_items` organiza a parte do modelo de dados responsável por o comportamento e a persistência de attribute items no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `attribute_items` define sub atributos, usados internamente na geração de valores de [[attributes]]
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_attribute_item | integer | PK | Chave estrangeira para a tabela relacionada. |
-| id_attribute_composer | integer | FK -> [[attributes]] | Chave estrangeira para a tabela relacionada. |
-| id_attribute_composable | integer | FK -> [[attributes]] | Chave estrangeira para a tabela relacionada. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
+| Nome da Coluna          | Tipo    | Constraints            | Descrição                                                                   |
+| ----------------------- | ------- | ---------------------- | --------------------------------------------------------------------------- |
+| id_attribute_item       | uuid    | PK, FK -> [[entities]] | Identificador único do registro desta tabela.                               |
+| id_attribute_composer   | uuid    | FK -> [[attributes]]   | Sub atributo interno.                                                       |
+| id_attribute_composable | uuid    | FK -> [[attributes]]   | Atributo pai.                                                               |
+| name                    | varchar | -                      | Nome descritivo do registro, usado para identificação humana e organização. |
 
 ## Relacionamentos
 
-- Outward Links: [[attributes]], [[attributes]]
-- Inward Links: Nenhuma tabela referencia diretamente esta tabela.
+- Outward Links: [[attributes]]
