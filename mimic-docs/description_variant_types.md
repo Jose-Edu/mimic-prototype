@@ -1,20 +1,24 @@
 ---
 type: database_table
-tags: [db, table, mimic, description_variant_types]
-system_domain: "Descrição e narrativa"
+tags:
+  - db
+  - table
+  - mimic
+  - description_variant_types
+  - descriptions
+system_domain: Descrição e narrativa
 ---
 
 # Tabela: description_variant_types
 
-A tabela `description_variant_types` organiza a parte do modelo de dados responsável por o comportamento e a persistência de description variant types no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
-
+A tabela `description_variant_types` define os tipos de descrições usadas no sistema, ex: "Versão principal", "Versão curta" e etc.
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_description_variant_type | integer | PK | Referência ao tipo de elemento. |
-| id_system | integer | FK -> [[systems]] | Referência ao sistema ao qual o registro pertence. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
+| Nome da Coluna              | Tipo    | Constraints       | Descrição                                          |
+| --------------------------- | ------- | ----------------- | -------------------------------------------------- |
+| id_description_variant_type | integer | PK                | Identificador único do registro desta tabela.      |
+| id_system                   | integer | FK -> [[systems]] | Referência ao sistema ao qual o registro pertence. |
+| name                        | varchar | -                 | Nome do tipo.                                      |
 
 ## Relacionamentos
 
