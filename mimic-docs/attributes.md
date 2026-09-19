@@ -26,6 +26,8 @@ A tabela `attributes` organiza os atributos usados no sistema.
 | default_value_entity   | uuid    | FK -> [[entities]], Nullable | Preenchimento do valor padrão para entity.                                                 |
 | is_composable          | boolean | Default True                 | Se é composto por sub atributos em [[attribute_items]].                                    |
 | is_constant            | boolen  | Default False                | Se o valor é constante.                                                                    |
+| min_size_value         | integer | Nullable                     | Valor mínimo, aplicavél para valor de number ou tamanho de string.                         |
+| max_size_value         | integer | Nullable                     | Valor máximo, aplicavél para valor de number ou tamanho de string.                         |
 
 ## Relacionamentos
 

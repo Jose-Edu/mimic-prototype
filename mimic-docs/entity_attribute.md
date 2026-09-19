@@ -6,15 +6,15 @@ system_domain: "Atributos e valores"
 
 # Tabela: entity_attribute
 
-A tabela `entity_attribute` organiza a parte do modelo de dados responsável por o comportamento e a persistência de entity attribute no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `entity_attribute` define quais atributos uma entidade possui.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_entity_attribute | integer | PK | Referência ao atributo relacionado. |
-| id_entity | integer | FK -> [[entities]] | Referência à entidade que representa este registro. |
-| id_attribute | integer | FK -> [[attributes]] | Referência ao atributo relacionado. |
+| Nome da Coluna      | Tipo | Constraints          | Descrição                                           |
+| ------------------- | ---- | -------------------- | --------------------------------------------------- |
+| id_entity_attribute | uuid | PK                   | Identificador único do registro desta tabela.       |
+| id_entity           | uuid | FK -> [[entities]]   | Referência à entidade que representa este registro. |
+| id_attribute        | uuid | FK -> [[attributes]] | Referência ao atributo relacionado.                 |
 
 ## Relacionamentos
 
