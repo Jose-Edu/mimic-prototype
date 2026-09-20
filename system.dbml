@@ -3,8 +3,8 @@ Table migrations {
   mimic_version varchar
   created_at timestamp
   updated_at timestamp
-  migration_name varchar /*nullable*/
-  resolved boolean /* default_false */
+  migration_name varchar
+  resolved boolean /* default false */
 }
 
 Table users {
@@ -114,7 +114,6 @@ Table generators {
   id_generator uuid [primary key]
   id_generator_type uuid
   id_super_generator uuid /* nullable */
-  is_children boolean /*default false*/
   name varchar
 }
 Ref: "generators"."id_generator" > "entities"."id_entity"

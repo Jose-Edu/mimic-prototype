@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a0144b90762e64fa",
+        "id": "10ab7dc74ec642a6",
         "type": "tabs",
         "children": [
           {
-            "id": "30375022db678042",
+            "id": "29774b1a819600ef",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "map_token.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nova aba"
+              "title": "map_token"
             }
           }
         ]
@@ -184,13 +188,20 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "e92885238681c732",
+  "active": "29774b1a819600ef",
   "lastOpenFiles": [
-    "generator_step_skill.md",
+    "maps.md",
+    "generators.md",
+    "globals.md",
+    "map_token.md",
     "game_states.md",
     "event_logs.md",
-    "entity_attribute_entry.md",
     "entity_attribute.md",
+    "generator_types.md",
+    "generator_type_steps.md",
+    "generator_steps.md",
+    "generator_step_skill.md",
+    "entity_attribute_entry.md",
     "entities.md",
     "descriptions.md",
     "description_variants.md",
@@ -204,14 +215,7 @@
     "generator_step_skill_attribute_entry.md",
     "migrations.md",
     "rules.md",
-    "generator_type_steps.md",
-    "generator_steps.md",
-    "globals.md",
     "sheet_groups.md",
-    "Rules/Rules Flux.md",
-    "Rules/Rules de action.md",
-    "Rules/Rules de math.md",
-    "Rules/Rules.md",
     "Rules"
   ]
 }

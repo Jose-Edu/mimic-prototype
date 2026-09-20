@@ -1,32 +1,24 @@
----
-type: database_table
-tags: [db, table, mimic, map_token]
-system_domain: "Fichas e mapas"
----
 
-# Tabela: map_token
 
-A tabela `map_token` organiza a parte do modelo de dados responsável por o comportamento e a persistência de map token no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `map_token` registra um token num mapa, usando o seu sistema de posição, onde ABC generaliza as 3 variáveis de posição usadas.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_map_token | integer | PK | Chave estrangeira para a tabela relacionada. |
-| id_sheet | integer | FK -> [[sheets]] | Referência à ficha associada. |
-| id_map | integer | FK -> [[maps]] | Referência ao mapa relacionado. |
-| x | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| y | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| z | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| x_size | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| y_size | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| z_size | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| origin | integer | — | Informações de origem e rotação do token dentro do mapa. |
-| angle_x | integer /*0-360*/ | — | Informações de origem e rotação do token dentro do mapa. |
-| angle_y | integer /*0-360*/ | — | Informações de origem e rotação do token dentro do mapa. |
-| angle_z | integer /*0-360*/ | — | Informações de origem e rotação do token dentro do mapa. |
+| Nome da Coluna | Tipo    | Constraints                | Descrição                                                     |
+| -------------- | ------- | -------------------------- | ------------------------------------------------------------- |
+| id_map_token   | uuid    | PK                         | Identificador único do registro desta tabela.                 |
+| id_sheet       | uuid    | FK -> [[sheets]], Nullable | Ficha no qual o token referencia. Null se não representa uma. |
+| id_map         | uuid    | FK -> [[maps]]             | Mapa onde o token está.                                       |
+| position_a     | integer | -                          | Coordenada A do token no mapa.                                |
+| position_b     | integer | -                          | Coordenada B do token no mapa.                                |
+| position_c     | integer | -                          | Coordenada C do token no mapa.                                |
+| size_a         | integer | -                          | Tamanho do token no eixo A.                                   |
+| size_b         | integer | -                          | Tamanho do token no eixo B.                                   |
+| size_c         | integer | -                          | Tamanho de token no eixo C.                                   |
+| origin_a       | integer | -                          | Posição de origem no eixo A.                                  |
+| origin_b       | integer | -                          | Posição de origem no eixo B.                                  |
+| origin_c       | integer | -                          | Posição de origem no eixo C.                                  |
+| angle_a        | integer | -                          | Rotação do token de 0 a 360 no eixo A.                        |
+| angle_b        | integer | -                          | Rotação do token de 0 a 360 no eixo B.                        |
+| angle_c        | integer | -                          | Rotação do token de 0 a 360 no eixo C.                        |
 
-## Relacionamentos
-
-- Outward Links: [[sheets]], [[maps]]
-- Inward Links: Nenhuma tabela referencia diretamente esta tabela.

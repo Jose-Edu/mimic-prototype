@@ -1,24 +1,12 @@
----
-type: database_table
-tags: [db, table, mimic, generators]
-system_domain: "Geradores"
----
 
-# Tabela: generators
 
-A tabela `generators` organiza a parte do modelo de dados responsável por o comportamento e a persistência de generators no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `generators` registra os geradores usados para compor as entradas de [[attributes]] e [[skills]] aplicados às [[sheets]]. Exemplos: Instâncias de raças e classes: Elfo, Guerreiro, Humando, Mago e etc.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_generator | integer | PK, FK -> [[entities]] | Referência ao gerador relacionado. |
-| id_generator_type | integer | FK -> [[generator_types]] | Referência ao tipo de elemento. |
-| id_super_generator | integer /* nullable */ | nullable, FK -> [[generators]] | Referência ao gerador relacionado. |
-| is_children | boolean | — | Flag booleana que indica o comportamento ou estado permitido do registro. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
-
-## Relacionamentos
-
-- Outward Links: [[entities]], [[generator_types]], [[generators]]
-- Inward Links: [[sheet_types]], [[generators]], [[generator_steps]], [[sheet_generator]]
+| Nome da Coluna     | Tipo    | Constraints                    | Descrição                                                                                                      |
+| ------------------ | ------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| id_generator       | uuid    | PK, FK -> [[entities]]         | Identificador único do registro desta tabela.                                                                  |
+| id_generator_type  | uuid    | FK -> [[generator_types]]      | Tipo de gerador aplicado.                                                                                      |
+| id_super_generator | uuid    | nullable, FK -> [[generators]] | Referência ao gerador pai. Quando um gerador possui um gerador pai, ele é chamado junto a ele automaticamente. |
+| name               | varchar | -                              | Nome do gerador.                                                                                               |
