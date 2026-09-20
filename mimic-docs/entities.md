@@ -1,10 +1,4 @@
----
-type: database_table
-tags: [db, table, mimic, entities]
-system_domain: "Usuários, entidades e permissões"
----
 
-# Tabela: entities
 
 A tabela `entities` organiza todos os elementos internos do sitema, pratimamente todas as tabelas são possuem relacionamento 1:1 com essa tabela através de uma FK na própria PK. Servem para adicionar metadados padrão e permitir abstrações de acesso pela [[Mimic SDK]].
 
@@ -21,8 +15,3 @@ A tabela `entities` organiza todos os elementos internos do sitema, pratimamente
 | table_name          | varchar /*ex: generators, rules, roles etc*/ | -                            | Campo com o nome da tabela que possui o 1:1 com essa pela PK.                                        |
 | is_active           | boolean                                      | Default True                 | Flag booleana que indica se a entidade não foi deletada. Usada para remoções nos [[Mimic Deltas]]    |
 | is_featured         | boolean                                      | Default False                | Flag booleana que indica se essa entidade deve ser destaca ao consultar informações sobre o sistema. |
-
-## Relacionamentos
-
-- Outward Links: [[entities]], [[users]], [[systems]]
-- Inward Links: [[roles]], [[access]], [[access]], [[sheet_types]], [[sheets]], [[sheet_groups]], [[generator_types]], [[generator_type_steps]], [[generators]], [[generator_steps]], [[skill_types]], [[skills]], [[rules]], [[rule_entity]], [[rngs]], [[attributes]], [[entity_attribute]], [[globals]], [[tests]], [[game_states]], [[tag_entity]], [[entities]], [[maps]], [[descriptions]]

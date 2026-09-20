@@ -1,10 +1,4 @@
----
-type: database_table
-tags: [db, table, mimic, attributes]
-system_domain: "Atributos e valores"
----
 
-# Tabela: attributes
 
 A tabela `attributes` organiza os atributos usados no sistema.
 
@@ -28,8 +22,3 @@ A tabela `attributes` organiza os atributos usados no sistema.
 | is_constant            | boolen  | Default False                | Se o valor é constante.                                                                    |
 | min_size_value         | integer | Nullable                     | Valor mínimo, aplicavél para valor de number ou tamanho de string.                         |
 | max_size_value         | integer | Nullable                     | Valor máximo, aplicavél para valor de number ou tamanho de string.                         |
-
-## Relacionamentos
-
-- Outward Links: [[entities]], [[rules]]
-- Inward Links: [[generator_step_skill_attribute_entry]], [[entity_attribute]], [[attribute_items]], [[attribute_items]], [[globals]], [[sheet_skill_attribute_entry]]

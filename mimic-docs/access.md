@@ -1,15 +1,4 @@
----
-type: database_table
-tags:
-  - db
-  - table
-  - mimic
-  - access
-  - mimic_events
-system_domain: Usuários, entidades e permissões
----
 
-# Tabela: access
 
 A tabela `access` organiza os acessos dos [[roles]] aos [[Eventos Mimic]], servindo para mapear quais [[entities]] um usuário poderá invocar em eventos.
 
@@ -27,8 +16,3 @@ A tabela `access` organiza os acessos dos [[roles]] aos [[Eventos Mimic]], servi
 | can_create          | boolean                       | -                               | Define se tem permissão para o evento 'create'                                                                                                                                                                                            |
 | can_delete          | boolean                       | -                               | Define se tem permissão para o evento 'delete'                                                                                                                                                                                            |
 | can_overwrite       | boolean                       | -                               | Define se tem permissão para o evento 'overwrite'                                                                                                                                                                                         |
-
-## Relacionamentos
-
-- Outward Links: [[entities]], [[game_states]], [[entities]]
-- Inward Links: [[role_access]]

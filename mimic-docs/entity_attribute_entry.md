@@ -1,10 +1,4 @@
----
-type: database_table
-tags: [db, table, mimic, entity_attribute_entry]
-system_domain: "Atributos e valores"
----
 
-# Tabela: entity_attribute_entry
 
 A tabela `entity_attribute_entry` registra o valor atual de um atributo de uma entidade. Cada relacionamento pode ter mais de uma entrada, dependendo da estrutura.
 
@@ -19,8 +13,3 @@ A tabela `entity_attribute_entry` registra o valor atual de um atributo de uma e
 | attribute_string          | varchar | Nullable                     | Valor a ser aplicado em caso do tipo de valor ser string.                          |
 | attribute_boolean         | boolean | Nullable                     | Valor a ser aplicado em caso do tipo de valor ser boolean.                         |
 | attribute_entity          | uuid    | Nullable, FK -> [[entities]] | Valor a ser aplicado em caso do tipo de valor ser entity.                          |
-
-## Relacionamentos
-
-- Outward Links: [[entity_attribute]]
-- Inward Links: Nenhuma tabela referencia diretamente esta tabela.

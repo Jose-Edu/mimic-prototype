@@ -141,20 +141,6 @@ Table generator_step_skill {
 Ref: "generator_step_skill"."id_generator_step" > "generator_steps"."id_generator_step"
 Ref: "generator_step_skill"."id_skill" > "skills"."id_skill"
 
-Table generator_step_skill_attribute_entry {
-  id_generator_step_skill_attribute uuid [primary key]
-  id_generator_step_skill uuid
-  id_attribute uuid
-  attribute_number number /*nullable*/
-  attribute_string varchar /*nullable*/
-  attribute_boolean boolean /*nullable*/
-  attribute_entity uuid /*nullable*/
-  order integer
-}
-Ref: "generator_step_skill_attribute_entry"."id_generator_step_skill" > "generator_step_skill"."id_generator_step_skill"
-Ref: "generator_step_skill_attribute_entry"."id_attribute" > "attributes"."id_attribute"
-Ref: "generator_step_skill_attribute_entry"."attribute_entity" > "entities"."id_entity"
-
 Table sheet_type_generator_type {
   id_sheet_type_generator_type uuid [primary key]
   id_sheet_type uuid

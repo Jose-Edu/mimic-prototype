@@ -1,23 +1,13 @@
----
-type: database_table
-tags: [db, table, mimic, game_states]
-system_domain: "Regras e mecânicas"
----
 
-# Tabela: game_states
 
-A tabela `game_states` organiza a parte do modelo de dados responsável por o comportamento e a persistência de game states no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `game_states` armazena os possíveis estados do jogo do sistema. Ex: Roleplay, Combate, Exploração e etc. os estados de jogo são usados como forma de categorizar as diferentes formas que as regras do sistema são aplicadas, sendo um critério muito útil para se usar como controle de fluxo nas [[Mimic Rules]]. As regras de definição dos turnos dos [[Eventos Mimic]] são definidas e variam pelo game state.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_game_state | integer | PK, FK -> [[entities]] | Referência ao estado de jogo atual. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
-| turn_count_rule_id | integer | FK -> [[rules]] | Regra relacionada ao controle de turnos e ordem do jogo. |
-| turn_order_rule_id | integer | FK -> [[rules]] | Regra relacionada ao controle de turnos e ordem do jogo. |
+| Nome da Coluna     | Tipo    | Constraints            | Descrição                                            |
+| ------------------ | ------- | ---------------------- | ---------------------------------------------------- |
+| id_game_state      | uuid    | PK, FK -> [[entities]] | Identificador único do registro desta tabela.        |
+| name               | varchar | -                      | Nome do estado de jogo.                              |
+| turn_count_rule_id | uuid    | FK -> [[rules]]        | Regra que define a quantidade de usuários por turno. |
+| turn_order_rule_id | uuid    | FK -> [[rules]]        | Regra que define a ordem dos turnos.                 |
 
-## Relacionamentos
-
-- Outward Links: [[entities]], [[rules]], [[rules]]
-- Inward Links: [[access]]

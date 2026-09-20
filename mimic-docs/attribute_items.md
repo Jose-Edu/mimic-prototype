@@ -1,15 +1,4 @@
----
-type: database_table
-tags:
-  - db
-  - table
-  - mimic
-  - attribute_items
-  - attributes
-system_domain: Atributos e valores
----
 
-# Tabela: attribute_items
 
 A tabela `attribute_items` define sub atributos, usados internamente na geração de valores de [[attributes]]
 
@@ -21,7 +10,3 @@ A tabela `attribute_items` define sub atributos, usados internamente na geraçã
 | id_attribute_composer   | uuid    | FK -> [[attributes]]   | Sub atributo interno.                                                       |
 | id_attribute_composable | uuid    | FK -> [[attributes]]   | Atributo pai.                                                               |
 | name                    | varchar | -                      | Nome descritivo do registro, usado para identificação humana e organização. |
-
-## Relacionamentos
-
-- Outward Links: [[attributes]]

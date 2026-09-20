@@ -1,13 +1,4 @@
----
-type: database_table
-tags:
-  - db
-  - table
-  - mimic
-system_domain: Usuários, entidades e permissões
----
 
-# Tabela: event_logs
 
 A tabela `event_logs` é usada para registrar os [[Eventos Mimic]] executados, tando na execução em si como para consulta de histórico.
 
