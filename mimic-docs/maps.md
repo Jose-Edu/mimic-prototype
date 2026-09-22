@@ -1,24 +1,17 @@
----
-type: database_table
-tags: [db, table, mimic, maps]
-system_domain: "Fichas e mapas"
----
 
-# Tabela: maps
 
-A tabela `maps` organiza a parte do modelo de dados responsável por o comportamento e a persistência de maps no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
-
+A tabela `maps` representa os mapas usados pelo Mimic. O sistema de cordenadas ABC é uma forma genérica de se refirir aos 2 possíveis formatos de mapeamento:
+- XYZ: Segue um plano carteziano comum. A = X, B = Y, C = Z
+- QRS: Mapeamento de coordenadas hexagonais. A = Q, B = R, C = S
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_map | integer | PK, FK -> [[entities]] | Referência ao mapa relacionado. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
-| x_size | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| y_size | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
-| z_size | integer | — | Coordenada ou dimensão espacial associada ao mapa ou token. |
+| Nome da Coluna | Tipo               | Constraints            | Descrição                                                      |
+| -------------- | ------------------ | ---------------------- | -------------------------------------------------------------- |
+| id_map         | uuid               | PK, FK -> [[entities]] | Identificador único do registro desta tabela.                  |
+| name           | varchar            | -                      | Nome do mapa.                                                  |
+| size_a         | integer            | -                      | Tamanho do mapa no eixo A.                                     |
+| size_b         | integer            | -                      | Tamanho do mapa no eixo B.                                     |
+| size_c         | integer            | -                      | Tamanho do mapa no eixo C.                                     |
+| map_system     | enum("xyz", "qrs") | -                      | Sistema de cordenadas usado neste mapa.                        |
+| multi_map      | boolean            | -                      | Define se usa as conexões multi mapas definidas em [[map_map]] |
 
-## Relacionamentos
-
-- Outward Links: [[entities]]
-- Inward Links: [[map_token]]

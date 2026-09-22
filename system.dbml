@@ -379,9 +379,21 @@ Table maps {
   size_a integer
   size_b integer
   size_c integer
-  map_system enum("xyz", "qrs", "zones")
+  map_system enum("xyz", "qrs")
+  multi_map boolean 
 }
 Ref: "maps"."id_map" > "entities"."id_entity"
+
+Table map_map {
+  id_map_origin uuid [primary key]
+  id_map_destination uuid [primary key]
+  distance integer
+  expand_a integer /*Nullable*/
+  expand_b integer /*Nullable*/
+  expand_c integer /*Nullable*/
+}
+Ref: "map_map"."id_map_origin" > "maps"."id_map"
+Ref: "map_map"."id_map_destination" > "maps"."id_map"
 
 Table map_token {
   id_map_token uuid [primary key]
