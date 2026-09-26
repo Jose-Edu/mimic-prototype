@@ -1,11 +1,14 @@
 Table migrations {
   id_migration uuid [primary key]
+  id_system uuid
   mimic_version varchar
   created_at timestamp
   updated_at timestamp
   migration_name varchar
   resolved boolean /* default false */
+  new_system_version varchar /*nullable*/
 }
+Ref: "migrations"."id_system" > "systems"."id_system"
 
 Table users {
   id_user uuid [primary key]
@@ -29,8 +32,8 @@ Ref: "user_role"."id_role" > "roles"."id_role"
 Table roles {
   id_role uuid [primary key]
   name varchar 
-  is_default bool
-  roleless_add bool
+  is_default boolean
+  roleless_add boolean
 }
 Ref: "roles"."id_role" > "entities"."id_entity"
 
@@ -186,8 +189,9 @@ Ref: "rules"."id_trigger_rule" > "rules"."id_rule"
 
 Table rule_entity {
 
-  id_rule uuid [primary key]
-  id_entity uuid [primary key]
+  id_rule_entity uuid [primary key]
+  id_rule uuid
+  id_entity uuid
   resolve_method enum("manual", "context")
   value_type uuid
   internal_name varchar
@@ -202,9 +206,9 @@ Table rngs {
   name varchar 
   id_filter_rule uuid /*nullable*/
   expected_value integer /*nullable*/
-  generator_start integer /*default 1*/
-  generator_end integer
-  generator_step integer /*default 1*/
+  num_start integer /*nullable*/
+  num_end integer /*nullable*/
+  num_step integer /*nullable*/
   final_values integer[]
   type enum("other", "dice", "deck", "spinner")
 }
@@ -214,7 +218,7 @@ Ref: "rngs"."id_filter_rule" > "rules"."id_rule"
 Table value_types {
   id_value_type uuid [primary key]
   value_type enum("number", "string", "boolean", "entity")
-  struct_type enum("value", "list", "consumable")
+  struct_type enum("value", "list", "consumable", "enum", "key-value")
 }
 
 Table attributes {
