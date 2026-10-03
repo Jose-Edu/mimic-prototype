@@ -1,22 +1,11 @@
----
-type: database_table
-tags: [db, table, mimic, tests]
-system_domain: "Regras e mecânicas"
----
 
-# Tabela: tests
-
-A tabela `tests` organiza a parte do modelo de dados responsável por o comportamento e a persistência de tests no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `test_types` registra os tipos de [[tests]] que existem no sistema. Usado para padronizar e categorizá-los como em: Testes de combate, testes narrativos ou testes de pericias, por exemplo.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_test | integer | PK, FK -> [[entities]] | Referência ao teste ou caso de validação. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
-| id_rule | integer | FK -> [[rules]] | Referência à regra associada. |
+| Nome da Coluna  | Tipo    | Constraints               | Descrição                                               |
+| --------------- | ------- | ------------------------- | ------------------------------------------------------- |
+| id_test_type    | uuid    | PK, FK -> [[entities]]    | Identificador único do registro desta tabela.           |
+| name            | varchar | -                         | Nome do tipo de teste.                                  |
+| id_default_rule | uuid    | FK -> [[rules]], nullable | Referência à regra padrão aplicada a testes desse tipo. |
 
-## Relacionamentos
-
-- Outward Links: [[entities]], [[rules]]
-- Inward Links: [[test_rng]]

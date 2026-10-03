@@ -1,29 +1,19 @@
----
-type: database_table
-tags: [db, table, mimic, systems]
-system_domain: "Usuários, entidades e permissões"
----
 
-# Tabela: systems
 
-A tabela `systems` organiza a parte do modelo de dados responsável por o comportamento e a persistência de systems no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `systems` registra os sistemas existentes na base de dados.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_system | integer | PK | Referência ao sistema ao qual o registro pertence. |
-| mimic_version | varchar | — | Metadado de versão, hash ou valor esperado do sistema ou módulo. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
-| system_version | varchar | — | Metadado de versão, hash ou valor esperado do sistema ou módulo. |
-| id_author_user | integer | FK -> [[users]] | Referência ao usuário relacionado. |
-| system_hash | varchar | — | Metadado de versão, hash ou valor esperado do sistema ou módulo. |
-| created_at | timestamp | — | Registro de data e hora de criação ou atualização do item. |
-| updated_at | timestamp | — | Registro de data e hora de criação ou atualização do item. |
-| type | enum("root", "delta") | enum | Categoria ou enumeração que define a semântica do dado em uso. |
-| id_delta_origin | integer | nullable, FK -> [[systems]] | Chave estrangeira para a tabela relacionada. |
+| Nome da Coluna  | Tipo                  | Constraints                 | Descrição                                                       |
+| --------------- | --------------------- | --------------------------- | --------------------------------------------------------------- |
+| id_system       | uuid                  | PK                          | Identificador único do registro desta tabela.                   |
+| mimic_version   | varchar               | -                           | Versão do Mimic no padrão 1.0.0.                                |
+| name            | varchar               | -                           | Nome do sistema.                                                |
+| system_version  | varchar               | -                           | Versão do sistema, no padrão 1.0.0.                             |
+| id_author_user  | uuid                  | FK -> [[users]]             | Usuário que é autor do sistema.                                 |
+| system_hash     | varchar               | -                           | Hash da geração do sistema.                                     |
+| created_at      | timestamp             | -                           | Horário de criação do sistema.                                  |
+| updated_at      | timestamp             | -                           | Horário da última atualização no sistema.                       |
+| type            | enum("root", "delta") | -                           | Tipo de sistema, se é um sistema ou um [[Mimic Deltas\|Delta]]. |
+| id_delta_origin | uuid                  | nullable, FK -> [[systems]] | Sistema base do delta, caso seja um.                            |
 
-## Relacionamentos
-
-- Outward Links: [[systems]], [[users]]
-- Inward Links: [[user_system]], [[systems]], [[tags]], [[entities]], [[description_variant_types]]

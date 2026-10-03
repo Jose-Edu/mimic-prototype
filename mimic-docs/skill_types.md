@@ -1,22 +1,11 @@
----
-type: database_table
-tags: [db, table, mimic, skill_types]
-system_domain: "Habilidades"
----
 
-# Tabela: skill_types
 
-A tabela `skill_types` organiza a parte do modelo de dados responsável por o comportamento e a persistência de skill types no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `skill_types` registra os tipos de [[skills]] que existem no sistema. Servindo como categorias como: Pericias, Golpes, Passivas e etc.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_skill_type | integer | PK, FK -> [[entities]] | Referência ao tipo de elemento. |
-| name | varchar | — | Nome descritivo do registro, usado para identificação humana e organização. |
-| id_validation_rule | integer | FK -> [[rules]] | Referência à regra associada. |
-
-## Relacionamentos
-
-- Outward Links: [[entities]], [[rules]]
-- Inward Links: [[skills]], [[skill_type_generator_type]]
+| Nome da Coluna     | Tipo    | Constraints            | Descrição                                              |
+| ------------------ | ------- | ---------------------- | ------------------------------------------------------ |
+| id_skill_type      | uuid    | PK, FK -> [[entities]] | Identificador único do registro desta tabela.          |
+| name               | varchar | -                      | Nome do tipo de skill.                                 |
+| id_validation_rule | uuid    | FK -> [[rules]]        | Regra de validação estrutural para esse tipo de skill. |

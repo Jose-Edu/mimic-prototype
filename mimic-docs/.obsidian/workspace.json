@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "sheet_type_generator_type.md",
+                "file": "tests.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sheet_type_generator_type"
+              "title": "tests"
             }
           }
         ]
@@ -83,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "60194ac1f1d0b9f6",
@@ -191,9 +190,23 @@
   },
   "active": "61ef5709bfa8dc91",
   "lastOpenFiles": [
-    "sheet_skill_attribute_entry.md",
+    "test_types.md",
+    "tests.md",
+    "test_rng.md",
+    "tags.md",
+    "tag_entity.md",
+    "systems.md",
+    "descriptions.md",
+    "entities.md",
+    "skills.md",
+    "skill_types.md",
+    "skill_type_generator_type.md",
+    "sheets.md",
+    "sheet_types.md",
+    "sheet_type_sheet_type.md",
     "sheet_type_generator_type.md",
     "sheet_skill.md",
+    "sheet_skill_attribute_entry.md",
     "sheet_sheet.md",
     "sheet_groups.md",
     "event_logs.md",
@@ -203,20 +216,6 @@
     "rule_entity.md",
     "roles.md",
     "role_access.md",
-    "rngs.md",
-    "migrations.md",
-    "maps.md",
-    "map_token.md",
-    "map_map.md",
-    "globals.md",
-    "generators.md",
-    "generator_types.md",
-    "generator_type_steps.md",
-    "generator_steps.md",
-    "generator_step_skill.md",
-    "game_states.md",
-    "entity_attribute_entry.md",
-    "entity_attribute.md",
     "Rules"
   ]
 }

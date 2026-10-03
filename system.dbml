@@ -286,11 +286,11 @@ Ref: "globals"."id_attribute" > "attributes"."id_attribute"
 
 Table test_types {
   id_test_type uuid [primary key]
-  id_rule uuid
+  id_default_rule uuid /*nullable*/
   name varchar
 }
 Ref: "test_types"."id_test_type" > "entities"."id_entity"
-Ref: "test_types"."id_rule" > "rules"."id_rule"
+Ref: "test_types"."id_default_rule" > "rules"."id_rule"
 
 Table tests {
   id_test uuid [primary key]
@@ -372,6 +372,7 @@ Table entities {
   id_system uuid
   id_creator_user uuid
   is_featured boolean /* default false */
+  is_ocult boolean /* default false */
   id_overrides_entity uuid /*nullable*/
   table_name varchar /*ex: generators, rules, roles etc*/
   is_active boolean /*default true*/
@@ -450,7 +451,8 @@ Table descriptions {
   id_description uuid [primary key]
   id_entity uuid
   description text
-  illustration varchar /*image link, nullable*/
+  image_type enum("other", "illustration", "icon", "diagram", "full_page", "banner", "main_folder")
+  image_link varchar /* nullable */
 }
 Ref: "descriptions"."id_entity" > "entities"."id_entity"
 
