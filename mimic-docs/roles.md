@@ -3,7 +3,7 @@ A tabela `roles` organiza os cargos do projeto. Cargos são conjutos de [[access
 
 | Nome da Coluna | Tipo    | Constraints            | Descrição                                                                                                    |
 | -------------- | ------- | ---------------------- | ------------------------------------------------------------------------------------------------------------ |
-| id_role        | integer | PK, FK -> [[entities]] | Identificador único do registro desta tabela.                                                                |
+| id_role        | uuid    | PK, FK -> [[entities]] | Identificador único do registro desta tabela.                                                                |
 | name           | varchar | -                      | Nome do cargo.                                                                                               |
 | is_default     | boolean |                        | Flag booleana que indica que o cargo deve ser dado por padrão para todo usuário criado.                      |
 | roleless_add   | boolean |                        | Flag booleana que indica que esse cargo deve ser dado para todo usuário que é criado sem nenhum outro cargo. |

@@ -65,13 +65,15 @@ Table sheet_types {
   name varchar 
   id_validation_rule uuid
   id_compose_rule uuid
-  is_main_sheet_type boolean
+  category enum("other", "player", "npc", "item", "object")
   id_base_generator uuid // (optional)
+  id_default_group uuid // (optional)
 }
 Ref: "sheet_types"."id_sheet_type" > "entities"."id_entity"
 Ref: "sheet_types"."id_validation_rule" > "rules"."id_rule"
 Ref: "sheet_types"."id_compose_rule" > "rules"."id_rule"
 Ref: "sheet_types"."id_base_generator" > "generators"."id_generator"
+Ref: "sheet_types"."id_default_group" > "sheet_groups"."id_sheet_group"
 
 Table sheets {
   id_sheet uuid [primary key]
@@ -339,8 +341,9 @@ Table event_logs {
   id_event_log uuid [primary key]
   created_at timestamp
   id_entity uuid
-  event_type enum("free", "mimic")
+  event_type enum("free", "narrative" ,"mimic")
   mimic_event enum("read", "use", "update", "create", "delete", "overwrite") /*nullable*/
+  narrative_event enum("other", "dialog", "action", "narration") /*nullable*/
   entry text
   multi_part_id uuid /*nullable*/
   resolved boolean
@@ -436,16 +439,20 @@ Table description_variants {
 Ref: "description_variants"."id_description_variant_type" > 
 "description_variant_types"."id_description_variant_type"
 
+Table description_description_variant {
+  id_description uuid [primary key]
+  id_description_variant uuid [primary key]
+}
+Ref: "description_description_variant"."id_description" > "descriptions"."id_description"
+Ref: "description_description_variant"."id_description_variant" > "description_variants"."id_description_variant"
+
 Table descriptions {
   id_description uuid [primary key]
   id_entity uuid
-  name varchar
   description text
-  id_description_variant uuid
+  illustration varchar /*image link, nullable*/
 }
 Ref: "descriptions"."id_entity" > "entities"."id_entity"
-Ref: "descriptions"."id_description_variant" > 
-"description_variants"."id_description_variant"
 
 Table sheet_generator {
   id_sheet_generator uuid [primary key]

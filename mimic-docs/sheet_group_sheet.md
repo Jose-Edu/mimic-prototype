@@ -1,21 +1,11 @@
----
-type: database_table
-tags: [db, table, mimic, sheet_group_sheet]
-system_domain: "Fichas e mapas"
----
 
-# Tabela: sheet_group_sheet
 
-A tabela `sheet_group_sheet` organiza a parte do modelo de dados responsável por o comportamento e a persistência de sheet group sheet no motor de RPG. Ela funciona como um bloco de persistência central dentro do esquema, contribuindo para a representação de entidades, regras, permissões, fichas, habilidades e outros componentes do sistema universal.
+A tabela `sheet_group_sheet` registra o relacionamento N:N entre sheets e sheet_groups. Representa quais fichas estão em quais grupos.
 
 ## Estrutura
 
-| Nome da Coluna | Tipo | Constraints | Descrição |
-| --- | --- | --- | --- |
-| id_sheet_group | integer | PK, FK -> [[sheet_groups]] | Chave estrangeira para a tabela relacionada. |
-| id_sheet | integer | PK, FK -> [[sheets]] | Referência à ficha associada. |
+| Nome da Coluna | Tipo | Constraints                | Descrição                      |
+| -------------- | ---- | -------------------------- | ------------------------------ |
+| id_sheet_group | uuid | PK, FK -> [[sheet_groups]] | Referencia ao grupo associado. |
+| id_sheet       | uuid | PK, FK -> [[sheets]]       | Referência à ficha associada.  |
 
-## Relacionamentos
-
-- Outward Links: [[sheet_groups]], [[sheets]]
-- Inward Links: Nenhuma tabela referencia diretamente esta tabela.
