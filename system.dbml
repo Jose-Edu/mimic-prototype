@@ -29,6 +29,13 @@ Table user_role {
 Ref: "user_role"."id_user" > "users"."id_user"
 Ref: "user_role"."id_role" > "roles"."id_role"
 
+Table user_access {
+  id_user uuid [primary key]
+  id_access uuid [primary key]
+}
+Ref: "user_access"."id_user" > "users"."id_user"
+Ref: "user_access"."id_access" > "access"."id_access"
+
 Table roles {
   id_role uuid [primary key]
   name varchar 
@@ -295,10 +302,12 @@ Ref: "test_types"."id_default_rule" > "rules"."id_rule"
 Table tests {
   id_test uuid [primary key]
   id_test_type uuid
-  name varchar 
+  id_rule uuid /*nullable*/
+  name varchar
 }
 Ref: "tests"."id_test" > "entities"."id_entity"
 Ref: "tests"."id_test_type" > "test_types"."id_test_type"
+Ref: "tests"."id_rule" > "rules"."id_rule"
 
 Table test_rng {
   id_test uuid [primary key]
@@ -371,8 +380,7 @@ Table entities {
   updated_at timestamp
   id_system uuid
   id_creator_user uuid
-  is_featured boolean /* default false */
-  is_ocult boolean /* default false */
+  emphasis_level enum("hidden", "common", "featured")
   id_overrides_entity uuid /*nullable*/
   table_name varchar /*ex: generators, rules, roles etc*/
   is_active boolean /*default true*/

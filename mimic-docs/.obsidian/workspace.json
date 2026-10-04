@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f17c41c474bbfe5b",
+        "id": "2df4a366c4bcb13d",
         "type": "tabs",
         "children": [
           {
-            "id": "61ef5709bfa8dc91",
+            "id": "f5782b7ab4ac7d3b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tests.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "tests"
+              "title": "Nova aba"
             }
           }
         ]
@@ -188,16 +184,22 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "61ef5709bfa8dc91",
+  "active": "e92885238681c732",
   "lastOpenFiles": [
-    "test_types.md",
+    "value_types.md",
+    "user_role.md",
+    "rule_entity.md",
+    "users.md",
+    "user_system.md",
+    "user_access.md",
     "tests.md",
-    "test_rng.md",
-    "tags.md",
+    "test_types.md",
     "tag_entity.md",
+    "tags.md",
+    "entities.md",
+    "test_rng.md",
     "systems.md",
     "descriptions.md",
-    "entities.md",
     "skills.md",
     "skill_types.md",
     "skill_type_generator_type.md",
@@ -210,12 +212,6 @@
     "sheet_sheet.md",
     "sheet_groups.md",
     "event_logs.md",
-    "sheet_group_sheet.md",
-    "sheet_generator.md",
-    "rules.md",
-    "rule_entity.md",
-    "roles.md",
-    "role_access.md",
     "Rules"
   ]
 }
