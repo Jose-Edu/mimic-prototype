@@ -1,5 +1,5 @@
-Table migrations {
-  id_migration uuid [primary key]
+Table mimic_migrations {
+  id uuid [primary key]
   id_system uuid
   mimic_version varchar
   created_at timestamp
@@ -8,44 +8,44 @@ Table migrations {
   resolved boolean /* default false */
   new_system_version varchar /*nullable*/
 }
-Ref: "migrations"."id_system" > "systems"."id_system"
+Ref: "mimic_migrations"."id_system" > "mimic_systems"."id"
 
-Table users {
-  id_user uuid [primary key]
+Table mimic_users {
+  id uuid [primary key]
   name varchar
 }
 
-Table user_system {
+Table mimic_user_system {
   id_user uuid [primary key]
   id_system uuid [primary key]
 }
-Ref: "user_system"."id_user" > "users"."id_user"
-Ref: "user_system"."id_system" > "systems"."id_system"
+Ref: "mimic_user_system"."id_user" > "mimic_users"."id"
+Ref: "mimic_user_system"."id_system" > "mimic_systems"."id"
 
-Table user_role {
+Table mimic_user_role {
   id_user uuid [primary key]
   id_role uuid [primary key]
 }
-Ref: "user_role"."id_user" > "users"."id_user"
-Ref: "user_role"."id_role" > "roles"."id_role"
+Ref: "mimic_user_role"."id_user" > "mimic_users"."id"
+Ref: "mimic_user_role"."id_role" > "mimic_roles"."id"
 
-Table user_access {
+Table mimic_user_access {
   id_user uuid [primary key]
   id_access uuid [primary key]
 }
-Ref: "user_access"."id_user" > "users"."id_user"
-Ref: "user_access"."id_access" > "access"."id_access"
+Ref: "mimic_user_access"."id_user" > "mimic_users"."id"
+Ref: "mimic_user_access"."id_access" > "mimic_access"."id"
 
-Table roles {
-  id_role uuid [primary key]
+Table mimic_roles {
+  id uuid [primary key]
   name varchar 
   is_default boolean
   roleless_add boolean
 }
-Ref: "roles"."id_role" > "entities"."id_entity"
+Ref: "mimic_roles"."id" > "mimic_entities"."id"
 
-Table access {
-  id_access uuid [primary key]
+Table mimic_access {
+  id uuid [primary key]
   id_entity_to_access uuid /*nullable*/
   id_game_state uuid /*nullable*/
   scope enum("self", "same", "other")
@@ -56,19 +56,19 @@ Table access {
   can_delete boolean
   can_overwrite boolean
 }
-Ref: "access"."id_entity_to_access" > "entities"."id_entity"
-Ref: "access"."id_game_state" > "game_states"."id_game_state"
-Ref: "access"."id_access" > "entities"."id_entity"
+Ref: "mimic_access"."id_entity_to_access" > "mimic_entities"."id"
+Ref: "mimic_access"."id_game_state" > "mimic_game_states"."id"
+Ref: "mimic_access"."id" > "mimic_entities"."id"
 
-Table role_access {
+Table mimic_role_access {
   id_access uuid [primary key]
   id_role uuid [primary key]
 }
-Ref: "role_access"."id_role" > "roles"."id_role"
-Ref: "role_access"."id_access" > "access"."id_access"
+Ref: "mimic_role_access"."id_role" > "mimic_roles"."id"
+Ref: "mimic_role_access"."id_access" > "mimic_access"."id"
 
-Table sheet_types {
-  id_sheet_type uuid [primary key]
+Table mimic_sheet_types {
+  id uuid [primary key]
   name varchar 
   id_validation_rule uuid
   id_compose_rule uuid
@@ -76,129 +76,129 @@ Table sheet_types {
   id_base_generator uuid // (optional)
   id_default_group uuid // (optional)
 }
-Ref: "sheet_types"."id_sheet_type" > "entities"."id_entity"
-Ref: "sheet_types"."id_validation_rule" > "rules"."id_rule"
-Ref: "sheet_types"."id_compose_rule" > "rules"."id_rule"
-Ref: "sheet_types"."id_base_generator" > "generators"."id_generator"
-Ref: "sheet_types"."id_default_group" > "sheet_groups"."id_sheet_group"
+Ref: "mimic_sheet_types"."id" > "mimic_entities"."id"
+Ref: "mimic_sheet_types"."id_validation_rule" > "mimic_rules"."id"
+Ref: "mimic_sheet_types"."id_compose_rule" > "mimic_rules"."id"
+Ref: "mimic_sheet_types"."id_base_generator" > "mimic_generators"."id"
+Ref: "mimic_sheet_types"."id_default_group" > "mimic_sheet_groups"."id"
 
-Table sheets {
-  id_sheet uuid [primary key]
+Table mimic_sheets {
+  id uuid [primary key]
   id_sheet_type uuid
 }
-Ref: "sheets"."id_sheet" > "entities"."id_entity"
-Ref: "sheets"."id_sheet_type" > "sheet_types"."id_sheet_type"
+Ref: "mimic_sheets"."id" > "mimic_entities"."id"
+Ref: "mimic_sheets"."id_sheet_type" > "mimic_sheet_types"."id"
 
-Table sheet_groups {
-  id_sheet_group uuid [primary key]
+Table mimic_sheet_groups {
+  id uuid [primary key]
   name varchar
 }
-Ref: "sheet_groups"."id_sheet_group" > "entities"."id_entity"
+Ref: "mimic_sheet_groups"."id" > "mimic_entities"."id"
 
-Table sheet_group_sheet {
+Table mimic_sheet_group_sheet {
   id_sheet_group uuid [primary key]
   id_sheet uuid [primary key]
 }
-Ref: "sheet_group_sheet"."id_sheet_group" > "sheet_groups"."id_sheet_group"
-Ref: "sheet_group_sheet"."id_sheet" > "sheets"."id_sheet"
+Ref: "mimic_sheet_group_sheet"."id_sheet_group" > "mimic_sheet_groups"."id"
+Ref: "mimic_sheet_group_sheet"."id_sheet" > "mimic_sheets"."id"
 
-Table generator_types {
-  id_generator_type uuid [primary key]
+Table mimic_generator_types {
+  id uuid [primary key]
   name varchar
   id_validation_rule uuid
   id_compose_rule uuid
 }
-Ref: "generator_types"."id_generator_type" > "entities"."id_entity"
-Ref: "generator_types"."id_validation_rule" > "rules"."id_rule"
-Ref: "generator_types"."id_compose_rule" > "rules"."id_rule"
+Ref: "mimic_generator_types"."id" > "mimic_entities"."id"
+Ref: "mimic_generator_types"."id_validation_rule" > "mimic_rules"."id"
+Ref: "mimic_generator_types"."id_compose_rule" > "mimic_rules"."id"
 
-Table generator_type_steps {
-  id_generator_type_step uuid [primary key]
+Table mimic_generator_type_steps {
+  id uuid [primary key]
   id_generator_type uuid
   id_validation_rule uuid
   name varchar
 }
-Ref: "generator_type_steps"."id_generator_type_step" > "entities"."id_entity"
-Ref: "generator_type_steps"."id_generator_type" > "generator_types"."id_generator_type"
-Ref: "generator_type_steps"."id_validation_rule" > "rules"."id_rule"
+Ref: "mimic_generator_type_steps"."id" > "mimic_entities"."id"
+Ref: "mimic_generator_type_steps"."id_generator_type" > "mimic_generator_types"."id"
+Ref: "mimic_generator_type_steps"."id_validation_rule" > "mimic_rules"."id"
 
-Table generators {
-  id_generator uuid [primary key]
+Table mimic_generators {
+  id uuid [primary key]
   id_generator_type uuid
   id_super_generator uuid /* nullable */
   name varchar
 }
-Ref: "generators"."id_generator" > "entities"."id_entity"
-Ref: "generators"."id_generator_type" > "generator_types"."id_generator_type"
-Ref: "generators"."id_super_generator" > "generators"."id_generator"
+Ref: "mimic_generators"."id" > "mimic_entities"."id"
+Ref: "mimic_generators"."id_generator_type" > "mimic_generator_types"."id"
+Ref: "mimic_generators"."id_super_generator" > "mimic_generators"."id"
 
-Table generator_steps {
-  id_generator_step uuid [primary key]
+Table mimic_generator_steps {
+  id uuid [primary key]
   id_generator uuid
   id_generator_type_step uuid
   id_validation_rule uuid /* nullable */
   name varchar
 }
-Ref: "generator_steps"."id_generator_step" > "entities"."id_entity"
-Ref: "generator_steps"."id_generator" > "generators"."id_generator"
-Ref: "generator_steps"."id_generator_type_step" > "generator_type_steps"."id_generator_type_step"
-Ref: "generator_steps"."id_validation_rule" > "rules"."id_rule"
+Ref: "mimic_generator_steps"."id" > "mimic_entities"."id"
+Ref: "mimic_generator_steps"."id_generator" > "mimic_generators"."id"
+Ref: "mimic_generator_steps"."id_generator_type_step" > "mimic_generator_type_steps"."id"
+Ref: "mimic_generator_steps"."id_validation_rule" > "mimic_rules"."id"
 
-Table generator_step_skill {
-  id_generator_step_skill uuid [primary key]
+Table mimic_generator_step_skill {
+  id uuid [primary key]
   id_generator_step uuid
   id_skill uuid
 }
-Ref: "generator_step_skill"."id_generator_step" > "generator_steps"."id_generator_step"
-Ref: "generator_step_skill"."id_skill" > "skills"."id_skill"
+Ref: "mimic_generator_step_skill"."id" > "mimic_generator_steps"."id"
+Ref: "mimic_generator_step_skill"."id_skill" > "mimic_skills"."id"
 
-Table sheet_type_generator_type {
-  id_sheet_type_generator_type uuid [primary key]
+Table mimic_sheet_type_generator_type {
+  id uuid [primary key]
   id_sheet_type uuid
   id_generator_type uuid
   order integer
 }
-Ref: "sheet_type_generator_type"."id_sheet_type" > "sheet_types"."id_sheet_type"
-Ref: "sheet_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
+Ref: "mimic_sheet_type_generator_type"."id_sheet_type" > "mimic_sheet_types"."id"
+Ref: "mimic_sheet_type_generator_type"."id_generator_type" > "mimic_generator_types"."id"
 
-Table skill_types {
-  id_skill_type uuid [primary key]
+Table mimic_skill_types {
+  id uuid [primary key]
   name varchar 
   id_validation_rule uuid
 }
-Ref: "skill_types"."id_skill_type" > "entities"."id_entity"
-Ref: "skill_types"."id_validation_rule" > "rules"."id_rule"
+Ref: "mimic_skill_types"."id" > "mimic_entities"."id"
+Ref: "mimic_skill_types"."id_validation_rule" > "mimic_rules"."id"
 
-Table skills {
-  id_skill uuid [primary key]
+Table mimic_skills {
+  id uuid [primary key]
   id_skill_type uuid
   name varchar
   id_action_rule uuid
 }
-Ref: "skills"."id_skill" > "entities"."id_entity"
-Ref: "skills"."id_skill_type" > "skill_types"."id_skill_type"
-Ref: "skills"."id_action_rule" > "rules"."id_rule"
+Ref: "mimic_skills"."id" > "mimic_entities"."id"
+Ref: "mimic_skills"."id_skill_type" > "mimic_skill_types"."id"
+Ref: "mimic_skills"."id_action_rule" > "mimic_rules"."id"
 
-Table skill_type_generator_type {
+Table mimic_skill_type_generator_type {
   id_skill_type uuid [primary key]
   id_generator_type uuid [primary key]
 }
-Ref: "skill_type_generator_type"."id_skill_type" > "skill_types"."id_skill_type"
-Ref: "skill_type_generator_type"."id_generator_type" > "generator_types"."id_generator_type"
+Ref: "mimic_skill_type_generator_type"."id_skill_type" > "mimic_skill_types"."id"
+Ref: "mimic_skill_type_generator_type"."id_generator_type" > "mimic_generator_types"."id"
 
-Table rules {
-  id_rule uuid [primary key]
+Table mimic_rules {
+  id uuid [primary key]
   name varchar
   type enum("math", "validation", "action", "relationship", "trigger")
   id_trigger_rule uuid /*nullable*/
   rule jsonb /*ast*/
 }
-Ref: "rules"."id_rule" > "entities"."id_entity"
-Ref: "rules"."id_trigger_rule" > "rules"."id_rule"
+Ref: "mimic_rules"."id" > "mimic_entities"."id"
+Ref: "mimic_rules"."id_trigger_rule" > "mimic_rules"."id"
 
-Table rule_entity {
+Table mimic_rule_entity {
 
-  id_rule_entity uuid [primary key]
+  id uuid [primary key]
   id_rule uuid
   id_entity uuid
   resolve_method enum("manual", "context")
@@ -206,12 +206,12 @@ Table rule_entity {
   internal_name varchar
 
 }
-Ref: "rule_entity"."id_rule" > "rules"."id_rule"
-Ref: "rule_entity"."id_entity" > "entities"."id_entity"
-Ref: "rule_entity"."value_type" > "value_types"."id_value_type"
+Ref: "mimic_rule_entity"."id_rule" > "mimic_rules"."id"
+Ref: "mimic_rule_entity"."id_entity" > "mimic_entities"."id"
+Ref: "mimic_rule_entity"."value_type" > "mimic_value_types"."id"
 
-Table rngs {
-  id_rng uuid [primary key]
+Table mimic_rngs {
+  id uuid [primary key]
   name varchar 
   id_filter_rule uuid /*nullable*/
   expected_value integer /*nullable*/
@@ -221,17 +221,17 @@ Table rngs {
   final_values integer[]
   type enum("other", "dice", "deck", "spinner")
 }
-Ref: "rngs"."id_rng" > "entities"."id_entity"
-Ref: "rngs"."id_filter_rule" > "rules"."id_rule"
+Ref: "mimic_rngs"."id" > "mimic_entities"."id"
+Ref: "mimic_rngs"."id_filter_rule" > "mimic_rules"."id"
 
-Table value_types {
-  id_value_type uuid [primary key]
+Table mimic_value_types {
+  id uuid [primary key]
   value_type enum("number", "string", "boolean", "entity")
   struct_type enum("value", "list", "consumable", "enum", "key-value")
 }
 
-Table attributes {
-  id_attribute uuid [primary key]
+Table mimic_attributes {
+  id uuid [primary key]
   id_value_rule uuid
   name varchar 
   value_type uuid
@@ -248,22 +248,22 @@ Table attributes {
   min_size_value integer /*nullable*/
   max_size_value integer /*nullable*/
 }
-Ref: "attributes"."id_attribute" > "entities"."id_entity"
-Ref: "attributes"."id_value_rule" > "rules"."id_rule"
-Ref: "attributes"."value_type" > "value_types"."id_value_type"
-Ref: "attributes"."expected_value_entity" > "entities"."id_entity"
-Ref: "attributes"."default_value_entity" > "entities"."id_entity"
+Ref: "mimic_attributes"."id" > "mimic_entities"."id"
+Ref: "mimic_attributes"."id_value_rule" > "mimic_rules"."id"
+Ref: "mimic_attributes"."value_type" > "mimic_value_types"."id"
+Ref: "mimic_attributes"."expected_value_entity" > "mimic_entities"."id"
+Ref: "mimic_attributes"."default_value_entity" > "mimic_entities"."id"
 
-Table entity_attribute {
-  id_entity_attribute uuid [primary key]
+Table mimic_entity_attribute {
+  id uuid [primary key]
   id_entity uuid
   id_attribute uuid
 }
-Ref: "entity_attribute"."id_entity" > "entities"."id_entity"
-Ref: "entity_attribute"."id_attribute" > "attributes"."id_attribute"
+Ref: "mimic_entity_attribute"."id_entity" > "mimic_entities"."id"
+Ref: "mimic_entity_attribute"."id_attribute" > "mimic_attributes"."id"
 
-Table entity_attribute_entry {
-  id_entity_attribute_entry uuid [primary key]
+Table mimic_entity_attribute_entry {
+  id uuid [primary key]
   id_entity_attribute uuid
   attribute_number number /*nullable*/
   attribute_string varchar /*nullable*/
@@ -271,63 +271,63 @@ Table entity_attribute_entry {
   attribute_entity uuid /*nullable*/
   order integer /*default 1*/
 }
-Ref: "entity_attribute_entry"."id_entity_attribute" > "entity_attribute"."id_entity_attribute"
-Ref: "entity_attribute_entry"."attribute_entity" > "entities"."id_entity"
+Ref: "mimic_entity_attribute_entry"."id_entity_attribute" > "mimic_entity_attribute"."id"
+Ref: "mimic_entity_attribute_entry"."attribute_entity" > "mimic_entities"."id"
 
-Table attribute_items {
-  id_attribute_item uuid [primary key]
+Table mimic_attribute_items {
+  id uuid [primary key]
   id_attribute_composer uuid
   id_attribute_composable uuid
   name varchar
 }
-Ref: "attribute_items"."id_attribute_composer" > "attributes"."id_attribute"
-Ref: "attribute_items"."id_attribute_composable" > "attributes"."id_attribute"
+Ref: "mimic_attribute_items"."id_attribute_composer" > "mimic_attributes"."id"
+Ref: "mimic_attribute_items"."id_attribute_composable" > "mimic_attributes"."id"
 
-Table globals {
-  id_global uuid [primary key]
+Table mimic_globals {
+  id uuid [primary key]
   id_attribute uuid
   name varchar
 }
-Ref: "globals"."id_global" > "entities"."id_entity"
-Ref: "globals"."id_attribute" > "attributes"."id_attribute"
+Ref: "mimic_globals"."id" > "mimic_entities"."id"
+Ref: "mimic_globals"."id_attribute" > "mimic_attributes"."id"
 
-Table test_types {
-  id_test_type uuid [primary key]
+Table mimic_test_types {
+  id uuid [primary key]
   id_default_rule uuid /*nullable*/
   name varchar
 }
-Ref: "test_types"."id_test_type" > "entities"."id_entity"
-Ref: "test_types"."id_default_rule" > "rules"."id_rule"
+Ref: "mimic_test_types"."id" > "mimic_entities"."id"
+Ref: "mimic_test_types"."id_default_rule" > "mimic_rules"."id"
 
-Table tests {
-  id_test uuid [primary key]
+Table mimic_tests {
+  id uuid [primary key]
   id_test_type uuid
   id_rule uuid /*nullable*/
   name varchar
 }
-Ref: "tests"."id_test" > "entities"."id_entity"
-Ref: "tests"."id_test_type" > "test_types"."id_test_type"
-Ref: "tests"."id_rule" > "rules"."id_rule"
+Ref: "mimic_tests"."id" > "mimic_entities"."id"
+Ref: "mimic_tests"."id_test_type" > "mimic_test_types"."id"
+Ref: "mimic_tests"."id_rule" > "mimic_rules"."id"
 
-Table test_rng {
+Table mimic_test_rng {
   id_test uuid [primary key]
   id_rng uuid [primary key]
 }
-Ref: "test_rng"."id_test" > "tests"."id_test"
-Ref: "test_rng"."id_rng" > "rngs"."id_rng"
+Ref: "mimic_test_rng"."id_test" > "mimic_tests"."id"
+Ref: "mimic_test_rng"."id_rng" > "mimic_rngs"."id"
 
-Table game_states {
-  id_game_state uuid [primary key]
+Table mimic_game_states {
+  id uuid [primary key]
   name varchar 
   turn_count_rule_id uuid
   turn_order_rule_id uuid
 }
-Ref: "game_states"."id_game_state" > "entities"."id_entity"
-Ref: "game_states"."turn_count_rule_id" > "rules"."id_rule"
-Ref: "game_states"."turn_order_rule_id" > "rules"."id_rule"
+Ref: "mimic_game_states"."id" > "mimic_entities"."id"
+Ref: "mimic_game_states"."turn_count_rule_id" > "mimic_rules"."id"
+Ref: "mimic_game_states"."turn_order_rule_id" > "mimic_rules"."id"
 
-Table systems {
-  id_system uuid [primary key]
+Table mimic_systems {
+  id uuid [primary key]
   mimic_version varchar
   name varchar
   system_version varchar
@@ -340,14 +340,14 @@ Table systems {
   actual_game_state uuid
   actual_turn uuid
 }
-Ref: "systems"."id_delta_origin" > "systems"."id_system"
-Ref: "systems"."id_author_user" > "users"."id_user"
-Ref: "systems"."actual_game_state" > "game_states"."id_game_state"
-Ref: "systems"."actual_turn" > "entities"."id_entity"
+Ref: "mimic_systems"."id_delta_origin" > "mimic_systems"."id"
+Ref: "mimic_systems"."id_author_user" > "mimic_users"."id"
+Ref: "mimic_systems"."actual_game_state" > "mimic_game_states"."id"
+Ref: "mimic_systems"."actual_turn" > "mimic_entities"."id"
 
-Table event_logs {
+Table mimic_event_logs {
 
-  id_event_log uuid [primary key]
+  id uuid [primary key]
   created_at timestamp
   id_entity uuid
   event_type enum("free", "narrative" ,"mimic")
@@ -358,24 +358,24 @@ Table event_logs {
   resolved boolean
 
 }
-Ref: "event_logs"."id_entity" > "entities"."id_entity"
+Ref: "mimic_event_logs"."id_entity" > "mimic_entities"."id"
 
-Table tags {
-  id_tag uuid [primary key]
+Table mimic_tags {
+  id uuid [primary key]
   id_system uuid
   name varchar 
 }
-Ref: "tags"."id_system" > "systems"."id_system"
+Ref: "mimic_tags"."id_system" > "mimic_systems"."id"
 
-Table tag_entity {
+Table mimic_tag_entity {
   id_tag uuid [primary key]
   id_entity uuid [primary key]
 }
-Ref: "tag_entity"."id_tag" > "tags"."id_tag"
-Ref: "tag_entity"."id_entity" > "entities"."id_entity"
+Ref: "mimic_tag_entity"."id_tag" > "mimic_tags"."id"
+Ref: "mimic_tag_entity"."id_entity" > "mimic_entities"."id"
 
-Table entities {
-  id_entity uuid [primary key]
+Table mimic_entities {
+  id uuid [primary key]
   created_at timestamp
   updated_at timestamp
   id_system uuid
@@ -385,12 +385,12 @@ Table entities {
   table_name varchar /*ex: generators, rules, roles etc*/
   is_active boolean /*default true*/
 }
-Ref: "entities"."id_overrides_entity" > "entities"."id_entity"
-Ref: "entities"."id_creator_user" > "users"."id_user"
-Ref: "entities"."id_system" > "systems"."id_system"
+Ref: "mimic_entities"."id_overrides_entity" > "mimic_entities"."id"
+Ref: "mimic_entities"."id_creator_user" > "mimic_users"."id"
+Ref: "mimic_entities"."id_system" > "mimic_systems"."id"
 
-Table maps {
-  id_map uuid [primary key]
+Table mimic_maps {
+  id uuid [primary key]
   name varchar 
   size_a integer
   size_b integer
@@ -398,9 +398,9 @@ Table maps {
   map_system enum("xyz", "qrs")
   multi_map boolean 
 }
-Ref: "maps"."id_map" > "entities"."id_entity"
+Ref: "mimic_maps"."id" > "mimic_entities"."id"
 
-Table map_map {
+Table mimic_map_map {
   id_map_origin uuid [primary key]
   id_map_destination uuid [primary key]
   distance integer
@@ -408,11 +408,11 @@ Table map_map {
   expand_b integer /*Nullable*/
   expand_c integer /*Nullable*/
 }
-Ref: "map_map"."id_map_origin" > "maps"."id_map"
-Ref: "map_map"."id_map_destination" > "maps"."id_map"
+Ref: "mimic_map_map"."id_map_origin" > "mimic_maps"."id"
+Ref: "mimic_map_map"."id_map_destination" > "mimic_maps"."id"
 
-Table map_token {
-  id_map_token uuid [primary key]
+Table mimic_map_token {
+  id uuid [primary key]
   id_sheet uuid /*nullable*/
   id_map uuid
   position_a integer
@@ -429,60 +429,59 @@ Table map_token {
   angle_c integer /*0-360*/
   solid_level integer
 }
-Ref: "map_token"."id_map_token" > "entities"."id_entity"
-Ref: "map_token"."id_sheet" > "sheets"."id_sheet"
-Ref: "map_token"."id_map" > "maps"."id_map"
+Ref: "mimic_map_token"."id" > "mimic_entities"."id"
+Ref: "mimic_map_token"."id_sheet" > "mimic_sheets"."id"
+Ref: "mimic_map_token"."id_map" > "mimic_maps"."id"
 
-Table description_variant_types {
-  id_description_variant_type uuid [primary key]
+Table mimic_description_variant_types {
+  id uuid [primary key]
   id_system uuid
   name varchar
 }
-Ref: "description_variant_types"."id_system" > "systems"."id_system"
+Ref: "mimic_description_variant_types"."id_system" > "mimic_systems"."id"
 
-Table description_variants {
-  id_description_variant uuid [primary key]
+Table mimic_description_variants {
+  id uuid [primary key]
   id_description_variant_type uuid
   name varchar
 }
-Ref: "description_variants"."id_description_variant_type" > 
-"description_variant_types"."id_description_variant_type"
+Ref: "mimic_description_variants"."id_description_variant_type" > "mimic_description_variant_types"."id"
 
-Table description_description_variant {
+Table mimic_description_description_variant {
   id_description uuid [primary key]
   id_description_variant uuid [primary key]
 }
-Ref: "description_description_variant"."id_description" > "descriptions"."id_description"
-Ref: "description_description_variant"."id_description_variant" > "description_variants"."id_description_variant"
+Ref: "mimic_description_description_variant"."id_description" > "mimic_descriptions"."id"
+Ref: "mimic_description_description_variant"."id_description_variant" > "mimic_description_variants"."id"
 
-Table descriptions {
-  id_description uuid [primary key]
+Table mimic_descriptions {
+  id uuid [primary key]
   id_entity uuid
   description text
   image_type enum("other", "illustration", "icon", "diagram", "full_page", "banner", "main_folder")
   image_link varchar /* nullable */
 }
-Ref: "descriptions"."id_entity" > "entities"."id_entity"
+Ref: "mimic_descriptions"."id_entity" > "mimic_entities"."id"
 
-Table sheet_generator {
+Table mimic_sheet_generator {
   id_sheet_generator uuid [primary key]
   id_sheet uuid
   id_generator uuid
   order integer
 }
-Ref: "sheet_generator"."id_sheet" > "sheets"."id_sheet"
-Ref: "sheet_generator"."id_generator" > "generators"."id_generator"
+Ref: "mimic_sheet_generator"."id_sheet" > "mimic_sheets"."id"
+Ref: "mimic_sheet_generator"."id_generator" > "mimic_generators"."id"
 
-Table sheet_skill {
-  id_sheet_skill uuid [primary key]
+Table mimic_sheet_skill {
+  id uuid [primary key]
   id_sheet uuid
   id_skill uuid
 }
-Ref: "sheet_skill"."id_sheet" > "sheets"."id_sheet"
-Ref: "sheet_skill"."id_skill" > "skills"."id_skill"
+Ref: "mimic_sheet_skill"."id_sheet" > "mimic_sheets"."id"
+Ref: "mimic_sheet_skill"."id_skill" > "mimic_skills"."id"
 
-Table sheet_skill_attribute_entry {
-  id_sheet_skill_attribute uuid [primary key]
+Table mimic_sheet_skill_attribute_entry {
+  id uuid [primary key]
   id_sheet_skill uuid
   id_attribute uuid
   attribute_number number /*nullable*/
@@ -491,24 +490,24 @@ Table sheet_skill_attribute_entry {
   attribute_entity uuid /*nullable*/
   order integer
 }
-Ref: "sheet_skill_attribute_entry"."id_sheet_skill" > "sheet_skill"."id_sheet_skill"
-Ref: "sheet_skill_attribute_entry"."id_attribute" > "attributes"."id_attribute"
-Ref: "sheet_skill_attribute_entry"."attribute_entity" > "entities"."id_entity"
+Ref: "mimic_sheet_skill_attribute_entry"."id_sheet_skill" > "mimic_sheet_skill"."id"
+Ref: "mimic_sheet_skill_attribute_entry"."id_attribute" > "mimic_attributes"."id"
+Ref: "mimic_sheet_skill_attribute_entry"."attribute_entity" > "mimic_entities"."id"
 
-Table sheet_type_sheet_type {
+Table mimic_sheet_type_sheet_type {
   id_sheet_type_main uuid [primary key]
   id_sheet_type_children uuid [primary key]
   id_relationship_rule uuid
 }
-Ref: "sheet_type_sheet_type"."id_sheet_type_main" > "sheet_types"."id_sheet_type"
-Ref: "sheet_type_sheet_type"."id_sheet_type_children" > "sheet_types"."id_sheet_type"
-Ref: "sheet_type_sheet_type"."id_relationship_rule" > "rules"."id_rule"
+Ref: "mimic_sheet_type_sheet_type"."id_sheet_type_main" > "mimic_sheet_types"."id"
+Ref: "mimic_sheet_type_sheet_type"."id_sheet_type_children" > "mimic_sheet_types"."id"
+Ref: "mimic_sheet_type_sheet_type"."id_relationship_rule" > "mimic_rules"."id"
 
-Table sheet_sheet {
-  id_sheet_sheet uuid [primary key]
+Table mimic_sheet_sheet {
+  id uuid [primary key]
   id_sheet_main uuid
   id_sheet_children uuid
   order integer
 }
-Ref: "sheet_sheet"."id_sheet_main" > "sheets"."id_sheet"
-Ref: "sheet_sheet"."id_sheet_children" > "sheets"."id_sheet"
+Ref: "mimic_sheet_sheet"."id_sheet_main" > "mimic_sheets"."id"
+Ref: "mimic_sheet_sheet"."id_sheet_children" > "mimic_sheets"."id"
