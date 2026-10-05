@@ -1,4 +1,3 @@
-* atualizar wiki tabelas: add mimic_ e id como novo padrão
 * Criar artigos faltantes:
     * ToDo: listar
 
