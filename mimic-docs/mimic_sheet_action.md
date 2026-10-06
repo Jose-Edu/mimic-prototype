@@ -1,6 +1,6 @@
 
 
-A tabela `mimic_sheet_skill` registra quais fichas possuem quais skills.
+A tabela `mimic_sheet_action` registra quais fichas possuem quais actions.
 
 ## Estrutura
 
@@ -8,5 +8,5 @@ A tabela `mimic_sheet_skill` registra quais fichas possuem quais skills.
 | -------------- | ---- | ---------------- | --------------------------------------------- |
 | id             | uuid | PK               | Identificador único do registro desta tabela. |
 | id_sheet       | uuid | FK -> [[mimic_sheets]] | Referência à ficha associada.                 |
-| id_skill       | uuid | FK -> [[mimic_skills]] | Referência à habilidade relacionada.          |
+| id_action       | uuid | FK -> [[mimic_actions]] | Referência à habilidade relacionada.          |
 

@@ -1,6 +1,6 @@
 
 
-A tabela `mimic_generator_types` registra os tipos de [[mimic_generators]] que existem no sistema. Geradores são os bônus de atributos e skills que uma ficha receberá, os tipos de geradores são as categorias desses bônus. Exemplo: Raça, Classe e etc.
+A tabela `mimic_generator_types` registra os tipos de [[mimic_generators]] que existem no sistema. Geradores são os bônus de atributos e actions que uma ficha receberá, os tipos de geradores são as categorias desses bônus. Exemplo: Raça, Classe e etc.
 
 ## Estrutura
 
@@ -9,4 +9,4 @@ A tabela `mimic_generator_types` registra os tipos de [[mimic_generators]] que e
 | id                 | uuid    | PK, FK -> [[mimic_entities]] | Identificador único do registro desta tabela.                                         |
 | name               | varchar | -                            | Nome do tipo de gerador.                                                              |
 | id_validation_rule | uuid    | FK -> [[mimic_rules]]              | Regra de validação do tipo de gerador que todos os geradores desse tipo devem seguir. |
-| id_compose_rule    | uuid    | FK -> [[mimic_rules]]              | Regra de aplicação dos bônus e skills para os geradores desse tipo.                   |
+| id_compose_rule    | uuid    | FK -> [[mimic_rules]]              | Regra de aplicação dos bônus e actions para os geradores desse tipo.                   |

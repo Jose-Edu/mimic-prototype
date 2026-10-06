@@ -1,5 +1,8 @@
 * Criar artigos faltantes:
-    * ToDo: listar
+    * Deltas
+    * Eventos Mimic
+    * Value Types
+    * Mimic SDK
 
 Criar comandos de mutations para:
 

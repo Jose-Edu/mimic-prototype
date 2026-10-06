@@ -144,13 +144,13 @@ Ref: "mimic_generator_steps"."id_generator" > "mimic_generators"."id"
 Ref: "mimic_generator_steps"."id_generator_type_step" > "mimic_generator_type_steps"."id"
 Ref: "mimic_generator_steps"."id_validation_rule" > "mimic_rules"."id"
 
-Table mimic_generator_step_skill {
+Table mimic_generator_step_action {
   id uuid [primary key]
   id_generator_step uuid
-  id_skill uuid
+  id_action uuid
 }
-Ref: "mimic_generator_step_skill"."id" > "mimic_generator_steps"."id"
-Ref: "mimic_generator_step_skill"."id_skill" > "mimic_skills"."id"
+Ref: "mimic_generator_step_action"."id" > "mimic_generator_steps"."id"
+Ref: "mimic_generator_step_action"."id_action" > "mimic_actions"."id"
 
 Table mimic_sheet_type_generator_type {
   id uuid [primary key]
@@ -161,30 +161,30 @@ Table mimic_sheet_type_generator_type {
 Ref: "mimic_sheet_type_generator_type"."id_sheet_type" > "mimic_sheet_types"."id"
 Ref: "mimic_sheet_type_generator_type"."id_generator_type" > "mimic_generator_types"."id"
 
-Table mimic_skill_types {
+Table mimic_action_types {
   id uuid [primary key]
   name varchar 
   id_validation_rule uuid
 }
-Ref: "mimic_skill_types"."id" > "mimic_entities"."id"
-Ref: "mimic_skill_types"."id_validation_rule" > "mimic_rules"."id"
+Ref: "mimic_action_types"."id" > "mimic_entities"."id"
+Ref: "mimic_action_types"."id_validation_rule" > "mimic_rules"."id"
 
-Table mimic_skills {
+Table mimic_actions {
   id uuid [primary key]
-  id_skill_type uuid
+  id_action_type uuid
   name varchar
   id_action_rule uuid
 }
-Ref: "mimic_skills"."id" > "mimic_entities"."id"
-Ref: "mimic_skills"."id_skill_type" > "mimic_skill_types"."id"
-Ref: "mimic_skills"."id_action_rule" > "mimic_rules"."id"
+Ref: "mimic_actions"."id" > "mimic_entities"."id"
+Ref: "mimic_actions"."id_action_type" > "mimic_action_types"."id"
+Ref: "mimic_actions"."id_action_rule" > "mimic_rules"."id"
 
-Table mimic_skill_type_generator_type {
-  id_skill_type uuid [primary key]
+Table mimic_action_type_generator_type {
+  id_action_type uuid [primary key]
   id_generator_type uuid [primary key]
 }
-Ref: "mimic_skill_type_generator_type"."id_skill_type" > "mimic_skill_types"."id"
-Ref: "mimic_skill_type_generator_type"."id_generator_type" > "mimic_generator_types"."id"
+Ref: "mimic_action_type_generator_type"."id_action_type" > "mimic_action_types"."id"
+Ref: "mimic_action_type_generator_type"."id_generator_type" > "mimic_generator_types"."id"
 
 Table mimic_rules {
   id uuid [primary key]
@@ -472,17 +472,17 @@ Table mimic_sheet_generator {
 Ref: "mimic_sheet_generator"."id_sheet" > "mimic_sheets"."id"
 Ref: "mimic_sheet_generator"."id_generator" > "mimic_generators"."id"
 
-Table mimic_sheet_skill {
+Table mimic_sheet_action {
   id uuid [primary key]
   id_sheet uuid
-  id_skill uuid
+  id_action uuid
 }
-Ref: "mimic_sheet_skill"."id_sheet" > "mimic_sheets"."id"
-Ref: "mimic_sheet_skill"."id_skill" > "mimic_skills"."id"
+Ref: "mimic_sheet_action"."id_sheet" > "mimic_sheets"."id"
+Ref: "mimic_sheet_action"."id_action" > "mimic_actions"."id"
 
-Table mimic_sheet_skill_attribute_entry {
+Table mimic_sheet_action_attribute_entry {
   id uuid [primary key]
-  id_sheet_skill uuid
+  id_sheet_action uuid
   id_attribute uuid
   attribute_number number /*nullable*/
   attribute_string varchar /*nullable*/
@@ -490,9 +490,9 @@ Table mimic_sheet_skill_attribute_entry {
   attribute_entity uuid /*nullable*/
   order integer
 }
-Ref: "mimic_sheet_skill_attribute_entry"."id_sheet_skill" > "mimic_sheet_skill"."id"
-Ref: "mimic_sheet_skill_attribute_entry"."id_attribute" > "mimic_attributes"."id"
-Ref: "mimic_sheet_skill_attribute_entry"."attribute_entity" > "mimic_entities"."id"
+Ref: "mimic_sheet_action_attribute_entry"."id_sheet_action" > "mimic_sheet_action"."id"
+Ref: "mimic_sheet_action_attribute_entry"."id_attribute" > "mimic_attributes"."id"
+Ref: "mimic_sheet_action_attribute_entry"."attribute_entity" > "mimic_entities"."id"
 
 Table mimic_sheet_type_sheet_type {
   id_sheet_type_main uuid [primary key]

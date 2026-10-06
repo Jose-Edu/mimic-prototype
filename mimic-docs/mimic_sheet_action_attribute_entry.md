@@ -1,13 +1,12 @@
 
-
-A tabela `mimic_sheet_skill_attribute_entry` registra as entradas de valores de atributos de habilidades para cada ficha.
+A tabela `mimic_sheet_action_attribute_entry` registra as entradas de valores de atributos de habilidades para cada ficha.
 
 ## Estrutura
 
 | Nome da Coluna    | Tipo    | Constraints                        | Descrição                                     |
 | ----------------- | ------- | ---------------------------------- | --------------------------------------------- |
 | id                | uuid    | PK                                 | Identificador único do registro desta tabela. |
-| id_sheet_skill    | uuid    | FK -> [[mimic_sheet_skill]]        | Referência à ficha e à skill.                 |
+| id_sheet_action    | uuid    | FK -> [[mimic_sheet_action]]        | Referência à ficha e à action.                 |
 | id_attribute      | uuid    | FK -> [[mimic_attributes]]         | Referência ao atributo relacionado.           |
 | order             | integer | -                                  | Ordem de entrada do valor.                    |
 | attribute_number  | number  | Nullable                           | Entrada de valor para caso de number.         |

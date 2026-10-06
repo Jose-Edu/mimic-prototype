@@ -1,6 +1,6 @@
 
 
-A tabela `mimic_generators` registra os geradores usados para compor as entradas de [[mimic_attributes]] e [[mimic_skills]] aplicados às [[mimic_sheets]]. Exemplos: Instâncias de raças e classes: Elfo, Guerreiro, Humando, Mago e etc.
+A tabela `mimic_generators` registra os geradores usados para compor as entradas de [[mimic_attributes]] e [[mimic_actions]] aplicados às [[mimic_sheets]]. Exemplos: Instâncias de raças e classes: Elfo, Guerreiro, Humando, Mago e etc.
 
 ## Estrutura
 
