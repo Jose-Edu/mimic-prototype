@@ -1,44 +1,14 @@
+ToDo:
+
 * Criar artigos faltantes:
     * Deltas
     * Eventos Mimic
     * Value Types
     * Mimic SDK
 
-Criar comandos de mutations para:
+* Ajustar docs das rules
+* Aprimorar ideia de Globals + Game states
+* Melhorar tipagem de conjuntos de entidades
+* Add campo category pro system
 
-* Crud de:
-    - Users
-    - Systems / Deltas
-    - Descriptions types / Description variants 
-    - Description
-    - Tag
-    - Role / access
-    - Map
-    - Sheet Type
-    - Generator Types / Generator Type steps
-    - Generators / Generator steps
-    - Skill Type
-    - RNG
-    - Test
-    - Attributes / Attribute item
-    - Game states
-    - Skills
-    - Globals
-
-Usos de rule:
-
- - generator_type (validation e relationship)
- - rng (validation)
- - attribute (relationship)
- - test (math)
- - game_states (relationship, math)
- - generator_type_steps(validation)
- - skills (action, validation)
- - sheet_type (validation, relationship)
- - sheet_type_sheet_type (relationship)
-
-    Usos totais: 15
-    usos de relationship: 5
-    usos de action: 1
-    usos de validation: 5
-    usos de math: 2
+* Começar a fazer as rules
