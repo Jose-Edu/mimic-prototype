@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9c948b84cebcf8ea",
+        "id": "1da48cac79f22b57",
         "type": "tabs",
         "children": [
           {
-            "id": "558609fd6dbe99b6",
+            "id": "41e89890a89b8dd5",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,9 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "558609fd6dbe99b6",
+  "active": "41e89890a89b8dd5",
   "lastOpenFiles": [
+    "file:/home/joseduardo/Downloads/analise-contrato-tutorial-heaven.md",
     "mimic_game_states.md",
     "mimic_actions.md",
     "mimic_action_types.md",
@@ -211,7 +212,6 @@
     "mimic_user_access.md",
     "mimic_tests.md",
     "mimic_test_types.md",
-    "mimic_test_rng.md",
     "Rules"
   ]
 }
