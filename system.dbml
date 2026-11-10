@@ -72,14 +72,16 @@ Ref: "mimic_role_access"."id_access" > "mimic_access"."id"
 Table mimic_sheet_types {
   id uuid [primary key, not null]
   name varchar [not null]
+  category enum("other", "player", "npc", "item", "object") [not null]
   id_validation_rule uuid [not null]
   id_compose_rule uuid [not null]
-  category enum("other", "player", "npc", "item", "object") [not null]
+  id_is_created_rule uuid
   id_base_generator uuid
   id_default_group uuid
 }
 Ref: "mimic_sheet_types"."id" > "mimic_entities"."id"
 Ref: "mimic_sheet_types"."id_validation_rule" > "mimic_rules"."id"
+Ref: "mimic_sheet_types"."id_is_created_rule" > "mimic_rules"."id"
 Ref: "mimic_sheet_types"."id_compose_rule" > "mimic_rules"."id"
 Ref: "mimic_sheet_types"."id_base_generator" > "mimic_generators"."id"
 Ref: "mimic_sheet_types"."id_default_group" > "mimic_sheet_groups"."id"
@@ -127,7 +129,7 @@ Ref: "mimic_generator_type_steps"."id_validation_rule" > "mimic_rules"."id"
 Table mimic_generators {
   id uuid [primary key, not null]
   id_generator_type uuid [not null]
-  id_super_generator uuid [not null]
+  id_super_generator uuid
   name varchar [not null]
 }
 Ref: "mimic_generators"."id" > "mimic_entities"."id"
@@ -194,10 +196,37 @@ Table mimic_rules {
   type enum("math", "validation", "action", "relationship", "trigger") [not null]
   is_passive boolean [default: false]
   id_trigger_rule uuid
-  rule jsonb [not null] /*ast*/
+  rule jsonb /*ast*/
 }
 Ref: "mimic_rules"."id" > "mimic_entities"."id"
 Ref: "mimic_rules"."id_trigger_rule" > "mimic_rules"."id"
+
+Table mimic_rules_validation {
+  id uuid [primary key, not null]
+}
+Ref: "mimic_rules_validation"."id" > "mimic_rules"."id"
+
+Table mimic_rules_math {
+  id uuid [primary key, not null]
+}
+Ref: "mimic_rules_math"."id" > "mimic_rules"."id"
+
+Table mimic_rules_action {
+  id uuid [primary key, not null]
+}
+Ref: "mimic_rules_action"."id" > "mimic_rules"."id"
+
+Table mimic_rules_relationship {
+  id uuid [primary key, not null]
+  strategy enum("manual", "by_name", "by_name_map")
+}
+Ref: "mimic_rules_relationship"."id" > "mimic_rules"."id"
+
+Table mimic_rules_trigger {
+  id uuid [primary key, not null]
+  trigger_fit enum("before", "after", "overwrite") [not null]
+}
+Ref: "mimic_rules_trigger"."id" > "mimic_rules"."id"
 
 Table mimic_rule_entity {
   id uuid [primary key, not null]
@@ -263,17 +292,21 @@ Table mimic_entity_attribute {
 Ref: "mimic_entity_attribute"."id_entity" > "mimic_entities"."id"
 Ref: "mimic_entity_attribute"."id_attribute" > "mimic_attributes"."id"
 
-Table mimic_entity_attribute_entry {
+Table mimic_attribute_entries {
   id uuid [primary key, not null]
-  id_entity_attribute uuid [not null]
   attribute_number number
   attribute_string varchar
   attribute_boolean boolean
   attribute_entity uuid
   order integer [default: 1]
 }
-Ref: "mimic_entity_attribute_entry"."id_entity_attribute" > "mimic_entity_attribute"."id"
-Ref: "mimic_entity_attribute_entry"."attribute_entity" > "mimic_entities"."id"
+Ref: "mimic_attribute_entries"."attribute_entity" > "mimic_entities"."id"
+
+Table mimic_entity_attribute_entries {
+  id_entity_attribute uuid [primary key, not null]
+  id_attribute_entry uuid [primary key, not null]
+}
+Ref: "mimic_entity_attribute_entries"."id_entity_attribute" > "mimic_entity_attribute"."id"
 
 Table mimic_attribute_items {
   id uuid [primary key, not null]
@@ -339,7 +372,7 @@ Table mimic_systems {
   created_at timestamp [not null]
   updated_at timestamp [not null]
   type enum("root", "delta") [not null]
-  category enum("other", "draft", "full system", "adventure", "engine", "scenario", "expansion", "variant", "extra_rule_set") [not null]
+  category enum("other", "draft", "full_system", "adventure", "engine", "scenario", "expansion", "variant", "extra_rule_set", "campaign_data") [not null]
   play_minutes_expected integer
   session_number_expected integer
   players_count_expected integer
@@ -370,6 +403,12 @@ Table mimic_event_logs {
 }
 Ref: "mimic_event_logs"."id_entity" > "mimic_entities"."id"
 
+Table mimic_event_log_attribute_entry {
+  id_event_log uuid [primary key, not null]
+  id_attribute_entry uuid [primary key, not null]
+  internal_name varchar [not null]
+}
+
 Table mimic_tags {
   id uuid [primary key, not null]
   id_system uuid [not null]
@@ -394,7 +433,11 @@ Table mimic_entities {
   id_overrides_entity uuid
   table_name varchar [not null] /*ex: generators, rules, roles etc*/
   is_active boolean [default: true]
-  expected_uses_by_session integer
+  is_type boolean [not null]
+  expected_creations_by_campaign integer
+  expected_updates_by_campaign integer
+  expected_uses_by_campaign integer
+  expected_overwrite_by_campaign integer
 }
 Ref: "mimic_entities"."id_overrides_entity" > "mimic_entities"."id"
 Ref: "mimic_entities"."id_creator_user" > "mimic_users"."id"
@@ -491,19 +534,12 @@ Table mimic_sheet_action {
 Ref: "mimic_sheet_action"."id_sheet" > "mimic_sheets"."id"
 Ref: "mimic_sheet_action"."id_action" > "mimic_actions"."id"
 
-Table mimic_sheet_action_attribute_entry {
-  id uuid [primary key, not null]
-  id_sheet_action uuid [not null]
-  id_attribute uuid [not null]
-  attribute_number number
-  attribute_string varchar
-  attribute_boolean boolean
-  attribute_entity uuid
-  order integer [not null]
+Table mimic_sheet_action_attribute_entries {
+  id_sheet_action uuid [primary key, not null]
+  id_attribute_entry uuid [primary key, not null]
 }
-Ref: "mimic_sheet_action_attribute_entry"."id_sheet_action" > "mimic_sheet_action"."id"
-Ref: "mimic_sheet_action_attribute_entry"."id_attribute" > "mimic_attributes"."id"
-Ref: "mimic_sheet_action_attribute_entry"."attribute_entity" > "mimic_entities"."id"
+Ref: "mimic_sheet_action_attribute_entries"."id_sheet_action" > "mimic_sheet_action"."id"
+Ref: "mimic_sheet_action_attribute_entries"."id_attribute_entry" > "mimic_attribute_entries"."id"
 
 Table mimic_sheet_type_sheet_type {
   id_sheet_type_main uuid [primary key, not null]

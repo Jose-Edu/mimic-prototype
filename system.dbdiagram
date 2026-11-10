@@ -10,314 +10,326 @@
       {
         "name": "mimic_migrations",
         "schemaName": "public",
-        "x": 3784,
-        "y": 200
+        "x": 4144,
+        "y": 72
       },
       {
         "name": "mimic_users",
         "schemaName": "public",
-        "x": 16,
+        "x": 392,
         "y": 16
       },
       {
         "name": "mimic_user_system",
         "schemaName": "public",
-        "x": 3784,
-        "y": 528
+        "x": 4144,
+        "y": 432
       },
       {
         "name": "mimic_user_role",
         "schemaName": "public",
-        "x": 2672,
+        "x": 2960,
         "y": 56
       },
       {
         "name": "mimic_user_access",
         "schemaName": "public",
-        "x": 3784,
-        "y": 672
+        "x": 4144,
+        "y": 576
       },
       {
         "name": "mimic_roles",
         "schemaName": "public",
-        "x": 1544,
-        "y": 56
+        "x": 1912,
+        "y": 96
       },
       {
         "name": "mimic_access",
         "schemaName": "public",
-        "x": 2672,
-        "y": 192
+        "x": 2960,
+        "y": 256
       },
       {
         "name": "mimic_role_access",
         "schemaName": "public",
-        "x": 3784,
-        "y": 56
+        "x": 4144,
+        "y": 712
       },
       {
         "name": "mimic_sheet_types",
         "schemaName": "public",
-        "x": 3784,
-        "y": 816
+        "x": 4144,
+        "y": 856
       },
       {
         "name": "mimic_sheets",
         "schemaName": "public",
-        "x": 4552,
-        "y": 56
+        "x": 4904,
+        "y": 120
       },
       {
         "name": "mimic_sheet_groups",
         "schemaName": "public",
-        "x": 1544,
-        "y": 344
+        "x": 1912,
+        "y": 368
       },
       {
         "name": "mimic_sheet_group_sheet",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 16
       },
       {
         "name": "mimic_generator_types",
         "schemaName": "public",
-        "x": 1544,
-        "y": 528
+        "x": 1912,
+        "y": 552
       },
       {
         "name": "mimic_generator_type_steps",
         "schemaName": "public",
-        "x": 2672,
-        "y": 632
+        "x": 2960,
+        "y": 696
       },
       {
         "name": "mimic_generators",
         "schemaName": "public",
-        "x": 2672,
-        "y": 864
+        "x": 2960,
+        "y": 920
       },
       {
         "name": "mimic_generator_steps",
         "schemaName": "public",
-        "x": 3784,
-        "y": 1120
+        "x": 4144,
+        "y": 1160
       },
       {
         "name": "mimic_generator_step_action",
         "schemaName": "public",
-        "x": 4552,
-        "y": 192
+        "x": 4904,
+        "y": 256
       },
       {
         "name": "mimic_sheet_type_generator_type",
         "schemaName": "public",
-        "x": 4552,
-        "y": 368
+        "x": 4904,
+        "y": 432
       },
       {
         "name": "mimic_action_types",
         "schemaName": "public",
-        "x": 1544,
-        "y": 776
+        "x": 1912,
+        "y": 760
       },
       {
         "name": "mimic_actions",
         "schemaName": "public",
-        "x": 2672,
-        "y": 1064
+        "x": 2960,
+        "y": 1128
       },
       {
         "name": "mimic_action_type_generator_type",
         "schemaName": "public",
-        "x": 2672,
-        "y": 1296
+        "x": 2960,
+        "y": 1336
       },
       {
         "name": "mimic_rules",
         "schemaName": "public",
-        "x": 16,
+        "x": 392,
         "y": 176
       },
       {
         "name": "mimic_rule_entity",
         "schemaName": "public",
-        "x": 1544,
-        "y": 992
+        "x": 1912,
+        "y": 928
       },
       {
         "name": "mimic_rngs",
         "schemaName": "public",
-        "x": 1544,
-        "y": 1264
+        "x": 1912,
+        "y": 1224
       },
       {
         "name": "mimic_value_types",
         "schemaName": "public",
-        "x": 16,
+        "x": 392,
         "y": 448
       },
       {
         "name": "mimic_attributes",
         "schemaName": "public",
-        "x": 1544,
-        "y": 1632
+        "x": 1912,
+        "y": 1584
       },
       {
         "name": "mimic_entity_attribute",
         "schemaName": "public",
-        "x": 2672,
-        "y": 1440
-      },
-      {
-        "name": "mimic_entity_attribute_entry",
-        "schemaName": "public",
-        "x": 3784,
-        "y": 1376
+        "x": 2960,
+        "y": 1480
       },
       {
         "name": "mimic_attribute_items",
         "schemaName": "public",
-        "x": 2672,
-        "y": 1608
+        "x": 2960,
+        "y": 1648
       },
       {
         "name": "mimic_globals",
         "schemaName": "public",
-        "x": 2672,
-        "y": 1816
+        "x": 2960,
+        "y": 1856
       },
       {
         "name": "mimic_test_types",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2224
+        "x": 1912,
+        "y": 2448
       },
       {
         "name": "mimic_tests",
         "schemaName": "public",
-        "x": 2672,
-        "y": 2568
+        "x": 2960,
+        "y": 2032
       },
       {
         "name": "mimic_test_rng",
         "schemaName": "public",
-        "x": 3784,
-        "y": 1680
+        "x": 4144,
+        "y": 1536
       },
       {
         "name": "mimic_game_states",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2392
+        "x": 1912,
+        "y": 2624
       },
       {
         "name": "mimic_systems",
         "schemaName": "public",
-        "x": 2672,
-        "y": 2008
+        "x": 2960,
+        "y": 2256
       },
       {
         "name": "mimic_actual_turn_members",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 152
       },
       {
         "name": "mimic_event_logs",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2632
+        "x": 1912,
+        "y": 2856
       },
       {
         "name": "mimic_tags",
         "schemaName": "public",
-        "x": 3784,
-        "y": 1824
+        "x": 4144,
+        "y": 1680
       },
       {
         "name": "mimic_tag_entity",
         "schemaName": "public",
-        "x": 4552,
-        "y": 576
+        "x": 4904,
+        "y": 640
       },
       {
         "name": "mimic_entities",
         "schemaName": "public",
-        "x": 760,
+        "x": 1144,
         "y": 96
       },
       {
         "name": "mimic_maps",
         "schemaName": "public",
-        "x": 1544,
-        "y": 3000
+        "x": 1912,
+        "y": 3224
       },
       {
         "name": "mimic_map_map",
         "schemaName": "public",
-        "x": 2672,
-        "y": 2776
+        "x": 2960,
+        "y": 2816
       },
       {
         "name": "mimic_map_token",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 296
       },
       {
         "name": "mimic_description_variant_types",
         "schemaName": "public",
-        "x": 3784,
-        "y": 1992
+        "x": 4144,
+        "y": 1856
       },
       {
         "name": "mimic_description_variants",
         "schemaName": "public",
-        "x": 4552,
-        "y": 744
+        "x": 4904,
+        "y": 784
       },
       {
         "name": "mimic_description_description_variant",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 888
       },
       {
         "name": "mimic_descriptions",
         "schemaName": "public",
-        "x": 1544,
-        "y": 3304
+        "x": 1912,
+        "y": 3528
       },
       {
         "name": "mimic_sheet_generator",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 1032
       },
       {
         "name": "mimic_sheet_action",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 1232
-      },
-      {
-        "name": "mimic_sheet_action_attribute_entry",
-        "schemaName": "public",
-        "x": 5792,
-        "y": 16
       },
       {
         "name": "mimic_sheet_type_sheet_type",
         "schemaName": "public",
-        "x": 4552,
-        "y": 912
+        "x": 4904,
+        "y": 952
       },
       {
         "name": "mimic_sheet_sheet",
         "schemaName": "public",
-        "x": 5168,
+        "x": 5680,
         "y": 1408
+      },
+      {
+        "name": "mimic_attribute_entries",
+        "schemaName": "public",
+        "x": 1912,
+        "y": 2176
+      },
+      {
+        "name": "mimic_entity_attribute_entries",
+        "schemaName": "public",
+        "x": 4144,
+        "y": 1400
+      },
+      {
+        "name": "mimic_sheet_action_attribute_entries",
+        "schemaName": "public",
+        "x": 6280,
+        "y": 16
+      },
+      {
+        "name": "mimic_event_log_attribute_entry",
+        "schemaName": "public",
+        "x": 16,
+        "y": 16
       }
     ],
     "tableGroupCollapseStates": [],
@@ -1240,36 +1252,6 @@
       },
       {
         "firstFieldNames": [
-          "id_entity_attribute"
-        ],
-        "firstTableName": "mimic_entity_attribute_entry",
-        "firstSchemaName": "public",
-        "firstRelation": "*",
-        "secondFieldNames": [
-          "id"
-        ],
-        "secondTableName": "mimic_entity_attribute",
-        "secondSchemaName": "public",
-        "secondRelation": "1",
-        "checkPoints": []
-      },
-      {
-        "firstFieldNames": [
-          "attribute_entity"
-        ],
-        "firstTableName": "mimic_entity_attribute_entry",
-        "firstSchemaName": "public",
-        "firstRelation": "*",
-        "secondFieldNames": [
-          "id"
-        ],
-        "secondTableName": "mimic_entities",
-        "secondSchemaName": "public",
-        "secondRelation": "1",
-        "checkPoints": []
-      },
-      {
-        "firstFieldNames": [
           "id_attribute_composer"
         ],
         "firstTableName": "mimic_attribute_items",
@@ -1900,51 +1882,6 @@
       },
       {
         "firstFieldNames": [
-          "id_sheet_action"
-        ],
-        "firstTableName": "mimic_sheet_action_attribute_entry",
-        "firstSchemaName": "public",
-        "firstRelation": "*",
-        "secondFieldNames": [
-          "id"
-        ],
-        "secondTableName": "mimic_sheet_action",
-        "secondSchemaName": "public",
-        "secondRelation": "1",
-        "checkPoints": []
-      },
-      {
-        "firstFieldNames": [
-          "id_attribute"
-        ],
-        "firstTableName": "mimic_sheet_action_attribute_entry",
-        "firstSchemaName": "public",
-        "firstRelation": "*",
-        "secondFieldNames": [
-          "id"
-        ],
-        "secondTableName": "mimic_attributes",
-        "secondSchemaName": "public",
-        "secondRelation": "1",
-        "checkPoints": []
-      },
-      {
-        "firstFieldNames": [
-          "attribute_entity"
-        ],
-        "firstTableName": "mimic_sheet_action_attribute_entry",
-        "firstSchemaName": "public",
-        "firstRelation": "*",
-        "secondFieldNames": [
-          "id"
-        ],
-        "secondTableName": "mimic_entities",
-        "secondSchemaName": "public",
-        "secondRelation": "1",
-        "checkPoints": []
-      },
-      {
-        "firstFieldNames": [
           "id_sheet_type_main"
         ],
         "firstTableName": "mimic_sheet_type_sheet_type",
@@ -2014,6 +1951,66 @@
           "id"
         ],
         "secondTableName": "mimic_sheets",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "attribute_entity"
+        ],
+        "firstTableName": "mimic_attribute_entries",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_entities",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_entity_attribute"
+        ],
+        "firstTableName": "mimic_entity_attribute_entries",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_entity_attribute",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_sheet_action"
+        ],
+        "firstTableName": "mimic_sheet_action_attribute_entries",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_sheet_action",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_attribute_entry"
+        ],
+        "firstTableName": "mimic_sheet_action_attribute_entries",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_attribute_entries",
         "secondSchemaName": "public",
         "secondRelation": "1",
         "checkPoints": []

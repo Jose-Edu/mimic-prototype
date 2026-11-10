@@ -1,6 +1,7 @@
 ToDo:
 
-* Mais liberdade criação de ficha
+* Dividir rules em várias tabelas
+* Ajustar docs
 * Ver parte narrativa como parte geral de Eventos
 
 * Criar artigos faltantes:
