@@ -197,36 +197,11 @@ Table mimic_rules {
   is_passive boolean [default: false]
   id_trigger_rule uuid
   rule jsonb /*ast*/
+  relationship_strategy enum("manual", "by_name", "by_name_map")
+  trigger_strategy enum("before", "after", "overwrite")
 }
 Ref: "mimic_rules"."id" > "mimic_entities"."id"
 Ref: "mimic_rules"."id_trigger_rule" > "mimic_rules"."id"
-
-Table mimic_rules_validation {
-  id uuid [primary key, not null]
-}
-Ref: "mimic_rules_validation"."id" > "mimic_rules"."id"
-
-Table mimic_rules_math {
-  id uuid [primary key, not null]
-}
-Ref: "mimic_rules_math"."id" > "mimic_rules"."id"
-
-Table mimic_rules_action {
-  id uuid [primary key, not null]
-}
-Ref: "mimic_rules_action"."id" > "mimic_rules"."id"
-
-Table mimic_rules_relationship {
-  id uuid [primary key, not null]
-  strategy enum("manual", "by_name", "by_name_map")
-}
-Ref: "mimic_rules_relationship"."id" > "mimic_rules"."id"
-
-Table mimic_rules_trigger {
-  id uuid [primary key, not null]
-  trigger_fit enum("before", "after", "overwrite") [not null]
-}
-Ref: "mimic_rules_trigger"."id" > "mimic_rules"."id"
 
 Table mimic_rule_entity {
   id uuid [primary key, not null]
@@ -408,6 +383,8 @@ Table mimic_event_log_attribute_entry {
   id_attribute_entry uuid [primary key, not null]
   internal_name varchar [not null]
 }
+Ref: "mimic_event_log_attribute_entry"."id_event_log" > "mimic_event_logs"."id"
+Ref: "mimic_event_log_attribute_entry"."id_attribute_entry" > "mimic_attribute_entries"."id"
 
 Table mimic_tags {
   id uuid [primary key, not null]

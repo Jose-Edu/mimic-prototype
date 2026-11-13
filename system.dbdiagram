@@ -330,6 +330,36 @@
         "schemaName": "public",
         "x": 16,
         "y": 16
+      },
+      {
+        "name": "mimic_rules_validation",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3770
+      },
+      {
+        "name": "mimic_rules_math",
+        "schemaName": "public",
+        "x": 409.7685546875,
+        "y": 3770
+      },
+      {
+        "name": "mimic_rules_action",
+        "schemaName": "public",
+        "x": 647.96826171875,
+        "y": 3770
+      },
+      {
+        "name": "mimic_rules_relationship",
+        "schemaName": "public",
+        "x": 892.10302734375,
+        "y": 3770
+      },
+      {
+        "name": "mimic_rules_trigger",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3884
       }
     ],
     "tableGroupCollapseStates": [],
@@ -2005,6 +2035,126 @@
           "id_attribute_entry"
         ],
         "firstTableName": "mimic_sheet_action_attribute_entries",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_attribute_entries",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_is_created_rule"
+        ],
+        "firstTableName": "mimic_sheet_types",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_rules",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "mimic_rules_validation",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_rules",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "mimic_rules_math",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_rules",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "mimic_rules_action",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_rules",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "mimic_rules_relationship",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_rules",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id"
+        ],
+        "firstTableName": "mimic_rules_trigger",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_rules",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_event_log"
+        ],
+        "firstTableName": "mimic_event_log_attribute_entry",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_event_logs",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_attribute_entry"
+        ],
+        "firstTableName": "mimic_event_log_attribute_entry",
         "firstSchemaName": "public",
         "firstRelation": "*",
         "secondFieldNames": [

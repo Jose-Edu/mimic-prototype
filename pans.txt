@@ -1,6 +1,6 @@
 ToDo:
 
-* Dividir rules em várias tabelas
+* bater eventos com mapas
 * Ajustar docs
 * Ver parte narrativa como parte geral de Eventos
 
