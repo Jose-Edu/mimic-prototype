@@ -489,7 +489,7 @@ Table mimic_descriptions {
   id uuid [primary key, not null]
   id_entity uuid [not null]
   description text [not null]
-  image_type enum("other", "illustration", "icon", "diagram", "full_page", "banner", "main_folder") [not null]
+  image_type enum("other", "illustration", "icon", "diagram", "full_page", "banner", "main_folder")
   image_link varchar
 }
 Ref: "mimic_descriptions"."id_entity" > "mimic_entities"."id"
