@@ -10,8 +10,8 @@
       {
         "name": "mimic_migrations",
         "schemaName": "public",
-        "x": 3840,
-        "y": 120
+        "x": 4056,
+        "y": 96
       },
       {
         "name": "mimic_users",
@@ -22,116 +22,116 @@
       {
         "name": "mimic_user_system",
         "schemaName": "public",
-        "x": 3840,
-        "y": 448
+        "x": 4056,
+        "y": 432
       },
       {
         "name": "mimic_user_role",
         "schemaName": "public",
-        "x": 2632,
-        "y": 120
+        "x": 2712,
+        "y": 96
       },
       {
         "name": "mimic_user_access",
         "schemaName": "public",
-        "x": 3840,
-        "y": 592
+        "x": 4056,
+        "y": 568
       },
       {
         "name": "mimic_roles",
         "schemaName": "public",
-        "x": 1544,
-        "y": 56
+        "x": 1584,
+        "y": 120
       },
       {
         "name": "mimic_access",
         "schemaName": "public",
-        "x": 2632,
-        "y": 256
+        "x": 2712,
+        "y": 240
       },
       {
         "name": "mimic_role_access",
         "schemaName": "public",
-        "x": 3840,
-        "y": 736
+        "x": 4056,
+        "y": 712
       },
       {
         "name": "mimic_sheet_types",
         "schemaName": "public",
-        "x": 3840,
-        "y": 880
+        "x": 4056,
+        "y": 856
       },
       {
         "name": "mimic_sheets",
         "schemaName": "public",
-        "x": 4600,
+        "x": 4856,
         "y": 96
       },
       {
         "name": "mimic_sheet_groups",
         "schemaName": "public",
-        "x": 1544,
-        "y": 320
+        "x": 1584,
+        "y": 384
       },
       {
         "name": "mimic_sheet_group_sheet",
         "schemaName": "public",
-        "x": 5360,
-        "y": 56
+        "x": 5736,
+        "y": 16
       },
       {
         "name": "mimic_generator_types",
         "schemaName": "public",
-        "x": 1544,
-        "y": 504
+        "x": 1584,
+        "y": 528
       },
       {
         "name": "mimic_generator_type_steps",
         "schemaName": "public",
-        "x": 2632,
+        "x": 2712,
         "y": 656
       },
       {
         "name": "mimic_generators",
         "schemaName": "public",
-        "x": 2632,
+        "x": 2712,
         "y": 880
       },
       {
         "name": "mimic_generator_steps",
         "schemaName": "public",
-        "x": 3840,
-        "y": 1208
+        "x": 4056,
+        "y": 1192
       },
       {
         "name": "mimic_generator_step_action",
         "schemaName": "public",
-        "x": 4600,
+        "x": 4856,
         "y": 240
       },
       {
         "name": "mimic_sheet_type_generator_type",
         "schemaName": "public",
-        "x": 4600,
-        "y": 416
+        "x": 4856,
+        "y": 408
       },
       {
         "name": "mimic_action_types",
         "schemaName": "public",
-        "x": 1544,
-        "y": 712
+        "x": 1584,
+        "y": 816
       },
       {
         "name": "mimic_actions",
         "schemaName": "public",
-        "x": 2632,
-        "y": 1088
+        "x": 2712,
+        "y": 2368
       },
       {
         "name": "mimic_action_type_generator_type",
         "schemaName": "public",
-        "x": 2632,
-        "y": 1296
+        "x": 2712,
+        "y": 1088
       },
       {
         "name": "mimic_rules",
@@ -142,14 +142,14 @@
       {
         "name": "mimic_rule_entity",
         "schemaName": "public",
-        "x": 1544,
-        "y": 888
+        "x": 1584,
+        "y": 992
       },
       {
         "name": "mimic_rngs",
         "schemaName": "public",
-        "x": 1544,
-        "y": 1160
+        "x": 1584,
+        "y": 1264
       },
       {
         "name": "mimic_value_types",
@@ -160,176 +160,230 @@
       {
         "name": "mimic_attributes",
         "schemaName": "public",
-        "x": 1544,
-        "y": 1528
+        "x": 1584,
+        "y": 1632
       },
       {
         "name": "mimic_entity_attribute",
         "schemaName": "public",
-        "x": 2632,
-        "y": 1440
+        "x": 2712,
+        "y": 1232
       },
       {
         "name": "mimic_attribute_items",
         "schemaName": "public",
-        "x": 2632,
-        "y": 1608
+        "x": 2712,
+        "y": 1408
       },
       {
         "name": "mimic_globals",
         "schemaName": "public",
-        "x": 2632,
-        "y": 1816
+        "x": 2712,
+        "y": 1608
       },
       {
         "name": "mimic_test_types",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2384
+        "x": 1584,
+        "y": 2488
       },
       {
         "name": "mimic_tests",
         "schemaName": "public",
-        "x": 2632,
-        "y": 3032
+        "x": 2712,
+        "y": 2568
       },
       {
         "name": "mimic_test_rng",
         "schemaName": "public",
-        "x": 3840,
-        "y": 1944
+        "x": 4056,
+        "y": 1592
       },
       {
         "name": "mimic_game_states",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2560
+        "x": 1584,
+        "y": 2664
       },
       {
         "name": "mimic_systems",
         "schemaName": "public",
-        "x": 2632,
-        "y": 2008
+        "x": 2712,
+        "y": 1808
       },
       {
         "name": "mimic_actual_turn_members",
         "schemaName": "public",
-        "x": 5360,
-        "y": 192
+        "x": 5736,
+        "y": 152
       },
       {
         "name": "mimic_event_logs",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2800
+        "x": 2712,
+        "y": 2776
       },
       {
         "name": "mimic_tags",
         "schemaName": "public",
-        "x": 3840,
-        "y": 1592
+        "x": 4056,
+        "y": 2080
       },
       {
         "name": "mimic_tag_entity",
         "schemaName": "public",
-        "x": 4600,
+        "x": 4856,
         "y": 616
       },
       {
         "name": "mimic_entities",
         "schemaName": "public",
         "x": 760,
-        "y": 224
+        "y": 96
       },
       {
         "name": "mimic_maps",
         "schemaName": "public",
-        "x": 1544,
-        "y": 3184
+        "x": 1584,
+        "y": 2904
       },
       {
         "name": "mimic_map_map",
         "schemaName": "public",
-        "x": 2632,
-        "y": 2760
+        "x": 2712,
+        "y": 3240
       },
       {
         "name": "mimic_map_token",
         "schemaName": "public",
-        "x": 5360,
-        "y": 336
+        "x": 5736,
+        "y": 320
       },
       {
         "name": "mimic_description_variant_types",
         "schemaName": "public",
-        "x": 3840,
-        "y": 1768
+        "x": 4056,
+        "y": 2280
       },
       {
         "name": "mimic_description_variants",
         "schemaName": "public",
-        "x": 4600,
-        "y": 760
+        "x": 4856,
+        "y": 800
       },
       {
         "name": "mimic_description_description_variant",
         "schemaName": "public",
-        "x": 5360,
-        "y": 928
+        "x": 5736,
+        "y": 520
       },
       {
         "name": "mimic_descriptions",
         "schemaName": "public",
-        "x": 1544,
-        "y": 3488
+        "x": 1584,
+        "y": 3208
       },
       {
         "name": "mimic_sheet_generator",
         "schemaName": "public",
-        "x": 5360,
-        "y": 1072
+        "x": 5736,
+        "y": 664
       },
       {
         "name": "mimic_sheet_action",
         "schemaName": "public",
-        "x": 5360,
-        "y": 1272
+        "x": 5736,
+        "y": 872
       },
       {
         "name": "mimic_sheet_type_sheet_type",
         "schemaName": "public",
-        "x": 4600,
-        "y": 936
+        "x": 4856,
+        "y": 1000
       },
       {
         "name": "mimic_sheet_sheet",
         "schemaName": "public",
-        "x": 5360,
-        "y": 1448
+        "x": 5736,
+        "y": 1048
       },
       {
         "name": "mimic_attribute_entries",
         "schemaName": "public",
-        "x": 1544,
-        "y": 2112
+        "x": 1584,
+        "y": 2216
       },
       {
         "name": "mimic_entity_attribute_entries",
         "schemaName": "public",
-        "x": 3840,
-        "y": 1448
+        "x": 4056,
+        "y": 1424
       },
       {
         "name": "mimic_sheet_action_attribute_entries",
         "schemaName": "public",
-        "x": 5936,
-        "y": 16
+        "x": 6400,
+        "y": 184
       },
       {
         "name": "mimic_event_log_attribute_entry",
         "schemaName": "public",
-        "x": 2632,
-        "y": 2568
+        "x": 4056,
+        "y": 1904
+      },
+      {
+        "name": "mimic_event_branches",
+        "schemaName": "public",
+        "x": 4056,
+        "y": 1736
+      },
+      {
+        "name": "mimic_event_log_map_token_entry",
+        "schemaName": "public",
+        "x": 6400,
+        "y": 16
+      },
+      {
+        "name": "mimic_map_token_entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 680
+      },
+      {
+        "name": "mimic_map_entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3514
+      },
+      {
+        "name": "mimic_mapM_entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3788
+      },
+      {
+        "name": "mimic_map__entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3788
+      },
+      {
+        "name": "mimic_map_m_entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3788
+      },
+      {
+        "name": "mimic_map_ma_entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3788
+      },
+      {
+        "name": "mimic_map_map_entries",
+        "schemaName": "public",
+        "x": 16,
+        "y": 3788
       }
     ],
     "tableGroupCollapseStates": [],
@@ -2056,6 +2110,171 @@
           "id"
         ],
         "secondTableName": "mimic_attribute_entries",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_event_start"
+        ],
+        "firstTableName": "mimic_event_branches",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_event_logs",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_event_end"
+        ],
+        "firstTableName": "mimic_event_branches",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_event_logs",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_event_branch"
+        ],
+        "firstTableName": "mimic_event_logs",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_event_branches",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_game_state"
+        ],
+        "firstTableName": "mimic_event_logs",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_game_states",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_event_log"
+        ],
+        "firstTableName": "mimic_event_log_map_token_entry",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_event_logs",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_map_token"
+        ],
+        "firstTableName": "mimic_event_log_map_token_entry",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_map_token",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_map_token_entry"
+        ],
+        "firstTableName": "mimic_event_log_map_token_entry",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_map_token_entries",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_entry"
+        ],
+        "firstTableName": "mimic_map_token",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_map_token_entries",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_entry"
+        ],
+        "firstTableName": "mimic_maps",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_map_entries",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_entry"
+        ],
+        "firstTableName": "mimic_maps",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_map_map_entries",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "id_entry"
+        ],
+        "firstTableName": "mimic_map_map",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "id"
+        ],
+        "secondTableName": "mimic_map_map_entries",
         "secondSchemaName": "public",
         "secondRelation": "1",
         "checkPoints": []

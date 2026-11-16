@@ -342,7 +342,7 @@ Table mimic_systems {
   mimic_version varchar [not null]
   name varchar [not null]
   system_version varchar [not null]
-  id_author_user uuid [not null]
+  author varchar [not null]
   system_hash varchar
   created_at timestamp [not null]
   updated_at timestamp [not null]
@@ -355,7 +355,6 @@ Table mimic_systems {
   actual_game_state uuid [not null]
 }
 Ref: "mimic_systems"."id_delta_origin" > "mimic_systems"."id"
-Ref: "mimic_systems"."id_author_user" > "mimic_users"."id"
 Ref: "mimic_systems"."actual_game_state" > "mimic_game_states"."id"
 
 Table mimic_actual_turn_members {
@@ -365,26 +364,32 @@ Table mimic_actual_turn_members {
 Ref: "mimic_actual_turn_members"."id_system" > "mimic_systems"."id"
 Ref: "mimic_actual_turn_members"."id_sheet" > "mimic_sheets"."id"
 
+Table mimic_event_branches {
+  id uuid [primary key]
+  id_event_start uuid [not null]
+  id_event_end uuid
+}
+Ref: "mimic_event_branches"."id_event_start" > "mimic_event_logs"."id"
+Ref: "mimic_event_branches"."id_event_end" > "mimic_event_logs"."id"
+
 Table mimic_event_logs {
   id uuid [primary key, not null]
   created_at timestamp [not null]
+  updated_at timestamp [not null]
   id_entity uuid [not null]
+  id_game_state uuid [not null]
+  id_event_branch uuid
   event_type enum("free", "narrative" ,"mimic") [not null]
   mimic_event enum("read", "use", "update", "create", "delete", "overwrite")
   narrative_event enum("other", "dialog", "action", "narration")
-  entry text [not null]
+  content jsonb [not null]
+  data_state jsonb 
   multi_part_id uuid
   resolved boolean [not null]
 }
 Ref: "mimic_event_logs"."id_entity" > "mimic_entities"."id"
-
-Table mimic_event_log_attribute_entry {
-  id_event_log uuid [primary key, not null]
-  id_attribute_entry uuid [primary key, not null]
-  internal_name varchar [not null]
-}
-Ref: "mimic_event_log_attribute_entry"."id_event_log" > "mimic_event_logs"."id"
-Ref: "mimic_event_log_attribute_entry"."id_attribute_entry" > "mimic_attribute_entries"."id"
+Ref: "mimic_event_logs"."id_event_branch" > "mimic_event_branches"."id"
+Ref: "mimic_event_logs"."id_game_state" > "mimic_game_states"."id"
 
 Table mimic_tags {
   id uuid [primary key, not null]
