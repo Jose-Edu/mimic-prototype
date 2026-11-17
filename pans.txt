@@ -1,17 +1,8 @@
 ToDo:
 
-* bater eventos com mapas
 * Ajustar docs
-* Ver parte narrativa como parte geral de Eventos
-
 * Criar artigos faltantes:
     * Deltas
     * Eventos Mimic
     * Value Types
     * Mimic SDK
-
-* Ajustar docs das rules
-* Melhorar tipagem de conjuntos de entidades
-* Add campo category pro system
-
-* Começar a fazer as rules
